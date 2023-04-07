@@ -1,0 +1,79 @@
+#signUp {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 70px 0;
+}
+#signUp .title {
+  z-index: 1;
+  position: relative;
+  padding: 0 0 0 0;
+  text-align: center;
+}
+#signUp .title h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #39c;
+}
+#signUp .content {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+#signUp .content form {
+  width: 100%;
+}
+#signUp .content form ul {
+  width: 100%;
+}
+#signUp .content form ul li {
+  width: 100%;
+  margin: 10px 0;
+}
+#signUp .content form ul li:nth-child(4), #signUp .content form ul li:nth-child(5) {
+  padding-right: 140px;
+  position: relative;
+}
+#signUp .content form ul li div {
+  width: 100%;
+}
+#signUp .content form ul li div input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  outline: 0;
+  border-radius: 3px;
+  padding: 0 15px;
+}
+#signUp .content form ul li div input::-moz-placeholder {
+  color: #bbb;
+  font-size: 15px;
+}
+#signUp .content form ul li div input::placeholder {
+  color: #bbb;
+  font-size: 15px;
+}
+#signUp .content form ul li div button {
+  border-radius: 3px;
+  width: 130px;
+  height: 50px;
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+  color: #ccc;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+#signUp .content form ul li div button.on {
+  border-color: #c39;
+  color: #c39;
+}
+#signUp .content form ul li div button:hover {
+  background-color: #f9f9f9;
+}

@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["response.scss"],"sourcesContent":["@media screen and (max-width:768px) {\n    #wrap #header .row1 .container .gap .content .left ul li a {\n        flex-direction:colunm;\n        align-items: flex-start;\n      }\n}"],"file":"response.css"}

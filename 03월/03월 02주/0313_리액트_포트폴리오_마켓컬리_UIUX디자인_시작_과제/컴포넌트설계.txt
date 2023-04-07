@@ -1,0 +1,15 @@
+
+
+    components
+        WrapComponet.jsx
+
+            wrap
+                TopModalComponent.jsx
+                HeaderComponent.jsx
+                SingUpComponent.jsx
+                
+                Sub1PageComponent.jsx 
+                Sub2PageComponent.jsx 
+                
+                FooterComponent.jsx
+                

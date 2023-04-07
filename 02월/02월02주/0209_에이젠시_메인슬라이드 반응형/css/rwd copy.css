@@ -1,0 +1,73 @@
+@media all and (max-width: 1170px) {
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h2 {
+    font-size: 80px;
+    color: #c00;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li hr {
+    height: 6px;
+    margin: 50px 0;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h4 {
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 800px) {
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h2 {
+    font-size: 70px;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li hr {
+    height: 5px;
+    margin: 40px 0;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h4 {
+    font-size: 13px;
+  }
+}
+@media all and (max-width: 600px) {
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h2 {
+    font-size: 60px;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li hr {
+    height: 4px;
+    margin: 30px 0;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h4 {
+    font-size: 12px;
+  }
+}
+@media all and (max-width: 500px) {
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h2 {
+    font-size: 50px;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li hr {
+    height: 3px;
+    margin: 25px 0;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h4 {
+    font-size: 11px;
+  }
+}
+@media all and (max-width: 400px) {
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h2 {
+    font-size: 40px;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li hr {
+    height: 2px;
+    margin: 20px 0;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h4 {
+    font-size: 10px;
+  }
+}
+@media all and (max-width: 320px) {
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h2 {
+    font-size: 30px;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li hr {
+    height: 2px;
+    margin: 15px 0;
+  }
+  #wrap #section1 .slide-container .slide-view .slide-wrap .slide ul li h4 {
+    font-size: 10px;
+  }
+}

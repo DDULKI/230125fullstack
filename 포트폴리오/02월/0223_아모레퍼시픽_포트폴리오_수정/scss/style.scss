@@ -1,0 +1,340 @@
+@import url('./fonts.css');
+@import url('./reset.css');
+@import url('./skip.css');
+
+#wrap {
+    width: 100%;
+    overflow: hidden;
+    #header {
+        width: 100%;
+        height: 140px;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left : 0;
+        z-index: 3; 
+        .container {
+            width: 100%;
+            max-width: 1791.98px;
+            height: 100%;
+            margin: 0 auto;
+            .gap {
+                width: 100%;
+                padding: 0 15px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                .title{
+                    width: 100%; 
+                    h2 {
+                        display: flex;
+                        text-align: center;
+                        
+                    }
+                }
+                .content {
+                    width: 1280px;
+                    height: 54px;
+                    display: flex;
+                    align-items: center;
+                    background-color: #333;
+                    .left-nav {
+                        width: 100%;
+                        height:100%;
+                        display: flex;
+                        justify-content: center;
+                        padding: 0 0 60px 0;
+                        > ul {
+                            display: flex;
+                            padding: 20px 0 0 100px;
+                        > li {
+                                margin: 18px 0 0 20px;
+                               
+                                a {
+                                    font-size: 14px;
+                                    display: flex;
+                                    align-items: center;
+                                    overflow: hidden;
+                                   
+                                }
+                            }
+                        }
+                    }
+                    .center {
+                        width: 1280px;
+                        height: 100%;
+                        h1 {
+                            display: block;
+                            justify-content: center;
+                            padding: 0 0 60px 0;
+                            a {
+                                width: 100%;
+                                height: 100%;
+                                padding : 20px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                overflow: hidden;
+                                background: url() no-repeat 50% 50%;
+                                background-size: cover; 
+                                img { 
+                                    
+
+                                }
+                             }
+                           
+                            }
+                        }
+                    }
+                    .nav {
+                        width: 250px; 
+                        height: 60px; 
+                        padding: 100px;
+                        display: flex;
+                        text-align: center;
+                        align-items: center;
+                        ul {
+                            display: flex;
+                            margin: 0 30px 0 0;
+                            li {
+                               margin: 70px 20px 0 50px; 
+                                a {
+                                    line-height: 24px;
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                    .right-icon {
+                        width: 151px;
+                        height: 36px;
+                        position: relative;
+                        display: inline-block;
+                        flex-wrap: nowrap wrap;
+                        align-items: center;
+                            ul{
+                                flex-wrap: nowrap wrap;
+                                span {
+                                    a {
+                                       img {
+
+                                       }
+                                    }
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    }
+
+#main {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    #section1 {
+        width: 100%;
+        .container {
+            width: 100%; 
+            position: relative;
+            .slide-container {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                .slide-view {
+                    z-index: 2;
+                    position:relative;
+                    width: 100%;
+                    overflow: hidden;
+                    .slide-wrap {
+                        pointer-events: none;
+                        width: 100% * 5;
+                        display: flex;
+                        position: relative;
+                        margin: 0 0 0 -100%;
+                        $cnt: 0;
+                        left: -100% * $cnt;
+                       .slide {
+                        width: 100vw;
+                        height: 100vh;
+                        background: url() no-repeat 50% 50%;
+                        background-size: cover;
+
+                        &.slide1 {background-image: url(../img/main_1920_01.jpg);}
+                        &.slide2 {background-image: url(../img/main_1920_02.jpg);}
+                        &.slide3 {background-image: url(../img/main_1920_03.jpg);}
+                       } 
+                       
+                    }
+                   
+                }
+            }
+        }
+    }
+
+    #section2 {
+       
+        width: 100%;
+        height: 644px;
+        background: rgb(255,255,255);
+        background-size: 100% auto;
+        .container {
+           position: relative;
+          
+           width: 100%;
+           height: 100%;
+           max-width: 1154.780px;
+    
+           text-align: center;
+       
+            .gap {
+                width: 100%;
+             
+                .title {
+                    width: 100%; 
+                    height: 100%;
+                    padding: 0 10px 0 10px;
+               
+                    h1 {
+                        display: inline-block;
+                        font-size: 32px;
+                        position: relative;
+                        font-weight: 400;
+                        margin: 70px 0 30px 0;
+                     
+                    }
+                }
+                .content {
+                    width: 100%; 
+                    ul {
+                        width: 100%;
+                        li {
+                            width: 100%;
+                            overflow: hidden;
+                            
+                            .col-gap {
+                                width: auto;
+                                margin: 0 15px;
+                                .img-box {
+                                   width: 100%;
+                                  
+                                   overflow: hidden;
+                                    img{
+                                      text-align: center;
+                                    }
+                                }
+                                .txt-box {
+                                    width: 100%;
+                                    position: relative;
+                                    overflow: hidden;
+                                    a {
+                                        h2 {
+                                            br {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #section3 {
+        width:100%; 
+        height: 832.047px;
+        background-color: rgb(70,20,30);
+       
+        
+    }
+    #section4 {
+        width: 100%;
+        height: 852.19px;
+        background: rgb(255,255,255);
+       
+        .container {
+            width: 100%;
+            .gap {
+                width: 100%;
+                .title {
+                    width: 100%;
+                    text-align: center;
+                    padding: 0 15px 90px 15px;
+                    h2 {
+                        display: inline-block;
+                        font-size: 32px;
+                        position: relative;
+                        font-weight: 400;
+
+                    }
+                }
+                .content {
+                    width: 100%;
+                    .slide-container {
+                        width: 100%;
+                        .slide-view {
+                            width: 100%;
+                            overflow: hidden;
+                            .slide-wrap {
+                                width: calc(100% / 5 * 6);
+                                display: flex;
+                                position:relative;
+                                 
+                                .slide {
+                                    width: calc(100%/5);
+                                    .col-gap {
+                                        width: auto; 
+                                        margin: 0 15px; 
+                                        .top-box {
+                                            width: 100%; 
+                                            position: relative;
+                                            overflow: hidden;
+                                            img {
+                                                width: 100%;
+                                                position: relative;
+                                                z-index: 1;
+                                                transition: all;
+                                            }
+                                        }
+                                        .bottom-box {
+                                            width: 100%;
+                                            position: relative;
+                                            overflow: hidden;
+                                            span {
+                                                z-index: 3;
+                                                position: absolute;
+                                                right: 0;
+                                                bottom: 0;
+                                                padding: 15px 25px;
+                                                img {
+                                                width: 100%;
+                                                position: relative;
+                                                z-index: 1;
+                                                transition: all;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+#footer {
+    width: 100%;
+    height: 181.203px;
+    background-color: aquamarine;
+    margin:140px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

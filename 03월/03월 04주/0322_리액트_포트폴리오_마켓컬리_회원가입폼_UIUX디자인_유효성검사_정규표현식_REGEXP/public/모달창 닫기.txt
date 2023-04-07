@@ -1,0 +1,17 @@
+isConfirmModal: false
+
+조건부 연산자. 
+p태그랑 동일함 
+
+
+
+false 
+
+true
+
+const onClickConfirmModalClose=(e)=> {
+    setState({
+        ...state, 
+        isConfirmModal : true
+    })
+}

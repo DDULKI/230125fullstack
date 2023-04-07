@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문 응용 알고리즘</title>
+
+</head>
+<body>
+    
+    <table id="tablBox1" class="table">
+      
+    </table>
+
+    <table id="tablBox2" class="table">
+      
+    </table>
+    <table id="tablBox2if" class="table">
+      
+    </table>
+
+    <table id="tablBox3" class="table">
+      
+    </table>
+    <table id="tabelBox3if" class="table">
+      
+    </table>
+
+
+
+    <script>
+        const obj = {
+            init(){
+                this.tabelBox1();
+                this.tabelBox2();
+                this.tabelBox2If();
+                this.tabelBox3();
+                this.tabelBox3If();
+            },
+            tabelBox1(){
+                // 문제1]
+                // 5행 5열에
+                // 1부터 25까지 테이블로 출력하시오
+                const tablBox = document.getElementById('tablBox1');
+                let i=0;
+                let j=0;
+                let t='';
+                let cnt=0;
+                while(i<5){ //행
+                    i++;
+                    j=0;
+                    t+='<tr>';
+                    while(j<5){ //열
+                        j++;
+                        cnt++;
+                        t+=`<td>${cnt}</td>`;
+                    }
+                    t+='</tr>';
+                }
+
+                tablBox.innerHTML = t;
+
+            },
+            tabelBox2(){
+                // 문제2]
+                // 5행 5열
+                // 1~15 아래 그림과 같이 출력하시요
+                // while(){} 사용
+                // 1	2	3	4	5
+                // 6	7	8	9	
+                // 10	11	12		
+                // 13	14			
+                // 15	
+                			
+                // 변수지정
+                const tablBox = document.getElementById('tablBox2');
+                let i=0;
+                let j=0;
+                let cnt=0;
+                let txt='';
+                while(i<5){
+                    i++;
+                    txt+='<tr>';
+                    j=0;
+                    while(j<6-i){ // 12345 1234 123 12 1 카운트와 칸
+                        j++;
+                        cnt++;
+                        txt+=`<td>${cnt}</td>`;
+                    }   
+                    while(j<5){ // 빈칸만
+                        j++;
+                        txt+=`<td></td>`;
+                    }                                        
+                    txt+='</tr>';
+                }                   
+                
+                tablBox.innerHTML = txt;
+
+            },
+            tabelBox2If(){  //if 조건문
+                // 문제2]
+                // 5행 5열
+                // 1~15 아래 그림과 같이 출력하시요
+                // while(){} 사용
+                // 1	2	3	4	5
+                // 6	7	8	9	
+                // 10	11	12		
+                // 13	14			
+                // 15	
+                			
+                // 변수지정
+                const tablBox = document.getElementById('tablBox2if');
+                let i=0;
+                let j=0;
+                let cnt=0;
+                let txt='';
+                while(i<5){
+                    i++;
+                    txt+='<tr>';
+                    j=0;
+                    while(j<5){
+                        j++;
+                        if(j<7-i){
+                            cnt+=10;
+                            txt+=`<td>${cnt}</td>`;
+                        }
+                        else{
+                            txt+=`<td></td>`;
+                        }                        
+                    }   
+                                                  
+                    txt+='</tr>';
+                }                   
+                
+                tablBox.innerHTML = txt;
+
+            },
+            tabelBox3(){
+                // 문제3]
+                // 5행 5열
+                // 1~15 아래 그림과 같이 출력하시요
+                // while(){} 사용
+                //                  1
+                //              2	3
+                //          4	5	6
+                //      7	8	9	10
+                // 11 	12	13	14	15
+
+                			
+                // 변수지정
+                const tablBox = document.getElementById('tablBox3');
+                let i=0;
+                let j=0;
+                let cnt=0;
+                let txt='';
+                while(i<5){
+                    i++;
+                    txt+='<tr>';
+                    j=0;
+
+                    while(j<5-i){ // 빈칸만 4칸
+                        j++;
+                        txt+=`<td></td>`;
+                    }   
+                    while(j<5){ //  끝
+                        j++;
+                        cnt++;
+                        txt+=`<td>${cnt}</td>`;
+                    }   
+                                                        
+                    txt+='</tr>';
+                }   
+                
+                
+                
+                tablBox.innerHTML = txt;
+            },
+            tabelBox3If(){
+                // 문제3]
+                // 5행 5열
+                // 1~15 아래 그림과 같이 출력하시요
+                // while(){} 사용
+                //                  1
+                //              2	3
+                //          4	5	6
+                //      7	8	9	10
+                // 11 	12	13	14	15
+
+                			
+                // 변수지정
+                const tablBox = document.getElementById('tabelBox3if');
+                let i=0;
+                let j=0;
+                let cnt=0;
+                let txt='';
+                while(i<5){
+                    i++;
+                    txt+='<tr>';
+                    j=0;
+
+                    while(j<5){
+                        j++;
+                        if(j<6-i){
+                            txt+=`<td></td>`;
+                        }
+                        else{
+                            cnt+=10;
+                            txt+=`<td>${cnt}</td>`;
+                        }
+                    } 
+                                                        
+                    txt+='</tr>';
+                }   
+                                            
+                tablBox.innerHTML = txt;
+            },
+            
+
+        }
+        obj.init();
+
+    </script>
+
+
+
+
+    <style>
+        * {margin: 0;padding: 0;box-sizing: border-box;vertical-align: middle;}
+        
+        .table {border-collapse: collapse;margin: 50px auto;}
+        .table td {width:50px;height:50px;border: 1px solid #aaa;text-align: center;}
+    </style>
+
+</body>
+</html>

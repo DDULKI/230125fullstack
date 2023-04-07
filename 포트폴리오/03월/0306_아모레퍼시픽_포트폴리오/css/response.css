@@ -1,0 +1,6 @@
+@media screen and (max-width: 768px) {
+  #wrap #header .row1 .container .gap .content .left ul li a {
+    flex-direction: colunm;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,14 @@
+* {margin:0; padding:0; vertical-align:middle; box-sizing: border-box;}
+/* vetical-align 수직 정렬, box-sizing 콘텐츠 박스로도 바꿔서 쓸 수 있다. */
+html {scroll-behavior: smooth;}
+body {font:normal 14px/1 /*여기서 1이란? 글자 크기를 그대로 쓰겠다.*/ 'Montserrat', 'Noto Sans','Roboto','arial';color:rgb(60, 60, 60);}
+a {color:rgb(60,60,60); text-decoration:none;}
+
+
+/* 
+a:visited {color:rgb(160,160,160);}
+a:hover {color:rgb(0,0,0);text-decoration: underline;}
+a:focus {color:rgb(170,0,170);}
+a:active {color:rgb(100,0,170);}  순간 이동할 때 
+*/
+ ul {list-style: none;} /* About 앞에 .을 없앤다. */

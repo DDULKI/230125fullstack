@@ -1,0 +1,86 @@
+1. header 
+
+width: 1902.97px  
+
+height: 140px
+
+-메뉴 박스 
+width : 1791.98 
+height : 60 
+
+ul 
+display block
+
+
+- nav
+width : 129 
+height: 60
+padding: 20px; 
+
+
+- 아모레퍼시픽 가운데 있는 것들 
+width : 1280px
+height: 54px
+
+- kr, en, en
+width : 95 
+height : 22 
+
+
+-페이스북 아이콘 등 
+width 151px
+height 36px 
+
+2. section1
+
+width: 1903px; 
+
+섹션  height: 1161px
+
+3. section2
+
+width: 1792px
+
+height: 644px 
+
+
+
+*Latest Amorepacific New - 이름 박스 
+
+width : 1154.780px 
+
+height: 38.391px 
+
+padding: 0 10px 0 10px;
+
+margin: 0 0 30px 0;
+
+*Latest Amorepacific News - 전체 박스 
+
+width: 1174.780 
+
+height : 462.078 
+
+margin : 0 117.469px 0 117.469px; 
+
+6. section3
+
+박스 두개로 나뉨 455px 
+
+bg 박스 height: 455px
+
+전체 박스는 width: 1903
+
+height: 832.047px; 
+
+7. section 4
+
+height: 852.19px 
+
+8. footer
+
+width: 1903 
+
+height: 181.203 
+
+margin: 140px 0 0 0;

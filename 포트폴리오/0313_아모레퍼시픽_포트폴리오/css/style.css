@@ -1,0 +1,855 @@
+@import url("./fonts.css");
+@import url("./reset.css");
+@import url("./skip.css");
+#wrap {
+  width: 100%;
+  overflow: hidden;
+}
+#wrap #header {
+  width: 100%;
+  height: 140px;
+  background: rgb(6, 44, 94);
+  position: relative;
+  padding: 30px 0 0 0;
+}
+#wrap #header .row1 {
+  width: 100%;
+  height: 36.391px;
+  position: relative;
+}
+#wrap #header .row1 .container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+}
+#wrap #header .row1 .container .gap {
+  height: 100%;
+}
+#wrap #header .row1 .container .gap .content {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#wrap #header .row1 .container .gap .content .left {
+  width: 100%;
+}
+#wrap #header .row1 .container .gap .content .left ul {
+  display: flex;
+}
+#wrap #header .row1 .container .gap .content .left ul li {
+  margin: 0 15px 0 0;
+}
+#wrap #header .row1 .container .gap .content .left ul li a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+#wrap #header .row1 .container .gap .content .left ul li a::after {
+  content: "";
+  margin: 6px 0 0 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgba(34, 131, 212, 0);
+  transition: all 0.3s;
+}
+#wrap #header .row1 .container .gap .content .left ul li a:hover {
+  color: #ccc;
+}
+#wrap #header .row1 .container .gap .content .left ul li a.on {
+  color: #ccc;
+}
+#wrap #header .row1 .container .gap .content .left ul li a:hover::after {
+  background-color: rgb(255, 255, 255);
+}
+#wrap #header .row1 .container .gap .content .left ul li a:on::after {
+  background-color: rgb(255, 255, 255);
+}
+#wrap #header .row1 .container .gap .center {
+  width: 100%;
+}
+#wrap #header .row1 .container .gap .right {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  align-items: center;
+}
+#wrap #header .row1 .container .gap .right ul {
+  display: flex;
+}
+#wrap #header .row1 .container .gap .right ul li {
+  margin: 0 0 0 15px;
+}
+#wrap #header .row1 .container .gap .right ul li a {
+  font-size: 14px;
+  color: rgb(68, 68, 68);
+}
+#wrap #header .row1 .container .gap .right ul li a img {
+  width: auto;
+  height: 15px;
+}
+#wrap #header .row1 .container .gap .right span {
+  margin: 0 0 0 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+}
+#wrap #header .row2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+}
+#wrap #header .row2 .container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+}
+#wrap #header .row2 .container .gap {
+  height: 100%;
+}
+#wrap #header .row2 .container .gap .content {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#wrap #header .row2 .container .gap .content .left {
+  width: 170px;
+  display: none;
+}
+#wrap #header .row2 .container .gap .content .left h1 {
+  width: 100%;
+}
+#wrap #header .row2 .container .gap .content .left h1 a {
+  width: 100%;
+  display: inline-block;
+}
+#wrap #header .row2 .container .gap .content .left h1 a img {
+  width: 100%;
+}
+#wrap #header .row2 .container .gap .content .center {
+  margin: 0 auto;
+}
+#wrap #header .row2 .container .gap .content .center nav ul {
+  display: flex;
+}
+#wrap #header .row2 .container .gap .content .center nav ul li {
+  margin: 0 15px;
+}
+#wrap #header .row2 .container .gap .content .center nav ul li a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+#wrap #main {
+  z-index: 2;
+  position: relative;
+  width: 100%;
+}
+#wrap #main #section1 {
+  width: 100%;
+}
+#wrap #main #section1 .container {
+  width: 100%;
+  position: relative;
+}
+#wrap #main #section1 .container .slide-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+#wrap #main #section1 .container .slide-container .slide-view {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap {
+  pointer-events: none;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url() no-repeat 50% 50%;
+  background-size: cover;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div {
+  width: 100%;
+  max-width: 1280px;
+  transition: all 0.5s;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div h2 {
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  position: relative;
+  padding: 0 0 50px 0;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div h2::before {
+  content: "";
+  position: absolute;
+  left: -100px;
+  top: 15%;
+  margin: -0.5px 0 0 0;
+  width: 80px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div h2::after {
+  content: "";
+  position: absolute;
+  right: -100px;
+  top: 15%;
+  margin: -0.5px 0 0 0;
+  width: 80px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div br {
+  width: 100%;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div h1 {
+  font-size: 60px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  padding: 0 0 35px 0;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div h3 {
+  font-size: 18px;
+  letter-spacing: -0.3;
+  line-height: 28.8px;
+  color: rgb(255, 255, 255);
+  padding: 0 0 20px 0;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div .button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ccc;
+  border-color: rgba(204, 204, 204, 0.5);
+  letter-spacing: 0px;
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 3px 10px;
+  transition: all 0.5s;
+  border-radius: 20px;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div .button p {
+  color: rgb(255, 255, 255);
+  display: block;
+  font-size: 14px;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div .button:hover {
+  background: rgba(96, 96, 0, 0.5);
+  color: white;
+  transition: all 0.5s;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div .button:on {
+  color: #626262;
+  transition: all 0.2s;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div .button p {
+  color: rgb(255, 255, 255);
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide.slide1 {
+  background-image: url(../img/main_1920_01.jpg);
+  z-index: 3;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide.slide2 {
+  background-image: url(../img/main_1920_02.jpg);
+  z-index: 2;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide.slide3 {
+  background-image: url(../img/main_1920_03.jpg);
+  z-index: 1;
+}
+#wrap #main #section1 .container .arrow-next-btn {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  right: 6%;
+  width: 20px;
+  height: 20px;
+  margin: -50px 0 0 0;
+  border-radius: 100%;
+}
+#wrap #main #section1 .container .arrow-next-btn i {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  transform: rotate(45deg);
+}
+#wrap #main #section1 .container .arrow-prev-btn {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  width: 20px;
+  height: 20px;
+  margin: -50px 0 0 0;
+}
+#wrap #main #section1 .container .arrow-prev-btn i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  transform: rotate(-45deg);
+}
+#wrap #main #section1 .container .page-btn-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrap #main #section1 .container .page-btn-box span {
+  padding: 38px 100px 20px 100px;
+}
+#wrap #main #section1 .container .page-btn-box span a {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+#wrap #main #section1 .container .page-btn-box span a::after {
+  content: "";
+  margin: 6px 0 0 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgba(34, 131, 255, 0);
+  transition: all 0.3s;
+}
+#wrap #main #section1 .container .page-btn-box span a:hover {
+  color: #ccc;
+}
+#wrap #main #section1 .container .page-btn-box span a.on {
+  color: #ccc;
+}
+#wrap #main #section1 .container .page-btn-box span a:hover::after {
+  background-color: rgb(255, 255, 255);
+}
+#wrap #main #section1 .container .page-btn-box span a:on::after {
+  background-color: rgb(255, 255, 255);
+}
+#wrap #main #section2 {
+  width: 100%;
+  height: 464.398px;
+  background: rgb(255, 255, 255);
+  padding: 100px 80px;
+}
+#wrap #main #section2 .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+#wrap #main #section2 .container.on {
+  animation: sec2Ani1 1s ease-in-out both;
+}
+#wrap #main #section2 .container .gap {
+  width: 100%;
+}
+#wrap #main #section2 .container .gap .title {
+  width: 1166.44px;
+  height: 38.391px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 30px 0;
+}
+#wrap #main #section2 .container .gap .title.on {
+  animation: sec2Ani1 1.3s ease-in-out both;
+}
+#wrap #main #section2 .container .gap .title h1 {
+  font-size: 32px;
+  font-weight: 400;
+  padding: 0 0 0 415px;
+}
+#wrap #main #section2 .container .gap .title .button {
+  width: 73.719px;
+  height: 20px;
+  padding: 9px 24px;
+  border: 1px solid #ccc;
+  border-color: rgba(204, 204, 204, 0.5);
+  transition: all 0.5s;
+  border-radius: 20px;
+  text-align: right;
+}
+#wrap #main #section2 .container .gap .title .button p {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 14px;
+}
+#wrap #main #section2 .container .gap .title .button:hover {
+  background: rgba(96, 96, 0, 0.5);
+  color: white;
+  transition: all 0.5s;
+}
+#wrap #main #section2 .container .gap .title .button:on {
+  color: #626262;
+  transition: all 0.2s;
+}
+#wrap #main #section2 .container .gap .content {
+  padding: 0 20px;
+}
+#wrap #main #section2 .container .gap .content ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrap #main #section2 .container .gap .content ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap {
+  width: auto;
+  padding: 0 5px;
+  justify-content: center;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .img-box {
+  width: 100%;
+  display: flex;
+  position: relative;
+  transition: all;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .img-box.on {
+  animation: sec2Ani2 1.3s ease-in-out both;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .img-box img {
+  width: 100%;
+  position: relative;
+  transition: all 0.3s;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .txt-box {
+  width: 256.609px;
+  height: 42px;
+  padding: 10px 10px;
+  position: relative;
+  display: flex;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .txt-box.on {
+  animation: sec3Ani1 1.3s ease-in-out both;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .txt-box a {
+  z-index: 3;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  padding: 10px 20px;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .txt-box a.on {
+  animation: sec3Ani4 1.3s ease-in-out both;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .txt-box a h2 {
+  top: 0;
+  font-size: 18px;
+}
+#wrap #main #section2 .container .gap .content ul li .col-gap .txt-box a h2 br {
+  width: 100%;
+}
+@keyframes sec2Ani1 {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes sec2Ani2 {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes sec2Ani3 {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+#wrap #main #section3 {
+  width: 100%;
+  height: 835px;
+  background: url(../img/architecture_bg2.jpg) no-repeat 50% 50%;
+}
+#wrap #main #section3 .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+#wrap #main #section3 .container .gap {
+  width: 100%;
+}
+#wrap #main #section3 .container .gap .title {
+  width: 100%;
+  height: 100%;
+  padding: 130px 0 100px 0;
+}
+#wrap #main #section3 .container .gap .title h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+}
+#wrap #main #section3 .container .gap .content {
+  width: 100%;
+  height: 100%;
+}
+#wrap #main #section3 .container .gap .content .slide-container {
+  width: 100%;
+  left: -5709px;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view {
+  width: 100%;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap {
+  width: 125%;
+  display: flex;
+  position: relative;
+  text-align: center;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
+  width: clac(100%/5);
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap {
+  width: auto;
+  margin: 0 5px;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .bg-box {
+  position: absolute;
+  display: block;
+  justify-content: center;
+  height: 455px;
+  z-index: 3;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .bg-box figure {
+  width: 100%;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .bg-box figure img {
+  width: auto;
+  background-size: cover;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .top-box {
+  width: 100%;
+  position: relative;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .top-box img {
+  width: 284.875px;
+  height: 284.875px;
+  position: relative;
+  z-index: 3;
+  transition: all, 0.3s;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .top-box span {
+  width: 100%;
+  text-align: center;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .top-box span em {
+  z-index: 1;
+  font-size: 18px;
+  position: relative;
+  display: flex;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .two-title {
+  text-align: center;
+  line-height: 24px;
+  padding: 130px 0;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .two-title h2 {
+  font-size: 28px;
+  font-weight: 600;
+  padding: 0 0 20px 0;
+}
+#wrap #main #section3 .container .gap .content .slide-container .slide-view .two-title h2 h3 {
+  line-height: 24px;
+}
+#wrap #main #section4 {
+  width: 100%;
+  height: 852.19px;
+  background: rgb(255, 255, 255);
+  margin: 0 auto;
+}
+#wrap #main #section4 .container {
+  width: 100%;
+  position: relative;
+}
+#wrap #main #section4 .container .gap {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+#wrap #main #section4 .container .gap .title {
+  width: 100%;
+  text-align: center;
+  padding: 0px 15px 90px 15px;
+}
+#wrap #main #section4 .container .gap .title h2 {
+  display: inline-block;
+  font-size: 32px;
+  position: relative;
+  font-weight: 400;
+}
+#wrap #main #section4 .container .gap .content {
+  width: 100%;
+}
+#wrap #main #section4 .container .gap .content .slide-container {
+  width: 100%;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view {
+  width: 100%;
+  overflow: hidden;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view .slide-wrap {
+  width: 120%;
+  display: flex;
+  position: relative;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
+  width: 20%;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap {
+  width: auto;
+  margin: 0 15px;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .top-box {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .top-box img {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  transition: all, 0.3s;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .bottom-box {
+  width: 100%;
+  position: relative;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .bottom-box span {
+  z-index: 3;
+  display: block;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 50px 0;
+}
+#wrap #main #section4 .container .gap .content .slide-container .slide-view .slide-wrap .slide .col-gap .bottom-box span img {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  transition: all;
+}
+#wrap #main #section4 .container .arrow-next-btn {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  right: 6%;
+  width: 20px;
+  height: 20px;
+  margin: -50px 0 0 0;
+  border-radius: 100%;
+}
+#wrap #main #section4 .container .arrow-next-btn i {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  transform: rotate(45deg);
+}
+#wrap #main #section4 .container .arrow-prev-btn {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  width: 20px;
+  height: 20px;
+  margin: -50px 0 0 0;
+}
+#wrap #main #section4 .container .arrow-prev-btn i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  transform: rotate(-45deg);
+}
+#wrap #main #section4 .container .page-btn-box {
+  z-index: 2;
+  position: absolute;
+  bottom: 130px 0;
+  left: 0;
+  width: 100%;
+  height: 76vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#wrap #main #section4 .container .page-btn-box span {
+  margin: 37px 137px;
+  position: relative;
+}
+#wrap #main #section4 .container .page-btn-box span a {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+#wrap #main #section4 .container .page-btn-box span a::after {
+  content: "";
+  margin: 6px 0 0 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgba(34, 131, 212, 0);
+  transition: all 0.3s;
+}
+#wrap #main #section4 .container .page-btn-box span a:hover {
+  color: #ccc;
+}
+#wrap #main #section4 .container .page-btn-box span a.on {
+  color: #ccc;
+}
+#wrap #main #section4 .container .page-btn-box span a:hover::after {
+  background-color: rgb(255, 255, 255);
+}
+#wrap #main #section4 .container .page-btn-box span a:on::after {
+  background-color: rgb(255, 255, 255);
+}
+#wrap #footer {
+  width: 100%;
+  height: 222.2px;
+  background: #fff;
+  margin: 140px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrap #footer .container {
+  width: 100%;
+}
+#wrap #footer .container .gap {
+  width: 100%;
+}
+#wrap #footer .container .gap .content {
+  width: 100%;
+}
+#wrap #footer .container .gap .content .gotop {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 50px 0;
+}
+#wrap #footer .container .gap .content .gotop a {
+  width: 50px;
+  height: 50px;
+  background: #999;
+  color: #fff;
+  border-radius: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+}
+#wrap #footer .container .gap .content .gotop a i {
+  font-size: 15px;
+}
+#wrap #footer .container .gap .content .gotop a span {
+  text-align: center;
+}
+#wrap #footer .container .gap .content .links-list {
+  height: 31.8px;
+}
+#wrap #footer .container .gap .content .links-list ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#wrap #footer .container .gap .content .links-list ul li {
+  padding: 0 20px;
+}
+#wrap #footer .container .gap .content .links-list ul li a {
+  font-size: 13px;
+  list-style: 1.2;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+#wrap #footer .container .gap .content .fuo {
+  margin: 5px 0 10px 0;
+  width: 100%;
+}
+#wrap #footer .container .gap .content .fuo h4 {
+  font-size: 11.8182;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#wrap #footer .container .gap .content .foot-sns {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+#wrap #footer .container .gap .content .foot-sns a {
+  display: block;
+  font-size: 10px;
+  text-align: center;
+  line-height: 16px;
+  color: rgb(68, 68, 68);
+}
+#wrap #footer .container .gap .content .foot-sns a img {
+  height: 22px;
+  margin: 0 12px 15px 12px;
+}
+#wrap #footer .container .gap .content .foot-row {
+  width: 100%;
+}
+#wrap #footer .container .gap .content .foot-row p {
+  text-align: center;
+  font-size: 11px;
+  color: #626262;
+}

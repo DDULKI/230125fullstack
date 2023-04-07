@@ -1,0 +1,53 @@
+@media all and (max-width: 1170px) {
+  #wrap #main #section5 {
+    padding: 11.11111vw 0;
+  }
+  #wrap #main #section5 .container {
+    width: 100%;
+  }
+  #wrap #main #section5 .container .gap .title {
+    padding: 0 0 6.837607vw 0;
+    text-align: center;
+  }
+  #wrap #main #section5 .container .gap .title h2 {
+    font-size: 2.051282051vw;
+  }
+  #wrap #main #section5 .content .gallery-box {
+    width: 100.94017094vw;
+    margin: 0 0 0 -0.94017094vw;
+  }
+  #wrap #main #section5 .content .gallery-box ul li {
+    float: left;
+    width: 33.3333333333%;
+  }
+}
+@media all and (max-width: 800px) {
+  #wrap #main #section5 .content .gallery-box {
+    width: 100.94017094vw;
+    margin: 0 0 0 -0.94017094vw;
+  }
+  #wrap #main #section5 .content .gallery-box ul li {
+    float: left;
+    width: 50%;
+  }
+}
+@media all and (max-width: 600px) {
+  #wrap #main #section5 .content .gallery-box {
+    width: 100.94017094vw;
+    margin: 0 0 0 -0.94017094vw;
+  }
+  #wrap #main #section5 .content .gallery-box ul li {
+    float: left;
+    width: 100%;
+  }
+}
+@media all and (max-width: 500px) {
+  #wrap #main #section5 .content .gallery-box {
+    width: 100.94017094vw;
+    margin: 0 0 0 -0.94017094vw;
+  }
+  #wrap #main #section5 .content .gallery-box ul li {
+    float: left;
+    width: 100%;
+  }
+}

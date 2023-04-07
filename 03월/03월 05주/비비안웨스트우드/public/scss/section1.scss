@@ -1,0 +1,116 @@
+#section1{
+    position: relative;
+    width: 100%;
+    height: 941.914px;
+    background: url(../img/1678946747_0.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    .container{
+        width: 100%;
+        max-width: 1792px;
+        height: 100%;
+        .gap {
+            width:100%;
+            height: 100%;
+            display: flex;
+            .content {
+                width: 100%;
+                position: relative;
+                .left {
+                    width: 100%;
+                    height: 100%;
+                    ul {
+                        position: absolute;
+                        z-index: 8;
+                        top: 25px;
+                        left: 25px;
+                        li {
+                            padding: 12px 0;
+                            h4 {
+                                font-size: 14px;
+                                font-weight: 700;
+                                color: rgb(0,0,0);
+                                &:focus { 
+                                    color: #fff;
+                                }
+                                &:hover {
+                                   color: #fff;
+                                }
+                                &.on {
+                                    color : #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+                .center {
+                    width: 162px;
+                    position: absolute;
+                    z-index: 5;
+                    top: 0;
+                    img {
+                        width: 162px;
+                        height: 100.297px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+                .title {
+                    user-select: none;
+                    position: absolute;
+                    z-index: 6;
+                    top: 50%;
+                    left: 50%;
+                    display: flex;
+                    justify-content: center; 
+                    align-items: center;
+                    text-align: center;
+                    div {
+                        width: 100%;
+                        height: 100%;
+                        transition: all 0.3s;
+                        h2 {
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: rgb(0,0,0);
+                        }
+
+                        .img {
+                           width: 100%;
+                           line-height: 130%;
+                        } 
+                        
+                       
+                        
+                    }
+                }
+                   
+                .right {
+                        ul { 
+                            position: absolute;
+                            z-index: 7;
+                            top: 0;
+                            right: 0;
+
+                            li {
+                                display: flex;
+                                align-items: center;
+                                text-align: center;
+                                
+                                span {
+
+                                }
+                                h4 {
+                                    font-size: 12px;
+                                    font-weight: 700;
+                                    line-height: 150%;
+                                    color: rgb(0,0,0)
+                                }
+                            }
+                        }
+
+                }
+            }
+        }
+    }
+}

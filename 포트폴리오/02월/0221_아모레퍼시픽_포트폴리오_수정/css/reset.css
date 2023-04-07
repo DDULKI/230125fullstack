@@ -1,0 +1,63 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+} /* 왜 100%를 다 쓰나요? */
+html { /* scroll-behavior: smooth; */
+  overflow-y: scroll;
+}
+
+body {
+  font: normal 14px/1 "Montserrat", "Noto Sans", "Roboto";
+  color: #626262;
+  background: #fff;
+}
+
+ul {
+  list-style: none;
+} /* ul에서 나오는 점을 사용하지 않겠다.  */
+a {
+  color: #626262;
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+  color: #626262;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #626262;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #626262;
+}
+
+a:focus {
+  text-decoration: none;
+  color: #d32b55;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+  font-weight: normal;
+}
+
+i, em, address {
+  font-style: normal;
+}
+
+.blind {
+  display: inline-block;
+  text-indent: -2000px;
+  overflow: hidden;
+}

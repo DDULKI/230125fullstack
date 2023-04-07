@@ -1,0 +1,228 @@
+@import url(./fonts.css);
+@import url(./reset.css);
+@import url(./skip.css);
+#wrap {
+  width: 100%;
+}
+#wrap #header {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 75.8px;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+#wrap #header .container {
+  width: 100%;
+  max-width: 1170px;
+  height: 100%;
+  margin: 0 auto;
+}
+#wrap #header .container .gap {
+  padding: 0 15px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+#wrap #header .container .gap .left {
+  width: 17%;
+  height: 100%;
+  padding: 0 15px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrap #header .container .gap .left a {
+  width: 100%;
+}
+#wrap #header .container .gap .left a img {
+  width: 100%;
+  max-width: 156px;
+}
+#wrap #header .container .gap .center {
+  width: 53%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#wrap #header .container .gap .center ul {
+  display: flex;
+}
+#wrap #header .container .gap .center ul li {
+  margin: 0 0 0 40px;
+}
+#wrap #header .container .gap .center ul li a {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 150%;
+  transition: all 0.3s;
+}
+#wrap #header .container .gap .center ul li a:hover {
+  color: rgba(255, 255, 255, 0.4);
+}
+#wrap #header .container .gap .right {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#wrap #header .container .gap .right ul {
+  display: flex;
+}
+#wrap #header .container .gap .right ul li {
+  padding: 0 0 0 15px;
+}
+#wrap #header .container .gap .right ul li h4 {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 150%;
+}
+#wrap #header .container .gap .right ul li a {
+  width: 65.425px;
+  height: 18.275px;
+  padding: 4px 12px;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 150%;
+  transition: all 0.3s;
+}
+#wrap #header .container .gap .right ul li a:hover {
+  background: #fff;
+  color: #000;
+}
+#wrap #main {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+#wrap #main #section1 {
+  width: 100%;
+}
+#wrap #main #section1 .container {
+  width: 100%;
+}
+#wrap #main #section1 .container .slide-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+#wrap #main #section1 .container .slide-container .slide-view {
+  width: 100%;
+  overflow: hidden;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap {
+  width: 400%;
+  display: flex;
+  position: relative;
+  animation: slide 15s infinite ease-in-out;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide {
+  width: 100%;
+  height: 100vh;
+  background: url() no-repeat 50% 50%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.2);
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div h2 {
+  font-size: 100px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div hr {
+  margin: 80px 0;
+  width: 100%;
+  max-width: 570px;
+  height: 8px;
+  background: #fdd947;
+  border: 0;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide div h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide.slide1 {
+  background-image: url(../IMG/slider-img1.jpg);
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide.slide2 {
+  background-image: url(../IMG/slider-img2.jpg);
+}
+#wrap #main #section1 .container .slide-container .slide-view .slide-wrap .slide.slide3 {
+  background-image: url(../IMG/slider-img3.jpg);
+}
+@keyframes slide {
+  0.00% {
+    transform: translateX(0px);
+  }
+  6.67% {
+    transform: translateX(0px);
+  }
+  13.33% {
+    transform: translateX(0px);
+  }
+  20.00% {
+    transform: translateX(0px);
+  }
+  26.67% {
+    transform: translateX(0px);
+  }
+  33.33% {
+    transform: translateX(-1903px);
+  }
+  40.00% {
+    transform: translateX(-1903px);
+  }
+  46.67% {
+    transform: translateX(-1903px);
+  }
+  53.33% {
+    transform: translateX(-1903px);
+  }
+  60.00% {
+    transform: translateX(-1903px);
+  }
+  66.67% {
+    transform: translateX(-3806px);
+  }
+  73.33% {
+    transform: translateX(-3806px);
+  }
+  80.00% {
+    transform: translateX(-3806px);
+  }
+  86.67% {
+    transform: translateX(-3806px);
+  }
+  93.33% {
+    transform: translateX(-3806px);
+  }
+  100.00% {
+    transform: translateX(-5709px);
+  }
+}

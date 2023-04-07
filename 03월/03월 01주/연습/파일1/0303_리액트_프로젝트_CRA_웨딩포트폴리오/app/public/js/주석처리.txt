@@ -1,0 +1,18 @@
+
+            // // 1. 메인슬라이드함수 
+            // function mainSlide(){
+
+            //     // console.log('페이드인', cnt===0 ? 2:cnt-1);
+            //     // console.log('페이드아웃', cnt);
+
+            //     // 슬라이드 모두 초기화
+            //     // $slide.stop().css({zIndex:1}).stop().animate({opacity:1}, 0);
+                
+            //     // 첫번째 슬라이드 
+            //     // $slide.eq(cnt===0 ? 2:cnt-1).css({zIndex:2}).stop().animate({opacity:0}, 0).animate({opacity:1}, 1000); // 현재슬라이드 번호 -1  //  0 = > 2 0 1 2 0 .. ..
+                
+                
+            //     // 두번째 슬라이드 
+            //     // $slide.eq(cnt).css({zIndex:3}).stop().animate({opacity:0}, 1000); // 1 2 0 1 2 0 1 .... 
+                
+            // }

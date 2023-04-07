@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열과 객체 </title>
+</head>
+<body>
+
+<script>
+
+
+
+
+let arr1 = ['딸기', '사과', '자몽', '포도', '망고'];
+console.log(arr1);
+
+
+
+arr1.splice(2,0, '앵두');
+console.log(`arr1.splice(2, 0, '앵두')${arr1}`);
+
+arr1.splice(0, 0, '산딸기');
+console.log(`arr1.splice(0,0,'산딸기')${arr1}`);
+
+// 뒤에서 3번째 배열 항목 1개를 삭제하라 
+arr1.splice(-3,1);
+console.log(`arr1.splice(0,0,'산딸기')${arr1}`);
+
+// 뒤에서 3번째 배열 항목 1개를 삭제하라 
+arr1.splice(-4,3);
+console.log(`arr1.splice(-4,3) ${arr1}`);
+// 이전 => 산딸기, 딸기, 사과, 앵두, 포도, 망고
+// 결과 => 산딸기, 딸기, 망고
+
+// splice()응용처리
+// 배열 arr2 1차원배열을 2차원 1배열로 재구성하라. 
+let arr2 = [
+    1,2,3,4,5,
+    6,7,8,9,10,
+    11,12,13,14,15,
+    16,17,18,19,20,
+    21,22,23,24,25
+];
+console.log(arr2);
+
+// let arr3 = [];
+
+console.log(arr2.length);
+arr2 = [];
+
+// 1회전 : arr 3 = [...arr3,arr2.splice(0,5)]; 1,2,3,4,5
+// 2회전 : arr 3 = [...arr3,arr2.splice(0,5)]; 1,2,3,4,5,6,7,8,9,10
+// 3회전 : arr 3 = [...arr3,arr2.splice(0,5)]; 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+// 4회전 : arr 3 = [...arr3,arr2.splice(0,5)]; 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
+// 5회전 : arr 3 = [...arr3,arr2.splice(0,5)]; 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25
+
+// console.log(arr3); // 빈배열 
+// while(arr2.length){ // 배열 갯수가 1개도 없을 때 까지 수행
+//     // arr2 삭제한걸 arr3 뒤에서 추가
+//     arr3 = [...arr3, arr2.splice(0, 5)]; 
+//     console.log(arr2.lengthm, arr2);
+// }
+
+console.log(arr3); // 2차원 배열 
+
+// // 3행에 3열을 출력 13
+console.log(`arr3[2][2] ${arr3[2][2]}`); 
+
+// // 13이라는 배열에 항목을 검색하라
+// // filter(); 사용 , map함수랑 똑같다. 
+// // 5행 5열 행단위로 검색하고 
+// // 결과가 배열로 출력 
+// const result = arr3.filter((item,idx)=>item[idx]===25);
+// // 검색된 결과를 가지고 
+// console.log(result);
+
+// // includes () 25 숫자를 검색하여 결과를 true false 로 반환한다. 
+
+
+// const result2 = result[0].includes(25);
+// console.log(result2 ? 'found':'not found');
+
+// let result3 = []
+//  result3 = [...result3,result[0][0]];
+//  result3 = [...result3,result[0][1]];
+//  result3 = [...result3,result[0][2]];
+//  result3 = [...result3,result[0][3]];
+//  result3 = [...result3,result[0][4]];
+// console.log(result3);   
+  
+// // 인클루드스 참 거짓 : true, false 결과 리턴
+// const a = [11,22,23,24,25];
+// console.log( a.includes(22)? '찾았다':'없다');
+
+// // split() 공백, 구분기호로 배열을 생성
+// const txt = `이순신, 충무, 거북선, 장군`;
+// // 문자열사이 구분기호는 콤마를 기준으로 배열생성
+// // 스플릿트 메서드 
+
+// const babo1 = txt.split(',');
+// console.log(babo1);
+
+// // 배열에 공백이 포함된 상태 => 공백제거 글자앞 그리고 글자뒤
+// // 배열항목 4개를 반복수행
+// // 트림 메서드 
+
+// const babo2 = babo1.map(function(item){
+//     return item.trim();
+// });
+
+// console.log(babo2);
+
+// // 전화번호 
+// const hp1 = '010-7771-6035';
+// const hp2 = hp1.split('-');
+// console.log(hp2);
+
+// // 이메일  
+// const email1 = 'seulki4994@naver.com';
+// const email2 = email1.split('@');
+// console.log(email2);
+
+
+
+// // 여러 기호를 구분기호 분류하는 작업은 정규표현식으로 한다. 
+// // RegExp 정규식 패턴 언어 
+// // 문자열의 집합을 표현하는 데 사용하는 형식 언어
+// // 문자열의 검색과 치환을 
+
+// // 괄괄호(브라켓)은 범위 지정 
+
+// // [a-z] 영문소문자 a-z 범위(Range)  
+// // [A-Z] 영문대문자 A-Z 범위(Range)  
+
+// // [0-9] 숫자 0-9 범위(Range)  
+// // [^0-9] 숫자 아닌것
+
+// // [\d] 숫자 0-9 범위(Range) decimal 10진수   
+// // [^\d] 숫자 아닌것    
+
+// // [a-zA-Z0-9] 영문대소문자와 숫자   
+// // [^a-zA-Z0-9] 영문대소문자와 숫자  곽괄호 안에 맨앞 의미는 부정 not === ! 
+ 
+// // [!?,] 느낌표, 물음표, 콤마 범위 
+
+// // \s  공백
+// // \S  공백이 아닌 것
+// // \s* 공백
+// // +   1자이상
+// // *   0자이상
+// // ?   0자 또는 1자
+// // .   1자 
+
+
+// // 정규표현식 표현기본 문법
+// // /[!?,]/ 슬래쉬 시작 끝 지정 감싼다. 
+
+// // 상담내용 텍스트 
+// // 중간 사이 사이 구분기호 ! ? , 
+// const text1 = '안녕! 좋은아침! 어디 아프세요? 오늘은, 열공하세요.';
+// // const text2 = text1.split(/[!?,]/);
+// const text2 = text1.split(/[!|?|,]/); // | 또는 OR
+// console.log(text2);
+
+// const text3 = '안녕! 좋은아침 ! 어디 아프세요? 오늘은, 열공하세요.';
+// // const text4 = text3.split(/\s*[!?,]\s*/); // 양쪽 0개이상 모두 제거
+// const text4 = text3.split(/\S*[!?,]\S*/); // 양쪽 0개이상 공백이 아닌게 모두 제거
+// console.log(text4);
+
+// // 특정 위치까지 배열생성
+// const text5 = '안녕, 좋은아침, 어디 아프세요, 오늘은, 열공하세요.'
+// console.log(text5);
+// console.log(`text5.split(',',0) ${text5.split(',',0)}` );
+// console.log(`text5.split(',',1) ${text5.split(',',1)}` );
+// console.log(`text5.split(',',2) ${text5.split(',',2)}` );
+// console.log(`text5.split(',',3) ${text5.split(',',3)}` );
+// console.log(`text5.split(',',4) ${text5.split(',',4)}` );
+// console.log(`text5.split(',',4) ${text5.split(',',5)}` );
+
+
+// const text6 ='Greeen Computer Academy';
+// // Greeen 0 1 2 3 4 5  6 미만까지 글자를 뽑아라. 
+
+// // 문자열 추출 : substr();
+// console.log(`text6.substr(0, 6) ${text6.substr(0, 6)}`);
+
+
+// // 문자열 추출 : substring();
+// console.log(`text6.substr(0, 6) ${text6.substring(0, 6)}`);
+
+// // 문자열 추출 : substr();
+// console.log(`text6.substr(7, 15) ${text6.substr(7, 15)}`);
+
+
+// // 문자열 추출 : substring();
+// console.log(`text6.substr(7, 15) ${text6.substring(0, 6)}`);
+
+
+
+
+</script>
+
+    
+</body>
+</html>

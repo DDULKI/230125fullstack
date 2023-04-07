@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아모레퍼시픽 박스 모델링</title>
+    <meta name="publisher" content="seulkijung">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- 오픈소스 -->
+    <script src="./js/lib/jquery-2.2.4.min.js"></script>
+    <script src="./js/lib/jquery.easing.1.3.js"></script>
+
+    <!-- 사용자 작성 -->
+    <script src="./js/amore.js" defer></script>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="row1 on">
+                <div class="container">
+                    <div class="gap">
+                        <div class="content">
+                            <div class="left">
+                                <ul>
+                                    <li><a href="#" class="left-btn on">KR</a></li>
+                                    <li><a href="#" class="left-btn">EN</a></li>
+                                    <li><a href="#" class="left-btn">CN</a></li>
+                                </ul>
+                            </div>
+                            <div class="center">
+                                <h1><a href="#" title="HOME"><img src="./img/amorepacific.png" alt=""></a></h1>
+                            </div>
+                            <div class="right">
+                                <ul>
+                                    <li><a href="#"><img src="./img/header_facebook.png" alt=""></a></li>
+                                    <li><a href="#"><img src="./img/header_insta.png" alt=""></a></li>
+                                    <li><a href="#"><img src="./img/header_linkedin.png" alt=""></a></li>
+                                    <li><a href="#"><img src="./img/header_square.png" alt=""></a></li>
+                                    <li><a href="#"><img src="./img/header_youtube.png" alt=""></a></li>
+                                </ul>
+                                <span class="material-symbols-outlined" type="search" placeholder="검색" >search</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row2 on">
+                <div class="container">
+                    <div class="gap">
+                        <div class="content">
+                            <div class="left">
+                                <h1><a href="#" title="HOME"><img src="./img/amorepacific.png" alt=""></a></h1>
+                            </div>
+                            <div class="center">
+                                <nav class="nav">
+                                    <ul>
+                                        <li><a href="#" class="nav-btn">ABOUT US</a></li>
+                                        <li><a href="#" class="nav-btn">BRANDS</a></li>
+                                        <li><a href="#" class="nav-btn">OUR CULTURE</a></li>
+                                        <li><a href="#" class="nav-btn">COMMITMENTS</a></li>
+                                        <li><a href="#" class="nav-btn">INVESTORS</a></li>
+                                        <li><a href="#" class="nav-btn">NEWS</a></li>
+                                    </ul>                  
+                                </nav>   
+                            </div>
+                            <div class="right">
+
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main id="main">
+            <section1 id="section1">
+                <div class="container">
+                    <div class="slide-container">
+                        <div class="slide-view">
+                            <ul class="slide-wrap">
+                                <li class="slide slide1">
+                                    <div>
+                                    <h2>WE MAKE A MORE BEAUTIFUL WORLD</h2>
+                                    <br>
+                                    <h1>New Beauty</h1>
+                                    <h3>아모레퍼시픽은 고객 한 사람 한사람이 뉴 뷰티로 영감받아<br>
+                                    자신만의 아름다움을 발견하고, 건강하고 만족스러운 삶을<br>실현할 수 있도록 합니다.</h3>
+                                    <button class="button" type="button"><p>자세히 보기  ></p></button>
+                                    </div>
+                                </li>
+                                <li class="slide slide2">
+                                    <div>
+                                    <h2>WE MAKE A MORE BEAUTIFUL WORLD</h2>
+                                    <br>
+                                    <h1>Sustainability</h1>
+                                    <h3>아모레퍼시픽은 자연과 사람, 사회가 조화롭게 공존하는<br>
+                                    아름다운 세상을 만들어갑니다.<br>모든 구성원이 함께 더 나은 미래를 꿈꿉니다.</h3>
+                                    <button class="button" type="button"><p>자세히 보기  ></p></button>
+                                    </div>
+                                </li>
+                                <li class="slide slide3">
+                                    <div>
+                                    <h2>WE MAKE A MORE BEAUTIFUL WORLD</h2>
+                                    <br>
+                                    <h1>Innovation</h1>
+                                    <h3>아모레퍼시픽은 고객 한 사람 한사람이 뉴 뷰티로 영감받아<br>
+                                    기술 혁신을 지속해나갑니다<br>첨단 기술력을 바탕으로 초개인화 뷰티 솔루션을 제공합니다.</h3>
+                                    <button class="button" type="button"><p>자세히 보기  ></p></button>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    <div class="title">
+        
+                    </div>
+
+                    <!-- 좌우화살버튼 -->
+                    <a href="#" class="arrow-next-btn"><i></i></a>
+                    <a href="#" class="arrow-prev-btn"><i></i></a>
+
+                    <!-- 인디게이터 버튼 || 페이지네이션 버튼 -->
+                    <div class="page-btn-box">
+                        <span><a href="#" class="page-btn blind">New Beauty</a></span>
+                        <span><a href="#" class="page-btn blind">Sustainability</a></span>
+                        <span><a href="#" class="page-btn blind">Innovation</a></span>
+                    </div>
+                </div>
+            </section1>
+            <section2 id="section2">
+                <div class="container">
+                    <div class="gap">
+                        
+                        <div class="title">
+
+                            <h1>Latest Amorepacific News</h1>
+                            <button class="button" type="button"><p>자세히 보기</p></button>
+                        </div>
+                        
+                        <div class="content">
+                            <ul>
+                                <li>
+                                    <div class="col-gap">
+                                        <div class="img-box"><img src="./img/thumb2.jpg" alt=""></div>
+                                        <div class="txt-box">
+                                            <a href="#"><h2>헤라, 가벼운 제형과 뉴트럴한 
+                                                <br>컬러의 아이&립 메이크업 제품 출시</h2></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-gap">
+                                        <div class="img-box"><img src="./img/thumb1.jpg" alt=""></div>
+                                        <div class="txt-box">
+                                            <a href="#"><h2>샤이니 키, 올 화이트 수트 화보 공개</h2></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-gap">
+                                        <div class="img-box"><img src="./img/thumb1-2.jpg" alt=""></div>
+                                        <div class="txt-box">
+                                            <a href="#"><h2>헤라, 신제품 ‘UV프로텍터 멀티디펜스 프레쉬’ 출시</h2></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-gap">
+                                        <div class="img-box"><img src="./img/thumb1-3.jpg" alt=""></div>
+                                        <div class="txt-box">
+                                            <a href="#"><h2>에스트라, 인플루언서 꿈나무 지원 
+                                                <br>프로그램 ‘A리스트’ 2기 모집</h2></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section2>
+            
+            <section3 id="section3">
+                <div class="container">
+                    <div class="gap">
+                        <div class="title">
+                            <h2>Story of Amorepacific</h2>
+                        </div>
+                        <div class="content">
+                            <div class="slide-container">
+                                <div class="slide-view">
+                                    <ul class="slide-wrap">
+                                        <li class="slide slide1">
+                                            <div class="col-gap">
+                                                <!-- <div class="bg-box">
+                                                    <figure>
+                                                        <img src="./img/architecture_bg2.jpg" alt="">
+                                                    </figure>
+                                                </div> -->
+                                                <div class="top-box">
+                                                    <img src="./img/architecture_slide01.jpg" alt="">
+                                                    <span>
+                                                        <em>본사</em>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="slide slide1">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/architecture_slide02.jpg" alt="">
+                                                    <span>
+                                                        <em>본사</em>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="slide slide1">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/architecture_slide03.jpg" alt="">
+                                                    <span>
+                                                        <em>본사</em>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="slide slide1">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/architecture_slide04.jpg" alt="">
+                                                    <span>
+                                                        <em>본사</em>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="two-title">
+                                        <h2>건축</h2>
+                                        <h3>아모레퍼시픽은 공간을 위해 기업의 비전과 함께 사회를 향한 약속까지 담아냅니다. 아모레퍼시픽의<br> 
+                                            건축은 세상에 아름다움을 전하기 위해 노력하는 마음을 담은 공간이며, 이러한 가치가 직원들은 물론<br> 
+                                            함께하는 시민들에게도 전달되길 바랐습니다. 건축물은 아모레퍼시픽이 만들지만, 그 공간들은 모두의<br> 
+                                            것이며 함께하는 모든 사람들이 그 가치를 공유하게 될 것입니다. </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section3>
+
+            <section4 id="section4">
+                <div class="container">
+                    <div class="gap">
+                        <div class="title">
+                            <h2>Follow Our Brands</h2>
+                        </div>
+                        <div class="content">
+                            <div class="slide-container">
+                                <div class="slide-view">
+                                    <ul class="slide-wrap">
+                                        <li class="slide slide2">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/1036x1036_1 (1).jpg" alt="">
+                                                </div>
+                                                <div class="bottom-box">
+                                                   <span><img src="./img/108(96)x19_gray.png" alt=""></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="slide slide2">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/Main_Brands_mo_amorepacific_1036x1036.jpg" alt="">
+                                                </div>
+                                                <div class="bottom-box">
+                                                    <span><img src="./img/logo_brand_01_min.png" alt=""></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="slide slide2">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/1036x1036.jpg" alt="">
+                                                </div>
+                                                <div class="bottom-box">
+                                                    <span><img src="./img/main_3.png" alt=""></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="slide slide2">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/1036x1036_1.jpg" alt="">
+                                                </div>
+                                                <div class="bottom-box">
+                                                    <span><img src="./img/logo_brand_03_min.png" alt=""></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="slide slide2">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/Main_Brands_mo_mamonde_1036x1036_2_1.jpg" alt="">
+                                                </div>
+                                                <div class="bottom-box">
+                                                    <span><img src="./img/gnb_mamonde_minify_new_2_1.jpg" alt=""></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="slide slide2">
+                                            <div class="col-gap">
+                                                <div class="top-box">
+                                                    <img src="./img/Main_Brands_mo_innisfree_1036x1036_1.jpg" alt="">
+                                                </div>
+                                                <div class="bottom-box">
+                                                    <span><img src="./img/bi_innisfree2.jpg" alt=""></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 좌우화살버튼 -->
+                    <a href="#" class="arrow-next-btn"><i></i></a>
+                    <a href="#" class="arrow-prev-btn"><i></i></a>
+
+                    <!-- 인디게이터 버튼 || 페이지네이션 버튼 -->
+                    <div class="page-btn-box">
+                        <span><a href="#" class="page-btn blind">1</a></span>
+                        <span><a href="#" class="page-btn blind">2</a></span>
+                        <span><a href="#" class="page-btn blind">3</a></span>
+                        <span><a href="#" class="page-btn blind">4</a></span>
+                        <span><a href="#" class="page-btn blind">5</a></span>
+                        <span><a href="#" class="page-btn blind">6</a></span>
+                    </div>
+                </div>
+            </section4>
+        </main>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="gap">
+                    <div class="title">
+                        
+                    </div>
+                    <div class="content">
+                        <div class="gotop">
+                            <a href="#wrap"><i class="fa fa-angle-up"></i><br><span>TOP</span></a>
+                        </div>
+                        <div class="links-list">
+                             <ul>
+                                <li><a href="#" class="list-btn" title="윤리경영">윤리경영</a></li>
+                                <li><a href="#" class="list-btn" title="인재채용">인재채용</a></li>
+                                <li><a href="#" class="list-btn" title="고객상담실">고객상담실</a></li>
+                                <li><a href="#" class="list-btn" title="글로벌 네트워크">글로벌 네트워크</a></li>
+                                <li><a href="#" class="list-btn" title="방문판매원 찾기">방문판매원 찾기</a></li>
+                                <li><a href="#" class="list-btn" title="매거진">매거진</a></li>
+                                <li><a href="#" class="list-btn" title="사이트맵">사이트맵</a></li>
+                                <li><a href="#" class="list-btn" title="관련사이트">관련사이트</a></li>
+                                <li><a href="#" class="list-btn" title="법적 고지">법적 고지</a></li>
+                                <li><a href="#" class="list-btn" title="개인정보 처리방침">개인정보 처리방침</a></li>
+                             </ul>
+                          </div>
+                        <div class="fuo">
+                           <h4>FOLLOW US ON</h4>
+                        </div>
+                        <div class="foot-sns">
+                            <a href="#"><img src="./img/facebook.png" alt=""></a>
+                            <a href="#"><img src="./img/linked_in.png" alt=""></a>
+                            <a href="#"><img src="./img/insta.png" alt=""></a>
+                            <a href="#"><img src="./img/youtube.png" alt=""></a>
+                            <a href="#"><img src="./img/square.jpg" alt=""></a>
+                            <!-- <a href="#"><i class="fa fa-facebook"></i></a> 
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a> -->
+                            
+                        </div>
+                        <div class="foot-row">
+                            <p>&copy; Since 1945 Amorepacific, All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+
+    
+</body>
+</html>

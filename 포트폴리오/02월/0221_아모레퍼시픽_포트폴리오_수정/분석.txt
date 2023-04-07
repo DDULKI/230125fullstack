@@ -1,0 +1,73 @@
+https://www.apgroup.com/int/ko/
+
+
+1. header 
+
+width: 1902.97px  
+
+height: 140px
+
+박스 1712.690 
+
+아이콘 박스 width : 146.312 
+height: 22.391 
+
+padding: 7px 5px 7px 0;
+
+2. section1
+
+width: 1903px; 
+
+섹션 2번 포함하면 height: 1161px  - section(76px) 빼서 1085px 
+
+- new beauty, sustainability, lnnovation 메뉴 박스 
+
+width: 1903px
+
+height: 76px 
+
+4. section3
+
+width: 1903px 
+
+height: 642.08px 
+
+*Latest Amorepacific New - 이름 박스 
+
+width : 1154.780px 
+
+height: 38.391px 
+
+padding: 0 10px 0 10px;
+
+margin: 0 0 30px 0;
+
+*Latest Amorepacific News - 전체 박스 
+
+width: 1174.780 
+
+height : 462.078 
+
+margin : 0 117.469px 0 117.469px; 
+
+6. section4
+
+박스 두개로 나뉨 455px 
+
+bg 박스 height: 455px
+
+전체 박스는 width: 1903
+
+height: 832.047px; 
+
+7. section 5
+
+height: 852.19px 
+
+8. footer
+
+width: 1903 
+
+height: 181.203 
+
+margin: 140px 0 0 0;

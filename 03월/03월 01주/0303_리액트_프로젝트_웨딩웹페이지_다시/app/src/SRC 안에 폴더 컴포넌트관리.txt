@@ -1,0 +1,77 @@
+* React Extension Pack 확장팩 설치하기. *
+
+
+정적파일
+public
+ css
+  fonts
+  img
+  jsx
+  scss
+
+index.html ==> root 돔컨테이너
+
+
+
+동적파일 
+SRC 안에 폴더 컴포넌트관리
+
+모듈관리(컴포넌트 파일관리 .jsx) 설계
+
+SRC + 
+폴더 components
+
+    WrapComponent.jsx
+
+        폴더 wrap 
+            SkipComponent.jsx
+            HeaderComponent.jsx
+            MainComponent.jsx
+                폴더 main
+                    Section01Component.jsx
+                    Section02Component.jsx
+                    Section03Component.jsx
+                    Section04Component.jsx
+                    Section05Component.jsx
+                    Section06Component.jsx
+                    Section07Component.jsx
+                    Section08Component.jsx
+                    Section09Component.jsx
+                    Section10Component.jsx
+                    Section11Component.jsx
+            FooterComponent.jsx
+            GotopComponent.jsx
+
+
+
+
+            
+// rcc 를 쓰면 나오는 태그.
+import React, { Component } from 'react';
+
+class WrapComponent extends Component {
+    render() {
+        return (
+            <div>
+                
+            </div>
+        );
+    }
+}
+
+export default WrapComponent;
+
+
+
+
+// rsc 를 쓰면 나온다. 선생님이 쓰는 방식. export를 밑에서 호출해도 상관 없다. 
+import React from 'react';
+
+export default function WrapComponent () {
+    return (
+        <div>
+            
+        </div>
+    );
+};
+

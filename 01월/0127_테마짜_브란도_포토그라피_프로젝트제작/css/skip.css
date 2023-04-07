@@ -1,0 +1,28 @@
+#wrap {width: 100%;}
+#wrap #skip {
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:4;    
+    width: 100%;
+}
+#wrap #skip li {
+    width: 100;
+    font-size: 0; 
+    /* 나도 모르는 공간이 있을 경우, 폰트 사이즈 0으로 바꿔주면 공간이 없어진다. */
+}
+#wrap #skip li a {
+    width: 100%; 
+    background-color: rgb(0,0,0); 
+    font-size: 0px; 
+    color:rgb(255,255,255);
+    display: block;
+    text-align: center;
+    line-height: 0;
+}
+/* 인라인의 특징 width는 폰트 사이즈에 맞게 움직인다  */
+
+#wrap #skip li a:focus {
+    font-size: 20px;
+    padding: 50px;
+} 

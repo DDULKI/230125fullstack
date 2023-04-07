@@ -1,0 +1,125 @@
+@import url('./font.css');
+@import url('./reset.css');
+@import url('./skip.css');
+
+// 중첩코딩
+#wrap {
+    width: 100%;
+    height: 100%;
+    header {
+        width: 100%;
+        height: 86px;
+        background: #93e4cf;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        .container {
+            width: 100%;
+            max-width: 1170px;
+            height: 100%;
+            margin: 0 auto;
+            .gap {
+                width: 100%;
+                padding: 0 15px;
+                height: 100%;
+                display: flex;
+                .left {
+                    width: 38%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    ul {
+                        display: flex;
+                        margin: 0 30px 0 0;
+                        li {
+                            margin: 0 0 0 30px;
+                            a{
+                                color: #626262;
+                                font-size:13px;
+                                font-weight: 600;
+                                &:focus {
+                                    color:#d32b55;
+                                }
+                                &:hover {
+                                    color:#d32b55;
+                                }
+                                &.on {
+                                    color:#d32b55;
+                                }
+                            }
+                        }
+                    }
+                }
+                .center {
+                    width: 24%;
+                    height: 100%;
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center; 
+                        justify-content: center;
+                        overflow: hidden;
+                        background: url(../img/logo-pink2.png) no-repeat 50% 50%;
+                        background-size: cover;
+                    }
+                }
+                .right {
+                    width: 38%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    ul {
+                        display: flex;
+                        margin: 0 0 0 30px;
+                        li {
+                            margin: 0 30px 0 0;
+                            a {
+                                color: #626262;
+                                font-size: 13px;
+                                font-weight: 600;
+                                &:focus {
+                                    color:#d32b55;
+                                }
+                                &:hover {
+                                    color:#d32b55;
+                                }
+                                &.on {
+                                    color:#d32b55;
+                                }
+                
+                            }
+                        }
+                    }
+                }
+            
+            
+            
+            }
+        }
+    }
+    #main {
+        z-index: 2;
+        position: relative;
+        width: 100%;
+        #section1 {
+            position: relative;
+        }
+        #section2 {}
+        #section3 {}
+        #section4 {}
+        #section5 {}
+        #section6 {}
+        #section7 {}
+        #section8 {}
+        #section9 {}
+        #section10 {}
+        #section11 {}
+    
+    }
+
+}

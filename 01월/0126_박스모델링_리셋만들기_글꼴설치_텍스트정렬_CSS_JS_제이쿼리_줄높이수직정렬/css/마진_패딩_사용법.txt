@@ -1,0 +1,21 @@
+/* 마진 속성 값 시계방향으로 회전한다.  */
+/*{margin:위 오른쪽 아래쪽 왼쪽; }
+body {
+    margin-top:0; 
+    margin-right:0; 
+    margin-bottom:0;
+    margin-left:0;
+}
+
+body {margin:0 0 0 0;} 권장사항
+body {margin:0;}
+body {margin:0 100px 0 0;} 수정할 때 아래와 같이 
+body {margin-right:100px;} 수정할 때 권장사항
+
+밖여백 마진
+body {margin:100px 0 100px 0;}
+body {margin:100px 0;} 권장사항 
+
+안여백 패딩
+body {padding:100px 0 100px 0;}
+body {padding:100px 0;} 권장사항 위쪽, 아래쪽/ 왼쪽, 오른쪽

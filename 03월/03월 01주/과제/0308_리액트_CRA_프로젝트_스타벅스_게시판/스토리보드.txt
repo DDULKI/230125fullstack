@@ -1,0 +1,9 @@
+npx create-react-app app
+
+
+components
+    WrapComponent.jsx 컴포넌트
+       wrap 폴더
+          HeaderComponent.jsx  컴포넌트
+        - MainComponent.jsx 컴포넌트
+        - FooterComponent.jsx 컴포넌트

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문 응용 알고리즘</title>
+</head>
+<body>
+    
+    <table id="tableBox1" class="table">
+
+    </table>
+
+    <table id="tableBox2" class="table">
+
+    </table>
+
+    <table id="tableBox2if" class="table">
+
+    </table>
+
+    <table id="tableBox3" class="table">
+
+    </table>
+
+
+
+
+    <script>
+        const obj = {
+            init (){
+                this.tableBox1();
+                this.tableBox2();
+                this.tableBox2if();  
+                this.tableBox3();
+                this.tableBox3if();
+                            
+            },
+
+            tableBox1(){
+                // 5행 5열
+                // 1부터 25까지 테이블로 출력하시오 
+                const tableBox1 = document.getElementById('tableBox1');
+                let i=0;
+                let j=0;
+                let t='';
+                let cnt=0;
+                while(i<5){ // 행 
+                    i++;
+                    j=0;
+                    t+='<tr>'
+                    while(j<5){ // 열 
+                        j++;
+                        cnt++;
+                        t+=`<td>${cnt}</td>`;
+                    }
+                    t+='<tr>';
+                }
+                tableBox1.innerHTML = t;
+            },
+
+            tableBox2(){
+                // 5행 5열
+                // 1부터 25까지 테이블로 출력하시오 
+                const tableBox2 = document.getElementById('tableBox2');
+                let i=0;
+                let j=0;
+                let t='';
+                let cnt=0;
+                while(i<5){ // 행 
+                    i++;
+                    j=0;
+                    t+='<tr>';
+                    while(j<6-i){ // 12345 1234 123 12 1 카운트와 칸 
+                        j++;
+                        cnt++;
+                        t+=`<td>${cnt}</td>`;
+
+                    }
+                    console.log(j);
+                    let k=j;
+                    while(k<5){ // 빈칸을 만들어라. 
+                        k++;
+                        t+=`<td></td>`;
+
+                    }
+
+
+                    t+='</tr>';
+                }
+                tableBox2.innerHTML = t;
+            }, 
+
+            tableBox2if(){
+                // 5행 5열
+                // 1부터 25까지 테이블로 출력하시오 
+                const tableBox2if = document.getElementById('tableBox2if');
+                let i=0;
+                let j=0;
+                let t='';
+                let cnt=0;
+                while(i<5){ // 행 
+                    i++;
+                    j=0;
+                    t+='<tr>';
+                    while(j<5){
+                        j++;
+                        if(j<7-i){
+                            cnt+=10;
+                            t+=`<td>${cnt}</td>`;
+                        }
+                        else {
+                            t+=`<td></td>`;
+                        }
+                    }
+
+                    t+='</tr>';
+                }
+                tableBox2if.innerHTML = t;
+            }, 
+
+            tableBox3(){
+                // 5행 5열
+                // 1부터 25까지 테이블로 출력하시오 
+                const tableBox3 = document.getElementById('tableBox3');
+                let i=0;
+                let j=0;
+                let t='';
+                let cnt=0;
+                while(i<5){ // 행 
+                    i++;
+                    j=0;
+                    t+='<tr>';
+                        
+                  
+                    while(j<5-i){ // 빈칸만 4칸 
+                        j++;
+                        t+=`<td></td>`;
+
+                    }
+
+
+                        
+                    while(j<5){ // 12345 1234 123 12 1 카운트와 칸 
+                        j++;
+                        cnt++;
+                        t+=`<td>${cnt}</td>`;
+
+                    }
+                   
+                   
+
+
+                    t+='</tr>';
+                }
+                tableBox3.innerHTML = t;
+            },
+
+            tableBox3if(){
+                // 5행 5열
+                // 1부터 25까지 테이블로 출력하시오 
+                const tableBox3if = document.getElementById('tableBox3if');
+                let i=0;
+                let j=0;
+                let t='';
+                let cnt=0;
+                while(i<5){ // 행 
+                    i++;
+                    j=0;
+                    t+='<tr>';
+                        
+                  
+                    while(j<5){ // 빈칸만 4칸 
+                        j++;
+                        if(j<6-i){
+                            t+=`<td></td>`;
+                        }
+                        else {
+                            cnt=+10;
+                            t+=`<td>${cnt}</td>`;
+                        }
+                    }
+
+                    t+='</tr>';
+                }
+                tableBox3if.innerHTML = t;
+            }
+
+           
+        }
+        obj.init();
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+    <style>
+        * {margin:0; padding:0; box-sizing: border-box; vertical-align: middle;}
+        .table {border-collapse: collapse; margin: 50px auto;}
+        .table td {width:50px; height: 50px; border:1px solid #aaa; text-align: center;} /* 칸 */
+    </style>
+</body>
+</html>

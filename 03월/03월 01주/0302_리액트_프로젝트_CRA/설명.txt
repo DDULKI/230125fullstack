@@ -1,0 +1,21 @@
+npm install create-react-app
+npm i create-react-app
+npm i -g create-react-app
+
+
+
+
+이렇게 설치했음. 
+npx create-react-app app
+
+
+
+cd app
+
+
+
+npm start 
+
+
+
+확인 ls -la

@@ -1,0 +1,22 @@
+
+1. public
+css
+img
+js
+scss
+index.html => DOM 컨테이너 id #root 
+popup.html
+
+
+
+
+2. src
+    React
+    ReactDOM => 가상돔(DOM)
+    index.js
+        components 폴더 
+            WrapComponent.jsx
+                wrap 폴더 
+                    HeaderComponent.jsx
+                    MainComponent.jsx
+                    FooterComponent.jsx

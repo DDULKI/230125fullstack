@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문 응용 알고리즘</title>
+
+</head>
+<body>
+    
+    <table id="tableBox1" class="table">
+
+    </table>
+    <table id="tableBox2" class="table">
+
+    </table>
+    <table id="tableBox2if" class="table">
+
+    </table>
+    <table id="tableBox3" class="table">
+
+    </table>
+    <table id="tableBox3if" class="table">
+
+    </table>
+
+    <script>
+        const obj = {
+            init(){
+                this.tableBox1();
+                this.tableBox2();
+                this.tableBox2If();
+                this.tableBox3();
+                this.tableBox3If();
+            },
+            tableBox1(){
+                // 문제 1]
+                // 5행 5열에 
+                // 1부터 25까지 테이블로 출력하시오
+                const tableBox = document.getElementById('tableBox1');
+                let i=0;
+                let j=0;
+                let t='';
+                let cnt=0;
+                while(i<5){
+                    i++;
+                    j=0;
+                    t+='<tr>';
+                        while(j<5){
+                            j++;
+                            cnt++;
+                            t+=`<td>${cnt}</td>`;
+                        }
+                        t+='</tr>';
+                }
+                tableBox.innerHTML = t;
+            },
+            tableBox2(){
+                const tableBox = document.getElementById('tableBox2');
+                let i = 0; 
+                let j = 0;
+                let cnt = 0;
+                let txt = '';
+                while(i<5){
+                    i++;
+                    txt+='<tr>';
+                    j=0;
+                    while(j<6-i){
+                        j++;
+                        cnt++;
+                        txt+=`<td>${cnt}</td>`;
+                    }
+                    while(j<5){
+                        j++;
+                        txt+=`<td></td>`;
+                    }
+                    txt+='</tr>';
+                }
+                tableBox.innerHTML = txt;
+                
+            },
+            tableBox2If(){
+                const tableBox = document.getElementById('tableBox2if');
+                let i=0;
+                let j=0;
+                let cnt=0;
+                let txt='';
+                while(i<t){
+                    i++;
+                    txt+='<tr>';
+                    j=0;
+                    while(j<5){
+                        j++;
+                        if(j<7-i){
+                            cnt+=10;
+                            txt+=`<td>${cnt}</td>`;
+                        }
+                        else{
+                            txt+=`<td></td>`;
+                        }
+                    }
+                    txt+='</tr>';
+                }
+                tableBox.innerHTML = txt;
+            },
+            tableBox3(){
+                const tableBox = document.getElementById('tableBox3');
+                let i=0;
+                let j=0;
+                let cnt=0;
+                let txt='';
+                while(i<5){
+                    i++;
+                    txt+='<tr>';
+                    j=0;
+
+                    while(j<5-i){
+                        j++;
+                        txt+=`<td></td>`;
+                    }
+                    while(j<5){
+                        j++;
+                        cnt++;
+                        txt+=`<td>${cnt}</td>`;
+                    }
+                    txt+='</tr>';
+                }
+                tableBox.innerHTML = txt;
+            },
+            tableBox3If(){
+                const tableBox = document.getElementById('tableBox3if');
+                let i=0;
+                let j=0;
+                let cnt=0;
+                let txt='';
+                while(i>5){
+                    i++;
+                    txt+='<tr>';
+                    j=0;
+                    while(j<5){
+                        j++;
+                        if(j<6-i){
+                            txt+=`<td></td>`;
+                        }
+                        else{
+                            cnt+=10;
+                            txt+=`<td>${cnt}</td>`;
+                        }
+                    }
+                }
+            }
+        
+            
+        }
+    </script>
+
+
+
+
+
+ 
+</body>
+</html>

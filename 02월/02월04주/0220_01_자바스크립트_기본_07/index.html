@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열과 객체</title>
+</head>
+<body>
+
+<script>
+
+
+// 저번주 복습 
+//    let arr = ['딸기', '사과', '자몽', '포도', '바나나'];
+//     console.log( arr[0] ); // 행번호 줄 번호. 
+//     console.log( arr[1] );
+//     console.log( arr[2] );
+//     console.log( arr[3] );
+//     console.log( arr[4] );
+
+
+//     console.log(arr); // 객체 Array 
+//     console.log( JSON.stringify(arr)); // 객체를 문자열로 변환
+
+    // for(let i=0; i<arr.lenght; i++){  // i < 5
+    //     console.log( i, arr[i] ); // i는 행번호 
+    // }
+
+    // arr.map(function(item,idx){
+    //     console.log(idx, item)
+    // });
+    
+
+    // ES5 
+    // arr.forEach(function(item,idx){
+    //     console.log(idx, item)
+    // });
+
+    // arr.map((item,idx)=>{
+    //     console.log(idx, item)
+    // });
+
+    // // ES6 
+    // arr.forEach();
+
+    // for(let i in arr){
+    //     console.log(arr[i]);
+    // }
+
+    // let i =-1;
+    // while(i<arr.length){
+    //     i++;
+    //     console.log(i, arr[i]);
+    // }
+
+    // let arr = ['딸기', '사과', '자몽', '포도', '바나나'];
+    // let i=-1;
+    // do {
+    //     i++;
+    //     console.log(i,arr[i]);
+    // }while(i<arr.length-1)
+
+    // 배열 메서드 
+    // 배열 항목을 추가(Add)하기=> 푸쉬 push() 팝핑 배열 맨끝(마지막번째)
+    // 배열 항목을 추가(Add)하기=> 언쉬프트 unshift() 언쉬프팅 배열 맨앞에 추가
+   
+    // 배열 항목을 삭제(Delete)하기 => 팝 pop() 팝핑 배열 맨끝(마지막번째)
+    // 배열 항목을 삭제(Delete)하기 => 쉬프트 shift() 쉬프팅 배열 맨앞(첫번째) 
+
+    // let arr = ['딸기', '사과', '자몽', '포도', '바나나'];
+
+    // arr.map((item,idx)=>{
+    //     console.log(idx, item)
+    // });
+
+    // console.log('Push Before : ', arr );
+    // arr.push('앵두');
+    // console.log('Push After : ', arr );
+    // console.log('Push After : ', arr.length );
+    // arr.push('자두')
+    // console.log('Push After:', arr);
+    // console.log('Push After:', arr.length);
+
+    // // 삭제(첫번째 배열 항목)
+    // let imsi = arr.pop();
+
+    // arr.shift();
+    // console.log('shift After :', arr);
+    // console.log('shift After :', arr.length);
+
+    // imsi = arr.pop();
+    // console.log('shift After :', arr);
+    // console.log('shift After :', arr.length);
+
+
+    // // 맨 앞에 추가할 때, 
+    // arr.unshift('홍시');
+    // console.log('unshift After :', arr);
+    // console.log('unshift After :', arr.length);
+
+    // arr.unshift('딸기');
+    // console.log('unshift After :', arr);
+    // console.log('unshift After :', arr.length);
+
+    // arr.unshift('단감');
+    // console.log('unshift After :', arr);
+    // console.log('unshift After :', arr.length);
+
+    // // 배열의 맨뒤 배열항목 앵두를 맨앞으로 이동하라..
+    // // 1. 팝핑
+    // // 2. 임시저장
+    // // 3. 임시저장값을 맨앞에 삽입 언쉬프팅
+    // imsi = arr.pop();
+    // arr.unshift(imsi);
+    // console.log(arr);
+
+    // // 포도를 맨 앞으로 보내라 . 
+    // imsi = arr.pop();
+    // arr.unshift(imsi);
+    // console.log(arr);
+
+    // // 배열의 항목중 맨앞 포도를 맨 뒤로 보내시오. 
+    // // 배열의 맨 앞 항목을 삭제하고 임시 보관소에 보관 후, 임시값을 배열 맨뒤로 보내라. 
+    // imsi = arr.shift();
+    // arr.push(imsi);
+    // console.log(arr);
+
+    // arr.unshift('뚤기');
+    // console.log('unshift After:',arr);
+    // console.log('unshift After:',arr.length);
+
+    // imsi = arr.pop();
+    // arr.unshift(imsi);
+    // console.log(arr);
+
+ 
+
+    //arr1, 2  문제 풀이 
+
+    // arr1.shift();
+    // console.log('shift After :', arr1);
+    // console.log('shift After :', arr1.length);
+
+    // imsi = arr1.pop();
+    // console.log('shift After :', arr1);
+    // console.log('shift After :', arr1.length);
+
+    // imsi = arr1.pop();
+    // arr.unshift(imsi);
+    // console.log(arr1);
+
+    // imsi = arr2.pop();
+    // arr.unshift(imsi);
+    // console.log(arr1);
+
+   
+
+
+    // arr1.push(4,5,1);
+    // console.log('Push After : ', arr1 );
+    // console.log('Push After : ', arr1.length );
+
+    // imsi = arr1.pop();
+    // arr.unshift(imsi);
+    // console.log(arr1);
+
+   
+    //   for(let i=0; i<arr1.lenght; i++){  // i < 5
+    //     console.log( i, arr1[i] );
+    // }
+
+    // imsi = arr1.pop();
+    // console.log('shift After :', arr1);
+    // console.log('shift After :', arr1.length);
+
+    // arr1.shift();
+    // console.log('shift After :', arr1);
+    // console.log('shift After :', arr1.length);
+
+    // imsi = arr1.pop();
+    // arr.unshift(imsi);
+    // console.log(arr1);
+
+    // imsi = arr1.pop();
+    // arr.unshift(imsi);
+    // console.log(arr1);
+
+    // arr1.unshift(5,1,2,3,4);
+    // console.log('unshift After:',arr1);
+    // console.log('unshift After:',arr1.length);
+
+    // imsi = arr1.pop();
+    // arr.unshift(imsi);
+    // console.log(arr1);
+
+    // arr1.unshift(4);
+    // console.log('unshift After:',arr1);
+    // console.log('unshift After:',arr1.length);
+
+    // imsi = arr1.pop();
+    // arr.unshift(imsi);
+    // console.log(arr1);
+
+    // arr1.unshift(3);
+    // console.log('unshift After:',arr1);
+    // console.log('unshift After:',arr1.length);
+
+
+
+    // let arr1 = [1,2,3,4,5]; // 5번을 맨앞 배열항목 맨뒤로 이동하라. 
+    // console.log(arr1);
+    // for(let i=1; i<=4; i++){
+    //     imsi = arr.shift();
+    //     arr.push(imsi);
+    // }
+    // console.log(arr1);
+ 
+
+    // let arr2 = [5,4,3,2,1];
+ 
+    // console.log(arr2);
+    // for(let i=2; i<=4; i++){
+    //     imsi = arr2.pop();
+    //     arr2.unshift(imsi);
+    // }
+    // console.log(arr2);
+    
+
+//     //전개연산자 ...
+//    let arr3 = ['벤츠', '포니', '포드', 'BMW', '제네시스', '소나타', '체어맨'];
+
+//     // ES6 ~ 
+//     // 전개 연산이용 배열에 항목 추가 
+//     // push(), unshift();
+//     console.log(arr3);
+//     arr3 = [...arr3,'테슬라','아이오닉'];
+//     console.log(arr3);
+
+//     arr3 = ['코나', ...arr3];
+//     console.log(arr3);
+
+//     arr3 = ['벤츠', ...arr3];
+//     console.log(arr3);
+    
+//     arr3 = ['내전기차', ...arr3];
+//     console.log(arr3);
+
+//     // ES6 ~ 
+//     // 특정 배열 삭제하기
+//     // filter(); 
+//     // pop(), shift()
+//     // 배열 항목중 포니 차를 삭제하라 
+//     arr3 = arr3.filter((item)=>item!=='포니');
+//     console.log(arr3);
+
+    // let arr3 = ['벤츠', '포니', '포드', 'BMW', '제네시스', '소나타', '체어맨'];
+
+    // let imsiArr1 = arr3.slice(1); // 0 1 2 3 4 5 ... 
+    // let imsiArr2 = arr3.slice(2,3); // 0 1 2 3 4 5 ... 
+    // let imsiArr3 = arr3.slice(2); // 0 1 2 3 4 5 ... 
+    // let imsiArr4 = arr3.slice(-3); // 0 1 2 3 4 5 ... 
+    //     console.log(arr3);
+    //     console.log('arr3.slice(1)',imsiArr1);
+    //     console.log('arr3.slice(2)',imsiArr2);
+    //     console.log('arr3.slice(3)',imsiArr3);
+    //     console.log('arr3.slice(4)',imsiArr4);
+
+    //     let obj = {
+    //         이름 : '이순신',
+    //         아이디: 'leesunshin',
+    //         비밀번호: 'lee123',
+    //         취미: ['서핑', '낚시', '등산']
+    //     }
+       
+    //     // 비구조화 === 구조분할 할당
+    //     const {이름, 아이디, 비밀번호, 취미} = obj ; 
+    //     console.log(이름);
+    //     console.log(아이디);
+    //     console.log(비밀번호);
+    //     console.log(취미);
+
+    //     obj = {...obj, 휴대폰:'010-7942-5305'}
+    //     console.log(obj);
+
+    //     // obj = {...obj, 취미: [...취미,'쇼핑']}
+    //     // console.log(obj);
+
+        
+    //     obj = 
+    //     {   ...obj,
+    //         아이디:'seulki1229',
+    //         비밀번호: 'moon0108',
+    //         취미: [...취미,'쇼핑','먹방']
+    //     }
+    //     console.log(obj);
+
+    //     let a1 = [1, 2, 3, 4];
+    //     let a2 = [5, 6, 7, 8];
+    //     // 배열 복사
+    //     let a3 = [...a1];
+    //     // 배열 결합 Merge
+    //     let a4 = [...a1, ...a2];
+
+    //     console.log(a1);
+    //     console.log(a3);
+    //     console.log(a4);
+
+    //     // ES5
+    //     // 배열 결합(병합) Merge
+    //     let a5 = a1.concat(a2);
+    //     console.log('a5',a5);
+
+    //     // 객체 결합
+    //     let obj1 = {
+    //         번호:1,
+    //         이름:'김유신',
+    //         성별:'남성',
+    //     }
+
+    //     let obj2 = {
+    //         아이디: 'ddulki4994' ,
+    //         비밀번호:'12341234',
+    //         휴대폰: '010-7771-6035',
+    //         자격증:['운전면허증', '정보처리기사','웹디자인기능사', '중등교사자격증']
+    //     }
+
+    //     let obj3 = {...obj1, ...obj2};
+
+    //     console.log(obj3);
+
+
+    //     // 문자열 
+    //     let txt1 = "운전면허증, 정보처리기사,웹디자인기능사, 중등교사자격증, 컴퓨터활용능력1급";
+       
+
+    //     console.log(txt1);
+
+    //     let result = txt1 . split(','); // 자격증 테스트 데이터: 콤마 구분기호를 기준으로 배열을 생성해라.
+        
+    //     console.log('공백제거이전',result);
+
+    //     // 문자열 앞뒤 공백제거 trim();
+    //     result=result.map((item)=>{
+    //         return item.trim();
+    //     })
+
+    //     console.log('공백제거이후',result);
+
+
+
+    //     let txt2= "운전면허증 정보처리기사 웹디자인기능사 중등교사자격증 컴퓨터활용능력1급";
+    //     console.log(txt2);
+    //     let res = txt2.split(' ');
+    //     console.log(res);
+
+    //     let txt3= "운전면허증 정보처리기사 웹디자인기능사 중등교사자격증 컴퓨터활용능력1급";
+    //     console.log(txt3);
+    //     let res2 = txt3.split('');
+    //     console.log(res2);
+
+    //     let txt4= "운전면허증; 정보처리기사;웹디자인기능사 중등교사자격증 컴퓨터활용능력1급";
+    //     console.log(txt4);
+    //     let res4= txt4.split(';');
+    //     console.log(res4);
+
+
+    // 응용 
+    let res1 = document.cookie.split(';');
+    console.log(res1);
+
+    let res2 = document.cookie.split(';');
+        console.log(res2);
+    
+        //공백 없애기
+    res=res2.map((item)=>{
+        return item.trim();
+    })
+    console.log(res2);
+
+</script>
+
+    
+</body>
+</html>

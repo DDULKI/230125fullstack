@@ -1,0 +1,50 @@
+#main {
+    width: 100%;
+    background: #f0f0f0;
+    .section {
+        width: 100%;
+        .container {
+            width: 100%;
+            text-align: center;
+            .gap{
+                .title {
+                    h2{
+                        font-size: 30px;
+                        padding: 100px 0 60px 0;
+                    }
+                }
+                .content {
+                    width: 100%;
+                    padding: 10px 0;
+                    table{
+                        margin: 50px auto;
+                        width: 800px;
+                        border-collapse: collapse; // 줄이 붙어버림.
+                        thead {           
+                            th{
+                                height: 60px;
+                                background:  #cccc ;
+                                border: 1px solid #ccc;
+                                color: #000;
+                                font-size: 20px;
+                            }
+                        }
+                        tbody {
+                            width: 800px;
+                            td {
+                                height: 40px;
+                                text-align: center;
+                                background: #cccc;
+                                border: 1px solid #ccc;
+                                color: #000;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//넓이 100% 높이 700px 

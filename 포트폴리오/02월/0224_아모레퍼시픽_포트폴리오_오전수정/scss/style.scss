@@ -1,0 +1,514 @@
+@import url('./fonts.css');
+@import url('./reset.css');
+@import url('./skip.css');
+
+#wrap {
+    width: 100%;
+    overflow: hidden;
+    #header {
+        width: 100%;
+        height: 140px;
+        background-color: #333;
+        z-index: 3; 
+        &.on {
+            animation: header-paral-on 0.6s ease-in-out both;
+        }
+        &.off {
+            animation: header-paral-off 0.6s ease-in-out both;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1791.98px;
+            height: 100%;
+            margin: 0 auto;
+            .gap {
+                width: 100%;
+               
+                .title{
+                    width: 100%; 
+                    h2 {
+                        width: 100%;
+                        display:inline-block;
+                    }
+                }
+                .content {
+                    width: 1280px;
+                    height: 54px;
+                    margin:0 auto;
+                    background-color: #333;
+                    .left-nav {
+                        width: 100%;
+                        height:100%;
+                        display: flex;
+                        justify-content: center;
+                        > ul {
+                            width: 94.063px;
+                            height: 22.391px;
+                            display: flex;
+                           
+                        > li {
+                                margin: 18px 0 0 20px;
+                               
+                                a {
+                                    font-size: 14px;
+                                    display: flex;
+                                    align-items: center;
+                                    overflow: hidden;
+                                    transition: all 0.3s;
+                                    display: block;
+                                    &::after {
+                                        content: '';
+                                        margin: 6px 0 0 0;
+                                        display: block;
+                                        width: 100%;
+                                        height: 2px;
+                                        background: rgba(34, 131, 212, 0); // 투명색상
+                                        transition: all 0.3s;
+                                    }
+                                    &:hover {
+                                        color: #626262;
+                                    }
+                                    &.on {
+                                        color: #626262;
+                                    }
+                                    &:hover::after {
+                                        background-color: rgb(255,255,255);
+                                    }
+                                    &:on::after {
+                                        background-color: rgb(255,255,255);
+                                    }
+                                    
+
+                                   
+                                }
+                            }
+                        }
+                    }
+                    .center {
+                        width: 1280px;
+                        height: 100%;
+                        h1 {
+                            display: block;
+                            justify-content: center;
+                            margin:0 auto;
+                            a {
+                                width: 100%;
+                                height: 100%;
+                                // padding: 0 130px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                overflow: hidden;
+                                background: url() no-repeat 50% 50%;
+                                background-size: cover; 
+                                img { 
+                                    top: 0;
+                                    left: 0;
+                                    bottom:60px;
+
+                                }
+                             }
+                           
+                            }
+                        }
+                    }
+                    .nav {
+                        width: 100%; 
+                        height: 60px; 
+                        padding: 100px;
+                        display: flex;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #ccc;
+                        ul {
+                            display: flex;
+                            margin: 0 30px 0 0;
+                            li {
+                               margin: 70px 20px 0 50px; 
+                                a {
+                                    line-height: 24px;
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                    .right-icon {
+                        width: 151px;
+                        height: 36px;
+                        position: relative;
+                            ul{
+                                width: 100%;
+                                display: block;
+                                margin: auto;
+                                align-items: center;
+                                justify-content: center;
+                                span {
+                                    display: inline-block;
+                                    a {
+                                        margin: 0 20px; 
+                                       img {
+                                        font-size:15px;
+                                       }
+                                    }
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    }
+
+#main {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    #section1 {
+        width: 100%;
+        .container {
+            width: 100%; 
+            position: relative;
+            .slide-container {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                .slide-view {
+                    z-index: 2;
+                    position:relative;
+                    width: 100%;
+                    overflow: hidden;
+                    .slide-wrap {
+                        pointer-events: none;
+                        width: 100% * 5;
+                        display: flex;
+                        position: relative;
+                        margin: 0 0 0 -100%;
+                        $cnt: 0;
+                        left: -100% * $cnt;
+                       .slide {
+                        width: 100vw;
+                        height: 100vh;
+                        background: url() no-repeat 50% 50%;
+                        background-size: cover;
+
+                        &.slide1 {background-image: url(../img/main_1920_01.jpg);}
+                        &.slide2 {background-image: url(../img/main_1920_02.jpg);}
+                        &.slide3 {background-image: url(../img/main_1920_03.jpg);}
+                       } 
+                       
+                    }
+                   
+                }
+            }
+            .title {
+                user-select: none;
+                position : absolute;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                div {
+                    width: 100%;
+                    max-width: 1280px;
+                    transition: all 0.3s;
+                    h2 {
+                        display: inline-block;
+                        color: rgb(255,255,255);
+                        font-size: 18px;
+                        padding : 0 0 50px 0;
+                        &::before {
+                            content:'';
+                            position: absolute;
+                            left: -60px;
+                            top: 50%;
+                            margin: -0.5px 0 0 0;
+                            width: 40px;
+                            height: 1px;
+                            background: rgb(255,255,255);
+                        }
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            right:-60px;
+                            top: 50%;
+                            margin: -0.5px 0 0 0;
+                            width: 40px;
+                            height: 1px; 
+                            background: rgb(255,255,255);
+                        }
+                        
+                    }
+                    br {width: 100%;}
+                    h1 {
+                        font-size: 60px;
+                        font-weight: 400;
+                        color: rgb(255,255,255);
+                        padding: 0 0 35px 0;
+                    }
+                    h3 {
+                        font-size: 18px;
+                        letter-spacing: -0.3;
+                        line-height: 28.8px;
+                        color: rgb(255,255,255);
+                    }
+                }
+                
+            }
+        }
+    }
+
+    #section2 {
+       
+        width: 100%;
+        height: 644px;
+        background: rgb(255,255,255);
+        background-size: 100% auto;
+        .container {
+           position: relative;
+           width: 100%;
+           height: 100%;
+           max-width: 1154.780px;
+           margin: 0 auto;
+            .gap {
+                width: 100%;
+                .title {
+                    width: 100%; 
+                    height: 100%;
+                    padding: 0 20px 0 10px;
+                    h1 {
+                        display: inline-block;
+                        font-size: 32px;
+                        position: relative;
+                        font-weight: 400;
+                        margin: 70px 0 30px 0;
+                     
+                    }
+                }
+                .content {
+                    width: 100%; 
+                    max-width: 1600px;
+                    
+                    ul {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        li {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            .col-gap {
+                                width: 100%;
+                                padding: 0 11px;
+                                justify-content: center;
+                                .img-box {
+                                    width: 100%;
+                                    display: flex;
+                                    position: relative;
+                                    z-index: 1;
+                                    transition: all;
+                                   
+                                    img{
+                                      display: flex;
+                                      position: relative;
+                                      z-index: 1;
+                                      transition: all 0.3s;
+
+                                    }
+                                }
+                                .txt-box {
+                                    width: 100%;
+                                    position: relative;
+                                    display: flex;
+                                   
+                                   
+                                    a {
+                                        z-index: 3;
+                                        height: 62px;
+                                        position: absolute;
+                                        right: 0;
+                                        bottom: 0;
+                                        padding: 15px 25px;
+                                        h2 {
+                                            top: 
+                                            font-size: 18px;
+                                           br {
+                                            width: 100%;
+                                           }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #section3 {
+        width:100%; 
+        height: 832.047px;
+        background-color: rgb(70,20,30);
+        .container {
+           position: relative;
+           width: 100%;
+           height: 100%; 
+           
+            .gap {
+                width: 100%;
+                .title { 
+                    width: 100%; 
+                    text-align: center;
+                    top: 0;
+                    padding: 0 15px 90px 15px;
+                    h2 {
+                        display: inline-block;
+                        font-size:18px;
+                    }
+                }
+                .content {
+                    width: 100%;
+                    .slide-container {
+                        width: 100%;
+                        left:-5709px;
+                        .slide-view {
+                            width: 100%;
+                            .slide-wrap {
+                                    width: calc(100% / 4 * 5);
+                                    display: flex;
+                                    position: relative;
+                                .slide {
+                                    width: clac(100%/5);
+                                    .col-gap {
+                                        width: auto;
+                                        margin: 0 5px;
+                                        .top-box {
+                                            width: 100%;
+                                            position: relative;
+                                            img {
+                                                width: 284.875px;
+                                                height: 284.875px;
+                                                position: relative;
+                                                z-index: 1;
+                                                transition: all, 0.3s;
+                                            }
+                                            span {
+                                                width: 100%;
+                                                text-align: center;
+                                                padding: 0 15px 90px 15px;
+                                                em {
+                                                    z-index:1;
+                                                    font-size: 18px;
+                                                    text-align: center;
+                                                    position: relative;
+                                                  
+                                                }
+                                            }
+                                        }
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                }
+            }
+        }
+       
+        
+    }
+    #section4 {
+        width: 100%;
+        height: 852.19px;
+        background: rgb(255,255,255);
+       
+        .container {
+            width: 100%;
+            .gap {
+                width: 100%;
+                .title {
+                    width: 100%;
+                    text-align: center;
+                    padding: 0 15px 90px 15px;
+                    h2 {
+                        display: inline-block;
+                        font-size: 32px;
+                        position: relative;
+                        font-weight: 400;
+
+                    }
+                }
+                .content {
+                    width: 100%;
+                    .slide-container {
+                        width: 100%;
+                        .slide-view {
+                            width: 100%;
+                            overflow: hidden;
+                            .slide-wrap {
+                                width: calc(100% / 5 * 6);
+                                display: flex;
+                                position:relative;
+                                 
+                                .slide {
+                                    width: calc(100%/5);
+                                    .col-gap {
+                                        width: auto; 
+                                        margin: 0 15px; 
+                                        .top-box {
+                                            width: 100%; 
+                                            position: relative;
+                                            overflow: hidden;
+                                            img {
+                                                width: 100%;
+                                                position: relative;
+                                                z-index: 1;
+                                                transition: all, 0.3s;
+                                            }
+                                        }
+                                        .bottom-box {
+                                            width: 100%;
+                                            position: relative;
+                                            span {
+                                              
+                                                z-index: 3;
+                                                display: block;
+                                                right: 0;
+                                                bottom: 0;
+                                                text-align: center;
+                                                padding: 50px 0;
+                                                img {
+                                                position: relative;
+                                                text-align: center;
+                                                z-index: 1;
+                                                transition: all;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+#footer {
+    width: 100%;
+    height: 181.203px;
+    background-color: aquamarine;
+    margin:140px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
