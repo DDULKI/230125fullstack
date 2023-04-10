@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적폼</title>
+</head>
+<body>
+    <div id="wrap">
+        <form autocomplete="off" name="grade_form" id="gradeForm" method="post" action="./J01_02_선생님.jsp">
+            <table>
+                <thead>
+                    <tr>
+                        <th>이름</th>
+                        <th>국어</th>
+                        <th>영어</th>
+                        <th>수학</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="name" id="Name" placeholder="이름" required autofocus></td>
+                        <td><input type="text" name="kor"  id="Kor"  placeholder="국어 점수" required autofocus></td>
+                        <td><input type="text" name="eng"  id="Eng"  placeholder="영어 점수" required autofocus></td>
+                        <td><input type="text" name="mat"  id="Mat"  placeholder="수학 점수" required autofocus></td>
+                    </tr>  
+                </tbody>
+            </table>
+
+            <button type="submit">입력완료</button>
+        </form>
+
+        <style>
+            * {margin: 0; padding: 0;vertical-align: middle; box-sizing: border-box;}
+            #wrap {width: 100%;padding: 100px 0;}
+            #wrap form {width: 600px; margin: 0 auto; font-size: 14px;}
+            #wrap form table {border-collapse: collapse; width: 100%;}
+            #wrap form table th,td {border: 1px solid #ddd; height: 50px;}
+            #wrap form table th {background: #f0f0f0;}
+            #wrap form table td {text-align: center;}
+            #wrap form table td input{ border :0; width: 100%; height: 100%; font-size: 14px; text-align: center;}
+            #wrap form table td input:focus{ outline: 0;}
+            #wrap form table button{text-align: center;}
+            
+
+        </style>
+
+
+    </div>
+</body>
+</html>

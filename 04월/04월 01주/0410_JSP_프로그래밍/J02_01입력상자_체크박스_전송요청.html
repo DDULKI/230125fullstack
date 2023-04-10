@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관심있는 언어 과목 체크박스 요청 </title>
+</head>
+<body>
+
+    <!-- 이름 
+    입력상자 
+
+    관심있는 언어 과목 
+    입력 체크박스로 만들기 
+    HTML5, CSS3, SASS, JS, JQUERY, REACT, JAVA, JSP -->
+
+    <div id="wrap">
+        <form autocomplete="off" name="language_form" id="languageForm" method="post" action="./J02_02_입력상자_체크박스_응답.jsp">
+            <table>
+                <thead>
+                    <tr>
+                        <th>이름</th>
+                        <th colspan="8">관심있는 언어과목</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label><input type="text" name="name" id="name"  required autofocus></label></td>
+                        <td><label>HTML5<input type="checkbox" name="language" id="language1" value="HTML5" ></label></td>
+                        <td><label>CSS3<input type="checkbox" name="language"  id="language2" value="CSS3" ></label></td>
+                        <td><label>SASS<input type="checkbox" name="language"  id="language3" value="SASS" ></label></td>
+                        <td><label>JS<input type="checkbox" name="language"    id="language4" value="JS" ></label></td>
+                        <td><label>JQUERY<input type="checkbox" name="language"id="language5" value="JQUERY" ></label></td>
+                        <td><label>REACT<input type="checkbox" name="language" id="language6" value="REACT" ></label></td>
+                        <td><label>JAVA<input type="checkbox" name="language"  id="language7" value="JAVA"></label></td>
+                        <td><label>JSP<input type="checkbox" name="language"   id="language8" value="JSP"></label></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit">선택완료</button>
+        </form>
+        <style>
+            * {margin: 0; padding: 0;vertical-align: middle; box-sizing: border-box;}
+            #wrap {width: 100%;padding: 100px 0;}
+            #wrap form {width: 600px; margin: 0 auto; font-size: 14px;}
+            #wrap form table {border-collapse: collapse; width: 100%;}
+            #wrap form table th,td {border: 1px solid #ddd; height: 50px;}
+            #wrap form table th {background: #f0f0f0;}
+            #wrap form table td {text-align: center;}
+            #wrap form table td input[type='text']{border: 0; width: 100%; height: 100%; text-align: center;background: #fcfcfc;}
+            #wrap form table td input[type='checked']{width: 50px; height: 50px;}
+            #wrap form table td input:focus{outline: 0; }
+            #wrap form button {width: 100%; }
+            
+
+        </style>
+    </div>
+
+    
+</body>
+</html>
