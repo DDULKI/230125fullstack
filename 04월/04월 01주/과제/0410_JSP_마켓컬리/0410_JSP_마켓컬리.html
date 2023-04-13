@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/signup.css">
+    <title>마켓컬리_JSP</title>
+    
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="container">
+        <div class="gap">
+          <div class="title">
+            <h1>회원가입</h1>
+          </div>
+          <div class="content">
+            <form action="./마켓컬리.jsp" method="post" name="sign_up_form">
+              <ul>
+                <li>
+                  <div class="sub-title">
+                    <span>아이디</span>
+                  </div>
+                  <input
+                    type="text"
+                    name="user_id"
+                    id=""
+                    placeholder="아이디를 입력해주세요"
+                  />
+                  <button type="button">중복확인</button>
+                </li>
+                <li>
+                  <div class="sub-title">
+                    <span>비밀번호</span>
+                  </div>
+                  <input
+                    type="text"
+                    name="user_pw"
+                    id=""
+                    placeholder="비밀번호를 입력해주세요"
+                  />
+                </li>
+                <li>
+                  <div class="sub-title">
+                    <span>비밀번호확인</span>
+                  </div>
+                  <input
+                    type="text"
+                    name="user_pw_ok"
+                    id=""
+                    placeholder="비밀번호를 한번 더 입력해주세요"
+                  />
+                </li>
+                <li>
+                  <div class="sub-title">
+                    <span>이름</span>
+                  </div>
+                  <input
+                    type="text"
+                    name="user_irum"
+                    id=""
+                    placeholder="이름을 입력해 주세요"
+                  />
+                </li>
+                <li>
+                  <div class="sub-title">
+                    <span>이메일</span>
+                  </div>
+                  <input type="text" name="user_email" id="" />
+                  <button type="button">중복확인</button>
+                </li>
+                <li>
+                  <div class="sub-title">
+                    <span>휴대폰</span>
+                  </div>
+                  <input type="text" name="user_hp" id="" />
+                </li>
+                <li>
+                  <div class="sub-title">
+                    <span>성별</span>
+                  </div>
+                  <input type="radio" name="sex" value="male" />남자
+                  <input type="radio" name="sex" value="female" />여자
+                  <input type="radio" name="sex" value="none" />선택안함
+                </li>
+                <li>
+                  <div class="sub-title">
+                    <span>생년월일</span>
+                  </div>
+                  <div class="birth-box">
+                    <input type="text" maxlength="4" name="user_year" placeholder="YYYY">
+                    <input type="text" maxlength="2" name="user_month" placeholder="MM">
+                    <input type="text" maxlength="2" name="user_day" placeholder="DD">
+                  </div>
+                </li>
+              </ul>
+              <button type="submit">회원가입</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
