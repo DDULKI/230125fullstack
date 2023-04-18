@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+#wrap {
+  width: 100%;
+}
+#wrap .container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+#wrap .container .gap {
+  width: 100%;
+  padding: 50px 0px;
+}
+#wrap .container .gap .title {
+  width: 100%;
+  text-align: center;
+}
+#wrap .container .gap .content {
+  width: 100%;
+}
+#wrap .container .gap .content form {
+  width: 100%;
+}
+#wrap .container .gap .content form ul {
+  width: 100%;
+  padding: 0 20px;
+}
+#wrap .container .gap .content form ul li {
+  display: flex;
+  padding: 10px 0;
+}
+#wrap .container .gap .content form ul li .sub-title {
+  width: 139px;
+}
+#wrap .container .gap .content form ul li .sub-title span {
+  display: inline-block;
+  padding: 6px 0 0 0;
+}
+#wrap .container .gap .content form ul li > input[type=text] {
+  width: 330px;
+  height: 46px;
+  padding: 0 10px;
+}
+#wrap .container .gap .content form ul li > input[type=radio] {
+  display: flex;
+  justify-content: space-between;
+}
+#wrap .container .gap .content form ul li > button {
+  width: 120px;
+  margin: 0 0 0 5px;
+  color: #58f;
+}
+#wrap .container .gap .content form ul li .birth-box {
+  width: 330px;
+  display: flex;
+  border: 1px solid #333;
+}
+#wrap .container .gap .content form ul li .birth-box > input {
+  text-align: center;
+  width: 33.3333333333%;
+  border: 0;
+  outline: none;
+}
+#wrap .container .gap .content form > button {
+  width: 100%;
+  height: 30px;
+  color: #58f;
+}

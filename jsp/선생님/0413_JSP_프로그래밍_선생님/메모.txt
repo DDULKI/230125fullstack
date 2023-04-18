@@ -1,0 +1,5 @@
+localhost:8080/jsp/0413_JSP_프로그래밍/j01_form_data_ajax_request.jsp
+
+
+j01_form_data_ajax_request.jsp
+j02_form_data_ajax_response.jsp

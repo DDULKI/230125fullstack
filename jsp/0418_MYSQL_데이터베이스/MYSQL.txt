@@ -1,0 +1,122 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 24
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> create database user;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| user               |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql>
+
+닷홈 관리자페이지 
+ddulki.dothome.co.kr/myadmin
+ddulki4994
+qjwm4547!
+
+
+데이터베이스 명(이름) user 안에 테이블을 만든다.
+그럴려면 먼저 사용을 허락받는다. 
+나는 지금부터 user 데이터베이스를 사용합니다. 
+
+use user;
+Database changed 
+
+이동한 user 데이터 베이스안에 모든 테이블을 보여달라. 
+현재는 아무것도 없다(비어있다.) 방금만든 데이터베이스 이기 때문에... 
+
+show tables; 
+Empty set (0.01sec)
+
+user 데이터 베이스안에 signin 테이블 만들기 
+
+signin 테이블 설계 
+
+필드명(Field)    타입
+user_id         가변형문자열 (VARCHAR(16))
+user_pw         가변형문자열 (VARCHAR(16))
+
+
+테이블만들기
+
+CREATE TABLE signin (
+    user_id VARCHAR(16),
+    user_pw VARCHAR(16)
+);
+
+mysql> CREATE TABLE signin (
+    ->     user_id VARCHAR(16),
+    ->     user_pw VARCHAR(16)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_user |
++----------------+
+| signin         |
++----------------+
+1 row in set (0.00 sec)
+
+
+테이블 구조보기 
+desc signin; 
+
+mysql> desc signin;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| user_id | varchar(16) | YES  |     | NULL    |       |
+| user_pw | varchar(16) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+관계형 데이터베이스 
+SQL(Structire Query Language) 주조적 질의어 언어 
+
+signin 테이블에 
+데이터 넣기 
+
+INSERT INTO signin(user_id, user_pw) 
+VALUES
+('ddulki4994', 'qjwm4547!'),
+('leedonghui', 'dongdong1'),
+('imjingung', 'jin123'),
+('gangbonggun', 'bong2'),
+('iloveyou', 'you1004');
+
+mysql>

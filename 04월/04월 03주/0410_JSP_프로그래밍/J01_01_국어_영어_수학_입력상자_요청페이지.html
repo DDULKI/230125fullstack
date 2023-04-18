@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적입력폼</title>
+
+
+</head>
+<body>
+<div class="wrap">
+
+    
+    <!-- 1. 
+    form 전송방식 get 
+    입력상자 3개 국어, 영어, 수학 
+    전송버튼 1개 
+
+    2. 
+    전송버튼 누르면 응답하는.jsp 를 제작 구현하시오. 
+    3과목 점수 출력  
+    총점, 평균을 충력  -->
+
+    <form autocomplete="off" name="sg_form" id="sgForm" method="post" action="./J01_02_국어_영어_수학_응답페이지.jsp">
+        <label for="userko"><input type="text" name="user_ko" id="userKo" placeholder="국어 점수를 입력하세요" required autofocus></label>
+        <label for="userEn"><input type="text" name="user_en" id="userEn" placeholder="영어 점수를 입력하세요" required autofocus></label>
+        <label for="userMa"><input type="text" name="user_ma" id="userMa" placeholder="수학 점수를 입력하세요" required autofocus></label>
+        <input type="submit" value="전송">
+    </form>
+
+</div>
+
+</body>
+</html>
