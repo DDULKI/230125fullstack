@@ -1,0 +1,92 @@
+데이터베이스 목록을 보여라
+show databases; 
+
+user 데이터베이스를 만들기 
+create database user; 
+
+ddulki 데이터베이스를 만들기 
+create database ddulki;
+
+user 데이터베이스 사용 
+use user; 
+
+ddulki 데이터베이스 사용 
+use ddulki;
+
+use 데이터베이스 안에 있는 테이블을 모두 보여라 
+show tables; 
+
+테이블의 구조를 보여라 
+desc user; 
+
+테이블안에 모든 목록중 사용자 아이디(user)를 보여라. 
+select user from user;
+
+///////////////////////////////////////////////////
+
+TODO LIST 테이블 만들기 
+
+테이블이름 todo_list 
+
+필드명      타입   길이     주키           자동증가번호          코멘트
+idx         int    11   PRIMARY KEY     AUTO_INCREMENT      자동증가번호
+todo_list VARCHAR(250)  NOT NULL(빈값 허용 안함)          오늘의 할일
+create_date timestamp(타임스템프)
+
+테이블 만들기 
+
+CREATE TABLE todo_list (
+    idx             int             NOT NULL    PRIMARY KEY     AUTO_INCREMENT, 
+    todo_list       VARCHAR(250)    NOT NULL,
+    create_date     timestamp       DEFAULT     CURRENT_TIMESTAMP
+)   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+테이블에 데이터 삽입하기(INSERT INTO 테이블명() VALUES())
+
+INSERT INTO todo_list(필드 1, 필드2, ...) VALUES(값1, 값2, ...);
+
+
+INSERT INTO todo_list(todo_list, create_date) 
+VALUES
+("할머니네 가기", now()),
+("빨래하기", now()),
+("설거지하기", now()),
+("자바스크립트 복습하기", now()),
+("자바 복습하기", now()),
+("존윅 영화 보기", now()),
+("치과가기", now()),
+("스시집가기", 2023-04-22);
+
+데이터 조회하기 
+SELECT * FROM todo_list; 
+
+
+테이블이름 
+
+address 
+
+필드명      타입   길이     주키           자동증가번호          코멘트
+idx         int    11   PRIMARY KEY     AUTO_INCREMENT      자동증가번호
+name    VARCHAR(50)   NOT NULL(빈값 허용 안함)          
+hp      VARCHAR(13)   NOT NULL(빈값 허용 안함)
+addr    VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+create_date timestamp(타임스템프)
+
+CREATE TABLE address (
+    idx             int        NOT NULL    PRIMARY KEY     AUTO_INCREMENT, 
+    name       VARCHAR(250)    NOT NULL,
+    hp         VARCHAR(13)     NOT NULL,     
+    addr       VARCHAR(250)    NOT NULL,   
+    create_date  timestamp     NOT NULL        DEFAULT     CURRENT_TIMESTAMP
+)   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO address (name, hp, addr, create_date) 
+VALUES
+("정슬기", "010-7771-6035", "서울서대문구",now() ),
+("이동희", "010-8557-0517", "서울서대문구",now() ),
+("진보미", "010-4553-5843", "서울서대문구",now() ),
+("김은아", "010-3873-5383", "서울서대문구",now() ),
+("이석율", "010-2528-1548", "은평구", now()      );
+
+SELECT * FROM address; 

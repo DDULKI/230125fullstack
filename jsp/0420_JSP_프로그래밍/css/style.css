@@ -1,0 +1,21 @@
+* {margin: 0; padding: 0; vertical-align: middle; box-sizing: border-box;}
+html, body {width: 100%; height: 100%; }
+body {font: normal 15px/1 "맑은고딕", "arial"; color: #444; background: #fff;}
+#wrap {width: 100%;}
+#wrap form {padding: 50px 150px 100px 150px; width: 100%; max-width: 1000px; margin: 100px auto; background: #f0f0f0;}
+#wrap form table{width: 100%;}
+#wrap form table th,td {width: 100%;}
+#wrap form table th {height:180px; font-size: 50px; font-weight: 600; color: #000;}
+#wrap form table td {height: 70px;}
+#wrap form table td input{height: 100%; width: 100%; background: #fff; border: 0;outline-offset: -1px;  transition: all 0.3s; padding: 0 20px;}
+#wrap form table td input:focus{outline: 1px solid #777;}
+#wrap form button {margin: 50px 0 0 0; width: 100%; height: 60px; border: 0; background: #5f805f; color: #fff; font-size: 20px; font-weight: 600; cursor: pointer;}
+#wrap .top {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: right;
+    padding: 20px 0;
+}
+#wrap .top a{color: rgb(51, 136, 170, 0.7); font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s;}
+#wrap .top a:hover{color:rgb(51, 136, 170, 1);}

@@ -1,0 +1,4 @@
+
+
+localhost:8080/jsp/0420_JSP_프로그래밍/index.jsp
+localhost:8080/jsp/0420_JSP_프로그래밍/todo_list_view.jsp
