@@ -1,0 +1,56 @@
+localhost:8080/jsp/과제/국민건강보험연습1/index.jsp
+localhost:8080/jsp/과제/국민건강보험연습1/index.jsp
+
+데이터베이스 목록을 보여라 
+show databases; 
+
+use ddulki; 
+show tables; 
+
+테이블의 구조를 보여라 
+desc ddulki; 
+
+데이터 조회하기 
+SELECT * FROM gungang_saupjang; 
+
+필드명        타입        길이    주키         자동증가번호      코멘트
+idx           int         11      NOT NULL  PRIMARY KEY    AUTO_INCREMENT  자동증가번호
+gr_num              VARCHAR(250)  NOT NULL,    
+saup_giho           VARCHAR(250)  NOT NULL,    
+gaib_yb             VARCHAR(250)  NOT NULL,    
+user_id             VARCHAR(250)  NOT NULL,    
+user_pw1            VARCHAR(250)  NOT NULL,    
+sel_pw              VARCHAR(250)  NOT NULL,    
+pwbs_ok             VARCHAR(250)  NOT NULL, 
+user_hp             VARCHAR(250)  NOT NULL, 
+input_email         VARCHAR(250)  NOT NULL, 
+email_domain_select VARCHAR(250)  NOT NULL, 
+sosic_ok            VARCHAR(250)  NOT NULL,
+sosic_no            VARCHAR(250)  NOT NULL,
+create_date timestamp             NOT NULL      DEFAULT     CURRENT_TIMESTAMP
+
+CREATE TABLE gungang_saupjang (
+    idx     int     NOT NULL        PRIMARY KEY         AUTO_INCREMENT,
+    gr_num              VARCHAR(250)  NOT NULL,    
+    saup_giho           VARCHAR(250)  NOT NULL,    
+    gaib_yb             VARCHAR(250)  NOT NULL,    
+    user_id             VARCHAR(250)  NOT NULL,    
+    user_pw1            VARCHAR(250)  NOT NULL,    
+    sel_pw              VARCHAR(250)  NOT NULL,    
+    pwbs_ok             VARCHAR(250)  NOT NULL, 
+    user_hp             VARCHAR(250)  NOT NULL, 
+    input_email         VARCHAR(250)  NOT NULL, 
+    email_domain_select VARCHAR(250)  NOT NULL, 
+    sosic_ok            VARCHAR(250)  NOT NULL,
+    sosic_no            VARCHAR(250)  NOT NULL,
+    create_date     timestamp         NOT NULL      DEFAULT     CURRENT_TIMESTAMP
+)   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO gungang_saupjang(gr_num,saup_giho,gaib_yb,user_id,user_pw1,sel_pw,pwbs_ok,user_hp,input_email,email_domain_select,sosic_ok,sosic_no,create_date)
+VALUES
+("110-2293-28383","ABCD","EFGHIGK2","seulki4694","tmfrldi","질문을 선택하세요.","목걸이","01077716035","seulki4994@naver.com","네이버","안받음","안받음",now()),
+("11-2293-28383","ABCD","EFGHIGK3","seulki4594","tmfrldi","질문을 선택하세요.","목걸이","01077716035","seulki4994@naver.com","네이버","안받음","안받음",now()),
+("10-2293-28383","ABCD","EFGHIGK4","seulki4494","tmfrldi","질문을 선택하세요.","목걸이","01077716035","seulki4994@naver.com","네이버","안받음","안받음",now()),
+("0-2293-28383","ABCD","EFGHIGK5","seulki4394","tmfrldi","질문을 선택하세요.","목걸이","01077716035","seulki4994@naver.com","네이버","안받음","안받음",now()),
+("55-2293-28383","ABCD","EFGHIGK6","seulki4294","tmfrldi","질문을 선택하세요.","목걸이","01077716035","seulki4994@naver.com","네이버","안받음","안받음",now()),
+("12-2293-28383","ABCD","EFGHIGK7","seulki4194","tmfrldi","질문을 선택하세요.","목걸이","01077716035","seulki4994@naver.com","네이버","안받음","안받음",now());

@@ -1,0 +1,110 @@
+#wrap {
+    width: 100%;
+    .intro {
+        width: 100%;
+        #section1 { 
+            width: 100%;
+            .container {
+                width: 100%;
+                .gap { width: 100%;
+                    .content {
+                        width: 100%;
+                        .slide-container {
+                            width: 100%;
+                            .slide-view {
+                                width: 100%;
+                                overflow: hidden;
+                                .slide-wrap{
+                                    width: 100% * 25;
+                                    display: flex;
+                                    margin: 0 0 0 -100%;
+                                    position: relative;
+                                    .slide {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #section2 {
+            width:100%;
+            padding: 80px 0;
+            .container {
+                width: 100%;
+                max-width: 1068px;
+                margin: 0 auto; 
+
+                .gap {
+                    width: 100%;
+                    .title {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0 0 40px 0;
+                        h2 {
+                            font-size: 28px;
+                            font-weight: 600;
+                            color: #000;
+
+                        }
+                    }
+                    .content {
+                        width: 100%;
+                        .slide-container {
+                            width: 100%;
+                            .slide-view {
+                                width: 100%;
+                                overflow: hidden;
+                                .slide-wrap {
+                                    width: 25% * 36; // 25% * 20
+                                    margin: 0 0 0 (-25% * 8);
+                                    display: flex;
+                                    .slide  {
+                                        width: 25%;
+                                        .col-gap {
+                                            padding: 0 9px;
+                                            width: 100%;
+                                            a {
+                                                display: block;
+                                                width: 100%;
+                                                position: relative;
+                                                .img-box {
+                                                    > img {
+                                                        width: 100%;
+                                                        z-index: 1;
+                                                        position: relative;
+                                                    }
+                                                    > span {
+                                                        position: absolute;
+                                                        right: 20px;
+                                                        bottom: 20px;
+                                                        z-index: 2;
+                                                        img {
+                                                            width: auto;
+                                                        }
+                                                    }
+                                                }
+                                                .txt-box {
+                                                    width: 100%;
+                                                    ul {
+                                                        padding: 10px 0 0 0;
+                                                        li {
+                                                            strong {}
+                                                            em {}
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

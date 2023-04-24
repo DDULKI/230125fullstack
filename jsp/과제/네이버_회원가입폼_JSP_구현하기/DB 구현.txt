@@ -1,0 +1,19 @@
+
+CREATE TABLE naver(
+    idx int NOT NULL    PRIMARY KEY AUTO_INCREMENT,
+    id  VARCHAR(16) NOT NULL,
+    pw  VARCHAR(16) NOT NULL,
+    pwok    VARCHAR(16) NOT NULL,
+    name    VARCHAR(20) NOT NULL,
+    birth   VARCHAR(15) NOT NULL,
+    gender  VARCHAR(4)  NOT NULL,
+    email   VARCHAR(100)    NOT NULL,
+    country VARCHAR(100)    NOT NULL,
+    hp  VARCHAR(15) NOT NULL,
+    hpck VARCHAR(10)   NOT NULL,
+    create_date timestamp DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO naver(id,pw,pwok,name,birth,gender,email,country,hp,hpck,create_date)
+VALUES
+("qwer1234","1234","1234","최영환","20000526","남자","dkfbej0526@naver.com","대한민국 +82","01012345668","1234",now());
