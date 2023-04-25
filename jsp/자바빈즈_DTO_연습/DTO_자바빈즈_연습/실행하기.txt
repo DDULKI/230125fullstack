@@ -1,0 +1,2 @@
+localhost:8080/jsp/과제/자바빈즈_DTO_연습/DTO_자바빈즈_연습/sj_javabeans.DTO.jsp
+localhost:8080/jsp/자바빈즈_DTO_연습/DTO_자바빈즈_연습/sj_javabeans.DTO.jsp

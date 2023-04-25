@@ -1,0 +1,1 @@
+localhost:8080/jsp/0425_JSP_DTO/DTO_자바빈즈/성적표_자바빈즈_DTO.jsp

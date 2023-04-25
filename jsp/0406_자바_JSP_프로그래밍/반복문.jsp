@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <h1>반복문 구현하기 dhodkseho</h1>
+    <h1>반복문 구현하기 </h1>
     <h3>문자열 배열 생성하기</h3>
     <%
         String[] str_arr = {"JAVA", "JSP", "REACT", "NODE", "SASS", "PHP", "VUE", "JQUERY", "JAVASCRIPT", "TYPESCRIPT"}; 

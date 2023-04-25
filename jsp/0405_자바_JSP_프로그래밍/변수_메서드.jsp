@@ -27,7 +27,7 @@
             return companyName;
         }
         
-        // stter 
+        // setter 
         // 세터함수
         // 설정용(수정, 기록) 메서드 
         // set변수명 카멜케이스 기법 

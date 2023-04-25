@@ -1,0 +1,2 @@
+localhost:8080/jsp/0425_javaBeans_dto/유즈빈/유즈빈_DTO.jsp
+localhost:8080/jsp/0425_javaBeans_dto/유즈빈/전송폼.jsp

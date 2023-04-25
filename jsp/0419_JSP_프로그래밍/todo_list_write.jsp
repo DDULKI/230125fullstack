@@ -29,13 +29,13 @@
     );
 
     // 3. SQL 
-    Statement ps = conn.createStatement();
+    // Statement ps = conn.createStatement();
 
     // 4-1. 
     String sql = "INSERT INTO todo_list(todo_list) VALUES(?)";
 
     // 4-2.
-    PreparedStatement ps = conn.preparedStatement(sql);
+    PreparedStatement ps = conn.prepareStatement(sql);
     
     // 4-3. 
     ps.setString(1, todo);
