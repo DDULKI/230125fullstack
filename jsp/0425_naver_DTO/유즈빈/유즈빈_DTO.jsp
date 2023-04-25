@@ -7,7 +7,7 @@
 
 <jsp:useBean id="newBeans" class="use_bean1.Beans" scope="page"/>
 <jsp:setProperty property="id"              name="newBeans" />
-<jsp:setProperty property="pw1"              name="newBeans" />
+<jsp:setProperty property="pw"             name="newBeans" />
 <jsp:setProperty property="name"            name="newBeans" />
 <jsp:setProperty property="birth_year"      name="newBeans" />
 <jsp:setProperty property="birth_month"     name="newBeans" />
@@ -36,7 +36,6 @@
 <body>
     
     <h1>네이버 자바 빈즈 useBean DTO</h1>
-    <hr>
     <h2><%=newBeans.getId()%></h2>
     <h2><%=newBeans.getPw()%></h2>
     <h2><%=newBeans.getName()%></h2>

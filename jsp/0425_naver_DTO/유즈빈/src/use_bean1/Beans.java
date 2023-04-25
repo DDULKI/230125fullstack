@@ -5,12 +5,11 @@ package use_bean1;
  */
 public class Beans {
     private String id;
-    private String pw1;
+    private String pw;
     private String name;
     private String birth_year;
     private String birth_month;
     private String birth_day;
-    private String birth;
     private String gender;
     private String email;
     private String nation;
@@ -24,12 +23,12 @@ public class Beans {
         this.id = id;
     }
 
-    public String getPw1() {
-        return this.pw1;
+    public String getPw() {
+        return this.pw;
     }
 
-    public void setPw(String pw1) {
-        this.pw1 = pw1;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
     public String getName() {
@@ -64,14 +63,6 @@ public class Beans {
         this.birth_day = birth_day;
     }
 
-    public String getBirth() {
-        return this.birth;
-    }
-
-    public void setBirth(String birth) {
-        this.birth = birth;
-    }
-
     public String getGender() {
         return this.gender;
     }
@@ -103,5 +94,10 @@ public class Beans {
     public void setHp(String hp) {
         this.hp = hp;
     }
+
     
+
+
+    
+
 }

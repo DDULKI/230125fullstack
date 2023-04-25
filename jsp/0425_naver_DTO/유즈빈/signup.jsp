@@ -12,6 +12,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>네이버 회원가입</title>
+    <style>
+        *{margin: 0; padding: 0; vertical-align: middle; box-sizing: border-box;}
+        body {background: #ffff;}
+        #wrap {width:100%; max-width: 460px; margin: 0 auto;}
+        #wrap .title{width: 100%; padding: 60px 0 20px 0;}
+        #wrap .title a {
+            display: block; 
+            width: 240px; 
+            height: 44px;
+            background: url("https://static.nid.naver.com/images/ui/join/m_naver_logo_20191126.png") no-repeat 50% 0%; 
+            background-size: 240px auto; 
+            margin: 0 auto;
+        }
+        #wrap form{position: relative;}
+        #wrap form label {display: block; width: 100%; font-size: 14px; font-weight: 700; cursor: pointer; margin: 20px 0 8px 0;}
+        #wrap form label span{font-size: 12px; font-weight: 400; color: #8d8d8d;}
+        #wrap form >span {display: flex;}
+        #wrap form span .birth {width: 150px; margin-right: 10px; padding: 10px 14px;}
+        #wrap form span .birth:nth-child(3){margin: 0;}
+        #wrap form div{position:relative; width:100%; height: 50px; padding: 10px 15px; border:1px solid #ddd; display: flex; background: #fff;}
+        #wrap form .hp{width: 335px;}
+        #wrap form .hp span {display: flex;}
+        #wrap form .hp >span input {border:0; width:100%; height: 29px;}
+        #wrap form .hp span button { width: 100%;}
+        #wrap form div input {border: 0; width: 100%; height: 29px;}
+        #wrpa form div input:focus{outline: 0;}
+        #wrap form div .year {width: 100%;}
+        #wrap form div .day {width: 100%;}
+        #wrap form div >span {position:absolute; top:16px; right: 13px; font-size: 15px; color: #8d8d8d; line-height: 18px;}
+        #wrap form div select {border:0; width: 100%; height: 29px; font-size: 15px; line-height: 18px;}
+        #wrap form div select:focus{outline: 0;}
+        #wrap form .cerification{
+            position:absolute; 
+            top:0;
+            right: -127px;
+            width: 115px;
+            height: 51px;
+            padding: 18px 0 16px 0;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            background: #03c75a;
+            border: 0;
+            cursor:pointer;
+        }
+        #wrap form .signup {
+            width: 100%;
+            color: #fff;
+            background: #03c75a;
+            border: 0;
+            cursor: pointer;
+            padding: 15px 0 15px 0;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin: 50px 0 100px 0;
+        }
+    </style>
+
 </head>
 <body>
     <div id="wrap">
@@ -24,9 +83,9 @@
                 <input type="text" name="id" id="id">
                 <span>@naver.com</span>
             </div>
-            <label for="pw1">비밀번호</label>
+            <label for="pw">비밀번호</label>
             <div>
-                <input type="text" name="pw1" id="pw1">
+                <input type="text" name="pw" id="pw">
             </div>
             <label for="pw2">비밀번호 확인</label>
             <div>

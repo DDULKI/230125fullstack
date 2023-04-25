@@ -1,8 +1,8 @@
-<%@ 
-  page 
-  language="java" 
-  contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"
+<%@
+    page
+    language="java"
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
 %>
 
 <!DOCTYPE html>
@@ -18,13 +18,13 @@
         <div class="title">
             <a href="http://www.naver.com"></a>
         </div>
-        <form name="sign_up" id="signUp" method="post" action="유즈빈_DTO.jsp">
+        <form name="sign_up" id="signUp" method="post" action="./유즈빈_DTO.jsp">
             <label for="id">아이디</label>
             <div>
                 <input type="text" name="id" id="id">
-                <!-- <span>@naver.com</span> -->
+                <span>@naver.com</span>
             </div>
-            <label for="pw1">비밀번호</label>
+            <label for="pw">비밀번호</label>
             <div>
                 <input type="text" name="pw1" id="pw1">
             </div>
