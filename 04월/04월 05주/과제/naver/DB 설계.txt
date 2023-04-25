@@ -1,0 +1,24 @@
+필드
+idx int   PRIMARY KEY  AUTO_INCREMENT 
+id  varchar(20) NOT NULL
+pw  varchar(20) NOT NULL
+name varchar(20) NOT NULL
+birth varchar(50) NOT NULL
+gender varchar(20) NOT NULL
+email varchar(50) NOT NULL
+nation varchar(30) NOT NULL
+hp varchar(20) NOT NULL
+create_date timestamp DEFAULT CURRENT_TIMESTAMP
+
+CREATE TABLE member(
+    idx int PRIMARY KEY AUTO_INCREMENT,
+    id VARCHAR(20) NOT NULL,
+    pw VARCHAR(20) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    birth VARCHAR(50) NOT NULL,
+    gender VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    nation VARCHAR(30) NOT NULL,
+    hp VARCHAR(20) NOT NULL,
+    create_date timestamp DEFAULT CURRENT_TIMESTAMP
+)ENGINE InnoDB DEFAULT CHARSET=utf8mb4;
