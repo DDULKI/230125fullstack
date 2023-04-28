@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
+import $, { now } from 'jquery';
 
 export default function IntroMainComponent () {
 
@@ -44,7 +44,7 @@ export default function IntroMainComponent () {
 
         // 1. 메인슬라이드함수 
         function mainSlide(){
-            console.log(cnt);
+            // console.log(cnt);
             $slideWrap.stop().animate({left:`${-100*cnt}%`}, 500, function(){
                 if(cnt>=n){cnt=0}
                 if(cnt<0){cnt=n-1} // n-1인 인 이유는 0부터 22니까. 
@@ -130,7 +130,111 @@ export default function IntroMainComponent () {
         })
 
 
+
     }, []); // [] 한번만 해라. 
+
+    
+        // 섹션2 슬라이드 
+        React.useEffect(()=>{
+
+            const $slideContainer   = $('#section2 .slide-container');
+            const $slideWrap        = $('#section2 .slide-wrap');
+            const $slide            = $('#section2 .slide-wrap .slide');
+            const $leftArrowBtn     = $('#section2 .left-arrow-btn');
+            const $rightArrowBtn    = $('#section2 .right-arrow-btn');
+            let cnt = 0;
+            let n = ($slide.length)/4; // 36-16/4
+
+
+            //1. 메인슬라이드함수 
+            function mainSlide(){
+                // console.log(cnt);
+                $slideWrap.stop().animate({left: `${cnt*-100}%`}, 600, function(){
+                    if(cnt>=5){cnt=0}
+                    if(cnt<0){cnt=n-1}
+                    $slideWrap.stop().animate({left:`${-100*cnt}%`}, 0); // 초기화
+                })
+            }
+            //2-1. 다음슬라이드 카운트함수
+            function nextCount(){
+                cnt++;
+                mainSlide();
+            } 
+
+            //2-2. 이전카운트함수
+            function prevCount(){
+                cnt--;
+                mainSlide();
+            } 
+
+            //2. 다음화살버튼 클릭 이벤트 
+            $leftArrowBtn.on({
+                click(e){
+                    e.preventDefault();
+                    prevCount();
+                
+                }
+            });
+            $rightArrowBtn.on({
+                click(e){
+                    e.preventDefault();
+                    nextCount();
+                }
+            });
+        });
+
+
+        // 섹션3 
+        // 24시간 일일특가 
+        React.useEffect(()=>{
+            
+            let setId =0;
+            function saleTimer(){
+                // 1. 타임세일 시작 시점
+                let start = new Date('2023-04-28 17:53:33');
+                // 2. 현재시간 now
+                let now = new Date();
+                // 3. 시간+24 일일특가 시간 셋팅 setter함수 
+                start.setHours(start.getHours()+24);
+                // start.setHours(start.getHours()+6); 6시간 특가 
+                // 4. 남은시간(세일종료시간) = 타임시작 시간(+24)-현재시간
+                let end = start - now;
+                // 5. 카운트 박스 시 분 초 표기 1초간격으로 
+                // 6. 남은시간===0 타임종료  현재시간>=셋팅시간 종료 
+                // 모두 초기화 일 : 시 : 분: 초 
+
+                // console.log(`setId : ${setId}`);
+                // console.log('세일종료 카운트 남은시간');
+                // console.log(Math.floor((end/(60*60*24*1000))%24)); // 1일 시간 24시간, 천분의 일초 계산..  
+                let eD = Math.floor(end/(60*60*24*1000)); // 날짜 일  
+                let eH = Math.floor(end/(60*60*1000)%24); // 날짜 시간
+                let eM = Math.floor(end/(60*1000)%60); // 날짜 분
+                let eS = Math.floor(end/1000%60); // 날짜 초
+
+                // 현재시간>=타임세일시간
+                
+                if(now >= start){
+                    clearInterval(setId);
+                    eD=0;
+                    eH=0;
+                    eM=0;
+                    eS=0;
+                    $('.houres').text( eH <10?`0${eH}`:eH);
+                    $('.minutes').text( eM <10?`0${eM}`:eM);
+                    $('.secondes').text( eS <10?`0${eS}`:eS);
+                }
+                else{
+
+                    $('.houres').text( eH <10?`0${eH}`:eH);
+                    $('.minutes').text( eM <10?`0${eM}`:eM);
+                    $('.secondes').text( eS <10?`0${eS}`:eS);
+                }
+            }
+            
+            setId = setInterval(saleTimer, 1000);
+
+        },[]);
+
 
     return (
         <main id='main' className='sub-page intro'>
@@ -216,7 +320,7 @@ export default function IntroMainComponent () {
                             <div className="slide-container">
                                 <div className="slide-view">
                                     <ul className="slide-wrap">
-                                    <li className="slide slide12">
+                                        <li className="slide slide12">
                                             <div className="col-gap">
                                                 <a href="!#">
                                                     <div className="img-box">
@@ -233,7 +337,7 @@ export default function IntroMainComponent () {
                                                             <li><span className='rate-price'>{0.18===0?``:`${Math.round(0.18*100)}%`}</span>{0.18 > 0 && (<span className='panme-price'>{commaPrice(10000*(1-0.18))}</span>) }</li>
                                                             <li>{ 0.18===0? <span className='panme-price'>{commaPrice(10000)}</span> : <s>{commaPrice(10000)}</s> }</li>
                                                             <li>{"마켓컬리"}</li>
-                                                        </ul>  
+                                                        </ul>    
                                                     </div>
                                                 </a>
                                             </div>
@@ -315,12 +419,9 @@ export default function IntroMainComponent () {
                                                     </div>
                                                     <div className="txt-box">
                                                         <ul>
-                                                            <li>샛별배송</li>
-                                                            <li><strong>[미소프레쉬]</strong> <em>남도식 양념황태구이 (냉동)</em></li>
-                                                            <li>된장소금으로 숙성하여 더욱 깊은 맛</li>
-                                                            <li><span className='rate-price'>{0.18===0?``:`${Math.round(0.18*100)}%`}</span>{0.18 > 0 && (<span className='panme-price'>{commaPrice(10000*(1-0.18))}</span>) }</li>
-                                                            <li>{ 0.18===0? <span className='panme-price'>{commaPrice(10000)}</span> : <s>{commaPrice(10000)}</s> }</li>
-                                                            <li>{"마켓컬리"}</li>
+                                                            <li><strong>[최현석의 쵸이닷]</strong> <em> 새우 토마토 파스타</em></li>
+                                                            <li>8,900</li>
+                                                            <li>후기</li>
                                                         </ul>    
                                                     </div>
                                                 </a>
@@ -337,12 +438,9 @@ export default function IntroMainComponent () {
                                                     </div>
                                                     <div className="txt-box">
                                                         <ul>
-                                                            <li>샛별배송</li>
-                                                            <li><strong>[미소프레쉬]</strong> <em>남도식 양념황태구이 (냉동)</em></li>
-                                                            <li>된장소금으로 숙성하여 더욱 깊은 맛</li>
-                                                            <li><span className='rate-price'>{0.18===0?``:`${Math.round(0.18*100)}%`}</span>{0.18 > 0 && (<span className='panme-price'>{commaPrice(10000*(1-0.18))}</span>) }</li>
-                                                            <li>{ 0.18===0? <span className='panme-price'>{commaPrice(10000)}</span> : <s>{commaPrice(10000)}</s> }</li>
-                                                            <li>{"마켓컬리"}</li>
+                                                            <li><strong>[최현석의 쵸이닷]</strong> <em> 새우 토마토 파스타</em></li>
+                                                            <li>8,900</li>
+                                                            <li>후기</li>
                                                         </ul>    
                                                     </div>
                                                 </a>
@@ -352,19 +450,16 @@ export default function IntroMainComponent () {
                                             <div className="col-gap">
                                                 <a href="!#">
                                                     <div className="img-box">
-                                                        <img src='/images/intro/0ff922d7-5485-45e7-8395-c92daf86140a.jpg' alt="" />
+                                                        <img src='/images/intro/83498392-d6f2-4bd5-9d1f-82408932f0b6.jpg' alt="" />
                                                         <span>
                                                             <img src="./images/sub1/icon_cart.svg" alt="" />
                                                         </span>
                                                     </div>
                                                     <div className="txt-box">
                                                         <ul>
-                                                            <li>샛별배송</li>
-                                                            <li><strong>[미소프레쉬]</strong> <em>남도식 양념황태구이 (냉동)</em></li>
-                                                            <li>된장소금으로 숙성하여 더욱 깊은 맛</li>
-                                                            <li><span className='rate-price'>{0.18===0?``:`${Math.round(0.18*100)}%`}</span>{0.18 > 0 && (<span className='panme-price'>{commaPrice(10000*(1-0.18))}</span>) }</li>
-                                                            <li>{ 0.18===0? <span className='panme-price'>{commaPrice(10000)}</span> : <s>{commaPrice(10000)}</s> }</li>
-                                                            <li>{"마켓컬리"}</li>
+                                                            <li><strong>[최현석의 쵸이닷]</strong> <em> 새우 토마토 파스타</em></li>
+                                                            <li>8,900</li>
+                                                            <li>후기</li>
                                                         </ul>    
                                                     </div>
                                                 </a>
@@ -374,19 +469,16 @@ export default function IntroMainComponent () {
                                             <div className="col-gap">
                                                 <a href="!#">
                                                     <div className="img-box">
-                                                        <img src='/images/intro/0ff922d7-5485-45e7-8395-c92daf86140a.jpg' alt="" />
+                                                        <img src='/images/intro/339511472_745750867105104_6613932816944481252_n.jpg' alt="" />
                                                         <span>
                                                             <img src="./images/sub1/icon_cart.svg" alt="" />
                                                         </span>
                                                     </div>
                                                     <div className="txt-box">
                                                         <ul>
-                                                            <li>샛별배송</li>
-                                                            <li><strong>[미소프레쉬]</strong> <em>남도식 양념황태구이 (냉동)</em></li>
-                                                            <li>된장소금으로 숙성하여 더욱 깊은 맛</li>
-                                                            <li><span className='rate-price'>{0.18===0?``:`${Math.round(0.18*100)}%`}</span>{0.18 > 0 && (<span className='panme-price'>{commaPrice(10000*(1-0.18))}</span>) }</li>
-                                                            <li>{ 0.18===0? <span className='panme-price'>{commaPrice(10000)}</span> : <s>{commaPrice(10000)}</s> }</li>
-                                                            <li>{"마켓컬리"}</li>
+                                                            <li><strong>[최현석의 쵸이닷]</strong> <em> 새우 토마토 파스타</em></li>
+                                                            <li>8,900</li>
+                                                            <li>후기</li>
                                                         </ul>    
                                                     </div>
                                                 </a>
@@ -786,7 +878,7 @@ export default function IntroMainComponent () {
                                             <div className="col-gap">
                                                 <a href="!#">
                                                     <div className="img-box">
-                                                        <img src='/images/intro/0ff922d7-5485-45e7-8395-c92daf86140a.jpg' alt="" />
+                                                        <img src='/images/intro/83498392-d6f2-4bd5-9d1f-82408932f0b6.jpg' alt="" />
                                                         <span>
                                                             <img src="./images/sub1/icon_cart.svg" alt="" />
                                                         </span>
@@ -805,7 +897,7 @@ export default function IntroMainComponent () {
                                             <div className="col-gap">
                                                 <a href="!#">
                                                     <div className="img-box">
-                                                        <img src='/images/intro/0ff922d7-5485-45e7-8395-c92daf86140a.jpg' alt="" />
+                                                        <img src='/images/intro/339511472_745750867105104_6613932816944481252_n.jpg' alt="" />
                                                         <span>
                                                             <img src="./images/sub1/icon_cart.svg" alt="" />
                                                         </span>
@@ -984,8 +1076,90 @@ export default function IntroMainComponent () {
             <section id="section3">
                 <div className="container">
                     <div className="gap">
-                        <div className="title"></div>
-                        <div className="content"></div>
+                        <div className="content">
+                            <div className="left">
+                                <ul>
+                                    <li>
+                                        <h2>일일특가</h2>
+                                    </li>
+                                    <li>
+                                        <h3>24시간 한정 특가</h3>
+                                    </li>
+                                    <li>
+                                        <span><img src="./images/intro/icon_timer.svg" alt="" /></span>
+                                        <span className='houres'></span>
+                                        <span>:</span>
+                                        <span className='minutes'></span>
+                                        <span>:</span>
+                                        <span className='secondes'></span>
+                                    </li>
+                                    <li>
+                                        <p>망설이면 늦어요!</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="right">
+                                <ul>
+                                    <li className="slide slide0">
+                                            <div className="col-gap">
+                                                <a href="!#">
+                                                    <div className="img-box">
+                                                        <img src='/images/intro/317f1e18-08d9-4358-9135-2c8a63028ab1.jpg' alt="" />
+                                                        <span>
+                                                            <img src="./images/sub1/icon_cart.svg" alt="" />
+                                                        </span>
+                                                    </div>
+                                                    <div className="txt-box">
+                                                        <ul>
+                                                            <li><strong>[최현석의 쵸이닷]</strong> <em> 새우 토마토 파스타</em></li>
+                                                            <li>8,900</li>
+                                                            <li>후기</li>
+                                                        </ul>    
+                                                    </div>
+                                                </a>
+                                            </div>
+                                    </li>
+                                    <li className="slide slide1">
+                                            <div className="col-gap">
+                                                <a href="!#">
+                                                    <div className="img-box">
+                                                        <img src='/images/intro/1b141312-abb4-4de9-bcf5-8e7eec556b34.jpg' alt="" />
+                                                        <span>
+                                                            <img src="./images/sub1/icon_cart.svg" alt="" />
+                                                        </span>
+                                                    </div>
+                                                    <div className="txt-box">
+                                                        <ul>
+                                                            <li><strong>[최현석의 쵸이닷]</strong> <em> 새우 토마토 파스타</em></li>
+                                                            <li>8,900</li>
+                                                            <li>후기</li>
+                                                        </ul>    
+                                                    </div>
+                                                </a>
+                                            </div>
+                                    </li>
+                                    <li className="slide slide2">
+                                            <div className="col-gap">
+                                                <a href="!#">
+                                                    <div className="img-box">
+                                                        <img src='/images/intro/2c776916-1d14-43ad-abc4-a26a9bdbd8fe.jpg' alt="" />
+                                                        <span>
+                                                            <img src="./images/sub1/icon_cart.svg" alt="" />
+                                                        </span>
+                                                    </div>
+                                                    <div className="txt-box">
+                                                        <ul>
+                                                            <li><strong>[최현석의 쵸이닷]</strong> <em> 새우 토마토 파스타</em></li>
+                                                            <li>8,900</li>
+                                                            <li>후기</li>
+                                                        </ul>    
+                                                    </div>
+                                                </a>
+                                            </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
