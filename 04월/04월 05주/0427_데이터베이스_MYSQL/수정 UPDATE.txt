@@ -1,0 +1,213 @@
+조회 SELECT 
+수정 UPDATE
+삭제 DELETE
+입력 INSERT
+
+
+
+CRUD
+Create : 데이터베이스생성 => 테이블생성 => 데이터입력 
+Read : 조회
+Update : 수정
+Delete : 삭제 
+
+/////////////////////////////////////////////////
+
+UPDATE 테이블이름 SET 필드명 = '수정할 값' WHERE 조건 
+
+///////////////////////////////////////////////////
+테이블 이름이 todo_list의 테이블을 수정하라 
+필드는 todo_list의 내용을 '오늘은 복습하고 가야지' 라고 수정하라 
+조건은 IDX가 10인 레코드만 수정하라. 
+
+UPDATE todo_list SET todo_list = '오늘은 복습하고 가야지' WHERE IDX = 10;
+UPDATE todo_list SET todo_list = '인도 커리 먹어야지' WHERE IDX = 9;
+UPDATE todo_list SET todo_list = '공연해야지' WHERE IDX = 8;
+UPDATE todo_list SET todo_list = '데이트해야지' WHERE IDX = 7;
+UPDATE todo_list SET todo_list = '카페가야지' WHERE IDX = 6;
+UPDATE todo_list SET todo_list = '자바공부해야지' WHERE IDX = 5;
+UPDATE todo_list SET todo_list = '포폴해야지' WHERE IDX = 4;
+UPDATE todo_list SET todo_list = '방정리해야지' WHERE IDX = 3;
+UPDATE todo_list SET todo_list = '화장실청소해야지' WHERE IDX = 2;
+UPDATE todo_list SET todo_list = '일기써야지' WHERE IDX = 1;
+
+
+
+★결과★ 
+mysql> UPDATE todo_list SET todo_list = '오늘은 복습하고 가야지' WHERE IDX = 10;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM todo_list;
++-----+-----------------------------------------------------------------------+---------------------+
+| idx | todo_list                                                             | create_date         |
++-----+-----------------------------------------------------------------------+---------------------+
+|   1 | 극락에서 공연하기                                                     | 2023-04-19 15:58:24 |
+|   2 | 자바 복습하기                                                         | 2023-04-19 15:58:24 |
+|   3 | 스즈메 영화보기                                                       | 2023-04-19 15:58:24 |
+|   4 | 자바스크립트 복습하기                                                 | 2023-04-19 15:58:24 |
+|   5 | 포트폴리오 작업하기                                                   | 2023-04-19 15:58:24 |
+|   6 | 끝났다.                                                               | 2023-04-19 18:12:02 |
+|   7 | 오늘은 TODO LIST에 데이터 쓰고...                                     | 2023-04-20 12:11:11 |
+|   8 | TODO LIST 오후 수업내용 글을 쓰면 목록 페이지로 이동하는 내용입니다.  | 2023-04-20 14:35:52 |
+|   9 | 할머니댁 가기                                                         | 2023-04-20 14:43:37 |
+|  10 | 오늘은 복습하고 가야지                                                | 2023-04-20 14:46:15 |
++-----+-----------------------------------------------------------------------+---------------------+
+10 rows in set (0.00 sec)
+
+
+내가 원하는 컬럼추가 
+ALTER TABLE `todo_list` ADD `comments` VARCHAR(200) NOT NULL;
+
+
+데이터 추가 
+INSERT INTO todo_list (todo_list,create_date)
+	   	    VALUE('0429는 망원 샤프에서 공연',now());
+
+
+문제 2] 
+
+[1] 선택 테이블 = > 테이블이름이 todo_list 의 테이블을 수정하라.
+UPDATE todo_list
+
+
+
+[2] 수정 => 조건이 일치하는 모든 레코드를 '그만하기'로 수정하라. 
+SET todo_list="그만하기"
+
+[3] 조건 todo_list 의 내용이 "하기"로 된 
+ WHERE todo_list="하기"
+
+
+
+명령실행
+UPDATE todo_list SET todo_list='그만하기' WHERE todo_list LIKE '복습하기';
+UPDATE todo_list SET todo_list='그만하기' WHERE todo_list='연잎핫도그';
+
+
+3. 수정조건 문제3 ] 
+
+SELECT * FROM todo_list;
+
+[1] 선택 테이블 => 테이블이름이 todo_list 의 테이블을 수정하라 
+UPDATE todo_list
+
+[2] 수정 => 조건이 일치하는 모든 레코드를 
+SET todo_list ="얼른 놀자"
+
+[3] 조건 => todo_list 의 내용이 "극락에서 공연하기" 가 포함 모든 레코드 수정하라. 
+WHERE todo_list LIKE "%극락에서 공연하기%"; // 같은 조건인 경우 % 와일드 카드가 포함 된것은 LIKE 사용. 
+
+
+UPDATE todo_list SET todo_list ="얼른 놀자" WHERE todo_list LIKE "%극락에서 공연하기%";
+
+
+mysql> UPDATE todo_list SET todo_list ="얼른 놀자" WHERE todo_list LIKE "%극락에서 공연하기%";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM todo_list;
++-----+-----------------------------------------------------------------------+---------------------+
+| idx | todo_list                                                             | create_date         |
++-----+-----------------------------------------------------------------------+---------------------+
+|   1 | 얼른 놀자                                                             | 2023-04-19 15:58:24 |
+|   2 | 자바 복습하기                                                         | 2023-04-19 15:58:24 |
+|   3 | 스즈메 영화보기                                                       | 2023-04-19 15:58:24 |
+|   4 | 자바스크립트 복습하기                                                 | 2023-04-19 15:58:24 |
+|   5 | 포트폴리오 작업하기                                                   | 2023-04-19 15:58:24 |
+|   6 | 끝났다.                                                               | 2023-04-19 18:12:02 |
+|   7 | 그만하기                                                              | 2023-04-20 12:11:11 |
+|   8 | TODO LIST 오후 수업내용 글을 쓰면 목록 페이지로 이동하는 내용입니다.  | 2023-04-20 14:35:52 |
+|   9 | 할머니댁 가기                                                         | 2023-04-20 14:43:37 |
+|  10 | 오늘은 복습하고 가야지                                                | 2023-04-20 14:46:15 |
+|  11 | 0429는 망원 샤프에서 공연                                             | 2023-04-27 13:54:05 |
++-----+-----------------------------------------------------------------------+---------------------+
+11 rows in set (0.00 sec)
+
+공백없애기
+
+
+UPDATE todo_list SET IDX ="
+SELECT IDX, REPLACE(todo_list,' ','') FROM todo_list;
+
+
+수정문제 ] 
+SELECT * FROM todo_list;
+테이블이름이 todo_list
+UPDATE todo_list 
+
+조건은 IDX가 3,5,8번인 레코드 모두를 수정하라.
+WHERE IDX = 3, 5, 8
+
+
+수정필드는 todo_list 수정내용은 "연잎핫도그" 
+SET todo_list ="연잎핫도그"
+
+UPDATE todo_list SET todo_list ="연잎핫도그" WHERE IDX IN(3,5,8);
+UPDATE todo_list SET todo_list ="연잎핫도그" WHERE IDX NOT IN(3,5,8);
+UPDATE todo_list SET todo_list ="연잎핫도그" WHERE IDX=3 OR IDX=5 OR IDX=8; 
+UPDATE todo_list SET todo_list ="아이스크림와플" WHERE IDX=3 OR IDX=5 OR IDX=8; 
+
+
+
+조건 
+SELECT * FROM todo_list;
+todo_list 내용이 아이스크림이 
+UPDATE todo_list
+
+포함되지 않은 레코드를 모두 
+WHERE todo_list NOT LIKE "%아이스크림%"
+
+"우거지 뼈다귀 감자탕" 으로 수정하세요. 
+SET todo_list = "%우거지 뼈다귀 감자탕%"
+
+
+UPDATE todo_list 
+SET todo_list = "우거지 뼈다귀 감자탕" 
+WHERE todo_list NOT LIKE "%아이스크림%";
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+삭제 DELETE 
+DELETE FROM 테이블이름 조건 
+
+DELETE FROM 테이블이름 WHERE IDX=5; 
+DELETE FROM 테이블이름 WHERE IDX>=1 AND IDX<=4;  
+
+IDX가 8인 레코드만 삭제하라 
+DELETE FROM todo_list
+WHERE IDX=8;
+
+
+
+
+
+
+DELETE FROM todo_list
+WHERE  todo_list = '아이스크림와플';
+
+
+mysql> SELECT * FROM todo_list;
++-----+----------------------+---------------------+
+| idx | todo_list            | create_date         |
++-----+----------------------+---------------------+
+|   1 | 우거지 뼈다귀 감자탕 | 2023-04-19 15:58:24 |
+|   2 | 우거지 뼈다귀 감자탕 | 2023-04-19 15:58:24 |
+|   4 | 우거지 뼈다귀 감자탕 | 2023-04-19 15:58:24 |
+|   6 | 우거지 뼈다귀 감자탕 | 2023-04-19 18:12:02 |
+|   7 | 우거지 뼈다귀 감자탕 | 2023-04-20 12:11:11 |
+|   9 | 우거지 뼈다귀 감자탕 | 2023-04-20 14:43:37 |
+|  10 | 우거지 뼈다귀 감자탕 | 2023-04-20 14:46:15 |
+|  11 | 우거지 뼈다귀 감자탕 | 2023-04-27 13:54:05 |
++-----+----------------------+---------------------+
+8 rows in set (0.00 sec)
+
+
+DELETE FROM todo_list; 다 지워버려 
+mysql> SELECT * FROM todo_list;
+Empty set (0.00 sec)
+
+
