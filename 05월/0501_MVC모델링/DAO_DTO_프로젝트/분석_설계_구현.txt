@@ -1,0 +1,199 @@
+JDBC 
+Database & JSP 연결 
+
+JSP 데이터베이스 자바코딩 JSP 뷰탬플릿 코딩 + 입출력 
+분류작업 
+
+CRUD 구현 
+
+모델(Model)     => 데이터베이스 입출력 게터, 세터(자바빈)
+뷰(View)        => 탬플릿
+콘트롤(Control) => 자바코딩 
+
+데이터(Data) 접근(Access)   객체(Object) => DAO => 자바 코딩(자바코딩으로 데이터베이스 인증과 설정 INSERT, DELETE, UPDATE, CREATE, SELECT, ... ) 
+데이터(Data) 전송(Transfer) 객체(Object) => DTO => 자바 코딩(자바빈즈 게터 세터) : 데이터가져오기, 설정하기
+
+
+package user;
+import java.sql.*;
+/**
+ * UserDAO
+ */
+public class UserDAO {
+    
+    // 접근객체 Connection 커넥션 
+    // 사용자 데이터베이스 url/이름 : url/user
+    // 사용자 데이터베이스아이디    : root 
+    // 사용자 데이터베이스비밀번호  : 1234 
+
+
+    private Connection conn=null;
+
+
+    // 1. Connection 커넥션 연결 만들기 
+    // 클래스 => 생성자 => 다른 메서드(함수)
+        
+    public UserDAO(){   
+        try{
+            String dbURL = "jdbc:mysql://localhost:3306/user";
+            String dbID  = "root";
+            String dbPW  = "1234"; 
+            Class.forName("com.mysql.jdbc.Driver"); // 드라이버 연결
+            conn = DriverManager.getConnection(dbURL, dbID, dbPW); // 컨넥션 연결
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    // 2. 데이터베이스 user => 테이블 만들기 (user_table)
+    // 필드 : 아이디(PK)(16), 비밀번호(16), 이름(50), 휴대폰(13), 이메일 (250)
+    // 위 클래스 생성자  public UserDAO() 아래 코드는 
+    // 데이터베이스 테이블이 있어야 저장할 수 있다. 
+    // 테이블에 데이터를 저장 해보자.
+    // INSERT INTO 테이블이름() VALUES();
+
+    CREATE TABLE user_table(
+        user_id       VARCHAR(16)   NOT NULL   PRIMARY KEY,
+        user_pw       VARCHAR(16)   NOT NULL, 
+        user_name     VARCHAR(50)   NOT NULL, 
+        user_hp       VARCHAR(13)   NOT NULL, 
+        user_email    VARCHAR(250)  
+    );
+
+    mysql> show tables;
++----------------+
+| Tables_in_user |
++----------------+
+| member         |
+| todo_list      |
+| user_table     |
++----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc user_table;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| user_id    | varchar(16)  | NO   | PRI | NULL    |       |
+| user_pw    | varchar(16)  | NO   |     | NULL    |       |
+| user_name  | varchar(50)  | NO   |     | NULL    |       |
+| user_hp    | varchar(13)  | NO   |     | NULL    |       |
+| user_email | varchar(250) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+     
+
+
+package user;
+
+public class UserDTO {
+    private String user_id;
+    private String user_pw;
+    private String user_name;
+    private String user_hp;
+    private String user_email;
+
+    public String getUser_id() {
+        return this.user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getUser_pw() {
+        return this.user_pw;
+    }
+
+    public void setUser_pw(String user_pw) {
+        this.user_pw = user_pw;
+    }
+
+    public String getUser_name() {
+        return this.user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getUser_hp() {
+        return this.user_hp;
+    }
+
+    public void setUser_hp(String user_hp) {
+        this.user_hp = user_hp;
+    }
+
+    public String getUser_email() {
+        return this.user_email;
+    }
+
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
+    }
+    
+
+}
+
+
+
+ // 4. 회원가입 메서드 SQL(insert) 처리문 
+
+ package user;
+import java.sql.*;
+/**
+ * UserDAO
+ */
+public class UserDAO {
+    
+    private Connection conn;
+    private PreparedStatement ps;
+
+        
+    public UserDAO(){   
+        try{
+            String dbURL = "jdbc:mysql://localhost:3306/user";
+            String dbID  = "root";
+            String dbPW  = "1234"; 
+            Class.forName("com.mysql.jdbc.Driver"); // 드라이버 연결
+            conn = DriverManager.getConnection(dbURL, dbID, dbPW); // 컨넥션 연결
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 데이터 입력 메서드 만들기 
+    public int insert(UserDTO userDTO){
+        String SQL = "INSERT INTO user_table VALUES(?,?,?,?,?)";
+        try {
+            ps = conn.prepareStatement(SQL);
+            ps.setString(1, userDTO.getUser_id());
+            ps.setString(2, userDTO.getUser_pw());
+            ps.setString(3, userDTO.getUser_name());
+            ps.setString(4, userDTO.getUser_hp());
+            ps.setString(5, userDTO.getUser_email());
+            return ps.executeUpdate();
+        } 
+        catch (Exception e) {
+           e.printStackTrace();
+        }
+        return -1;
+    }
+
+// 5. 입력폼 만들기 JSP 
+    user_sign_in.jsp 
+
+localhost:8080/jsp/0501_MVC모델링/DAO_DTO_프로젝트/user_sign_in_insert_test_js.jsp
+
+// 6. 입력폼받는 useBean DTO 연동 JSP
+    user_sign_in_insert.jsp 
+
+
+// 6-1 자바스크립트 코딩 테스트 
+// 6-2 useBean DTO 연동 JSP 테스트 
+
+// 6-3 
+
+}
