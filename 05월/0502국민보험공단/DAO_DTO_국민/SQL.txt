@@ -1,0 +1,200 @@
+localhost:8080/jsp/국민보험공단/signUp_view.jsp
+localhost:8080/jsp/국민보험공단/signUp_write_insert_test.jsp
+localhost:8080/jsp/국민보험공단/signUp_write_test.jsp.jsp
+
+
+
+데이터베이스 목록을 보여라
+show databases; 
+
+user 데이터베이스를 만들기 
+create database user; 
+
+ddulki 데이터베이스를 만들기 
+create database ddulki;
+
+user 데이터베이스 사용 
+use user; 
+
+ddulki 데이터베이스 사용 
+use ddulki;
+
+use 데이터베이스 안에 있는 테이블을 모두 보여라 
+show tables; 
+
+테이블의 구조를 보여라 
+desc user; 
+
+테이블안에 모든 목록중 사용자 아이디(user)를 보여라. 
+select user from user;
+
+///////////////////////////////////////////////////
+
+gmgungang_signup 테이블 만들기 
+
+테이블이름 gmgungang_signup 
+
+필드명        타입   길이     주키           자동증가번호          코멘트
+idx           int    11   PRIMARY KEY     AUTO_INCREMENT      자동증가번호
+saup_grbh   VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+saup_giho   VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+gaib_yb     VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+user_id     VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+user_pw1    VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+sel_pw      VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+pwbs_ok     VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+user_hp     VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+input_email VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+email_domain_select VARCHAR(250)  NOT NULL(빈값 허용 안함)         
+sosic_ok    VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+sosic_no    VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+create_date timestamp(타임스템프)
+
+테이블 만들기 
+
+CREATE TABLE gmgungang_signup (
+    idx             int             NOT NULL    PRIMARY KEY     AUTO_INCREMENT, 
+    saup_grbh           VARCHAR(250)    NOT NULL,
+    saup_giho           VARCHAR(250)    NOT NULL,
+    gaib_yb             VARCHAR(250)    NOT NULL,
+    user_id             VARCHAR(100)    NOT NULL,
+    user_pw1            VARCHAR(50)     NOT NULL,
+    sel_pw              VARCHAR(50)     NOT NULL,
+    pwbs_ok             VARCHAR(250)    NOT NULL,
+    user_hp             VARCHAR(250)    NOT NULL,
+    input_email         VARCHAR(250)    NOT NULL,
+    email_domain_select VARCHAR(250)    NOT NULL,
+    sosic_ok            VARCHAR(250)    NOT NULL,
+    sosic_no            VARCHAR(250)    NOT NULL,
+    create_date  timestamp              NOT NULL        DEFAULT     CURRENT_TIMESTAMP
+)   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+
+테이블에 데이터 삽입하기(INSERT INTO 테이블명() VALUES())
+
+INSERT INTO todo_list(필드 1, 필드2, ...) VALUES(값1, 값2, ...);
+
+INSERT INTO gmgungang_signup(saup_grbh,saup_giho,gaib_yb,user_id,user_pw1,sel_pw,pwbs_ok,user_hp,input_email,email_domain_select,sosic_ok,sosic_no,create_date)
+VALUES
+("사업장관리번호11", "사업22","단위사업장기호33", "ddulki1004","wjdtmfrl13","sel_pw","pwbs_ok","010-7771-6035","seulki4994@naver.com","email_domain_select","sosic_ok", "sosic_no", now()),
+("사업장관리번호11", "사업장22","단위사업장기호33", "ddulki1004","wjdtmfrl13","sel_pw","pwbs_ok","010-7771-6035","seulki4994@naver.com","email_domain_select","sosic_ok", "sosic_no", now()),
+("사업장관리번호11", "사업장기22","2", "ddulki1004","wjdtmfrl13","sel_pw","pwbs_ok","010-7771-6035","seulki4994@naver.com","email_domain_select","sosic_ok", "sosic_no", now()),
+("사업장관리번호11", "사기호22","단위사업장기호33", "ddulki1004","wjdtmfrl13","sel_pw","pwbs_ok","010-7771-6035","seulki4994@naver.com","email_domain_select","sosic_ok", "sosic_no", now());
+
+
+INSERT INTO todo_list(todo_list, create_date) 
+VALUES
+("할머니네 가기", now()),
+("빨래하기", now()),
+("설거지하기", now()),
+("자바스크립트 복습하기", now()),
+("자바 복습하기", now()),
+("존윅 영화 보기", now()),
+("치과가기", now()),
+("스시집가기", 2023-04-22);
+
+데이터 조회하기 
+SELECT * FROM todo_list; 
+
+
+테이블이름 
+
+address 
+
+필드명      타입   길이     주키           자동증가번호          코멘트
+idx         int    11   PRIMARY KEY     AUTO_INCREMENT      자동증가번호
+name    VARCHAR(50)   NOT NULL(빈값 허용 안함)          
+hp      VARCHAR(13)   NOT NULL(빈값 허용 안함)
+addr    VARCHAR(250)  NOT NULL(빈값 허용 안함)          
+create_date timestamp(타임스템프)
+
+CREATE TABLE address (
+    idx             int        NOT NULL    PRIMARY KEY     AUTO_INCREMENT, 
+    name       VARCHAR(250)    NOT NULL,
+    hp         VARCHAR(13)     NOT NULL,     
+    addr       VARCHAR(250)    NOT NULL,   
+    create_date  timestamp     NOT NULL        DEFAULT     CURRENT_TIMESTAMP
+)   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO address (name, hp, addr, create_date) 
+VALUES
+("정슬기", "010-7771-6035", "서울서대문구",now() ),
+("이동희", "010-8557-0517", "서울서대문구",now() ),
+("진보미", "010-4553-5843", "서울서대문구",now() ),
+("김은아", "010-3873-5383", "서울서대문구",now() ),
+("이석율", "010-2528-1548", "은평구", now()      );
+
+SELECT * FROM address;
+
+
+SELECT * FROM gmgungang_signup;
+<%@ 
+    page 
+    language="java" 
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+%>
+
+<%@ page import = "gukmin.SignUpDAO" %>
+<%@ page import = "java.io.PrintWriter" %>
+<%
+    request.setCharacterEncoding("UTF-8");
+%>
+
+<jsp:useBean id="signUpDTO" class="gukmin.SignUpDTO" scope="page"/>
+<jsp:setProperty name="signUpDTO" property="saup_grbh"/>
+<jsp:setProperty name="signUpDTO" property="saup_giho"/>
+<jsp:setProperty name="signUpDTO" property="gaib_yb"/>
+<jsp:setProperty name="signUpDTO" property="user_id"/>
+<jsp:setProperty name="signUpDTO" property="user_pw1"/>
+<jsp:setProperty name="signUpDTO" property="sel_pw"/>
+<jsp:setProperty name="signUpDTO" property="pwbs_ok"/>
+<jsp:setProperty name="signUpDTO" property="user_hp"/>
+<jsp:setProperty name="signUpDTO" property="input_email"/>
+<jsp:setProperty name="signUpDTO" property="email_domain_select"/>
+<jsp:setProperty name="signUpDTO" property="sosic_ok"/>
+<jsp:setProperty name="signUpDTO" property="sosic_no"/>
+
+<%
+
+    if(signUpDTO.getSaup_grbh()==null || signUpDTO.getSaup_giho()==null || signUpDTO.getGaib_yb()==null 
+    || signUpDTO.getUser_id()==null || signUpDTO.getUser_pw1()==null || signUpDTO.getSel_pw()==null ||
+    signUpDTO.getPwbs_ok()==null || signUpDTO.getUser_hp()==null || signUpDTO.getInput_email()==null || 
+    signUpDTO.getEmail_domain_select()==null || signUpDTO.getSosic_ok()==null || signUpDTO.getSosic_no()==null)
+    {
+        PrintWriter script = response.getWriter();
+        script.println("<script>");
+        script.println("alert('빈값이 있는 항목이 있습니다. \\n 확인하고 다시 시도해주세요^^')");
+        script.println("history.go(-1);");
+        script.println("</script>");
+    }
+    else{
+        SignUpDAO signUpDAO = new SignUpDAO();
+        int result = signUpDAO.insert(signUpDTO);
+
+        if(result==-1){
+%>
+        <script>
+            alert('중복된 아이디입니다. \n 확인하고 다시 시도해주세요');
+            history.go(-1);
+        </script>
+<%
+        }
+        else {
+%>
+        <script>
+            alert('회원가입을 감사드립니다.');
+            window.location.href='./index.jsp';
+        </script>
+<%
+        }
+    }
+%>
+
+
+
+localhost:8080/jsp/0502국민보험공단/DAO_DTO_국민/signUp.jsp
+localhost:8080/jsp/0502국민보험공단/DAO_DTO_국민/signUp_insert_action.jsp

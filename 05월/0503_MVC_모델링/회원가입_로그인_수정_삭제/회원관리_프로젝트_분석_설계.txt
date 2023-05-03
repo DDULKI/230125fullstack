@@ -1,0 +1,106 @@
+회원관리 테이블 
+gaib_table
+
+idx         int               NOT NULL    PRIMARY KEY     AUTO_INCREMENT, 
+user_id       VARCHAR(16)       NOT NULL,
+user_pw       VARCHAR(16)       NOT NULL,
+user_name     VARCHAR(16)       NOT NULL,
+user_hp       VARCHAR(16)       NOT NULL,
+user_email    VARCHAR(16),
+user_addr     VARCHAR(16) 
+
+
+CREATE TABLE gaib_table (
+    idx           int                 NOT NULL    PRIMARY KEY     AUTO_INCREMENT, 
+    user_id       VARCHAR(16)         NOT NULL,
+    user_pw       VARCHAR(16)         NOT NULL,
+    user_name     VARCHAR(16)         NOT NULL,
+    user_hp       VARCHAR(16)         NOT NULL,
+    user_email    VARCHAR(250),
+    user_addr     VARCHAR(250) 
+);
+
+ DESC gaib_table;
+
+ INSERT 
+ UPDATE
+ SELECT
+ DELETE
+
+ DTO
+ 멤버변수 
+ user_id   
+ user_pw   
+ user_name 
+ user_hp   
+ user_email
+ user_addr 
+
+ user_id, user_pw,user_name,user_hp,user_email, user_addr 
+
+ 
+
+
+ 멤버메서드 
+
+ GaibDTO.java
+ GaibDAO.java
+
+
+
+
+package gaib;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
+
+public class GaibDAO {
+    
+    private Connection conn=null;
+    private PreparedStatement ps=null;
+    private ResultSet rs=null;
+
+    public GaibDAO() {
+
+        try {
+            String dbURL = "jdbc:mysql://localhost:3306/ddulki";
+            String dbID = "root";
+            String dbPW = "1234";
+            Class.forName("com.mysql.jdbc.Driver"); // jdbc 드라이버 로딩 
+            conn = DriverManager.getConnection(dbURL, dbID, dbPW); 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    localhost:8080/jsp/0503_MVC_모델링/회원가입_로그인_수정_삭제/gaib_signup.jsp
+    localhost:8080/jsp/0503_MVC_모델링/회원가입_로그인_수정_삭제/gaib_update.jsp
+    localhost:8080/jsp/0503_MVC_모델링/회원가입_로그인_수정_삭제/gaib_delete.jsp
+
+    // 회원가입  메서드     : signup
+    // 회원가입  폼         : gaib_signup.jsp
+    // 회원가입  폼 액션파일 : gaib_signup_action.jsp
+
+    // 회원로그인   메서드   : signin
+
+    // 회원정보수정 메서드   : update
+    // 회원가입  폼         : gaib_update.jsp
+    // 회원가입  폼 액션파일 : gaib_update_action.jsp
+
+
+
+
+    // 회원정보삭제 메서드   : delete
+    // 회원삭제 폼          : gaib_delete.jsp
+    // 회원삭제 폼 액션파일  : gaib_delete_action.jsp
+
+    // 로그인 메서드    : signin
+    // 로그인 폼          : gaib_signin.jsp
+    // 로그인 폼 액션파일  : gaib_signin_action.jsp
+      localhost:8080/jsp/0503_MVC_모델링/회원가입_로그인_수정_삭제/gaib_signin.jsp
+}
