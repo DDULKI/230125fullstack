@@ -1,5 +1,9 @@
 package gukmin;
+<<<<<<< HEAD
                          
+=======
+
+>>>>>>> 49095e6a6cb68334d5e064f383a243f6cb72d259
 public class SignUpDTO {
     private String saup_grbh;
     private String saup_giho;
@@ -13,7 +17,11 @@ public class SignUpDTO {
     private String email_domain_select;
     private String sosic_ok;
     private String sosic_no;
+<<<<<<< HEAD
          
+=======
+
+>>>>>>> 49095e6a6cb68334d5e064f383a243f6cb72d259
     public String getSaup_grbh() {
         return this.saup_grbh;
     }

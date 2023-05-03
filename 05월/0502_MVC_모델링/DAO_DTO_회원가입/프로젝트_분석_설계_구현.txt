@@ -1,0 +1,402 @@
+user 데이터베이스
+데이터베이스 테이블 만들기
+회원가입 테이블
+member_table 
+
+데이터베이스 이름 : 'user'
+데이터베이스 테이블이름 : 'member_table'
+데이터베이스 아이디 :  'root'
+데이터베이스 비밀번호 :  '1234'
+//////////////////////////////////////////////////////////////////
+[1] 테이블 만들기
+//////////////////////////////////////////////////////////////////
+
+CREATE TABLE member_table (
+    user_id     VARCHAR(16)     NOT NULL    PRIMARY KEY,
+    user_pw     VARCHAR(16)     NOT NULL,    
+    user_name   VARCHAR(30)     NOT NULL,   
+    user_hp     VARCHAR(13)     NOT NULL,    
+    user_email  VARCHAR(250)    NOT NULL        
+)
+
+
+mysql> use user;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_user |
++----------------+
+| member         |
+| todo_list      |
+| user_table     |
++----------------+
+3 rows in set (0.01 sec)
+
+mysql> CREATE TABLE member_table (
+    ->     user_id     VARCHAR(16)     NOT NULL    PRIMARY KEY,
+    ->     user_pw     VARCHAR(16)     NOT NULL,
+    ->     user_name   VARCHAR(30)     NOT NULL,
+    ->     user_hp     VARCHAR(13)     NOT NULL,
+    ->     user_email  VARCHAR(250)    NOT NULL
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_user |
++----------------+
+| member         |
+| member_table   |
+| todo_list      |
+| user_table     |
++----------------+
+4 rows in set (0.00 sec)
+
+mysql> desc member_table;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| user_id    | varchar(16)  | NO   | PRI | NULL    |       |
+| user_pw    | varchar(16)  | NO   |     | NULL    |       |
+| user_name  | varchar(30)  | NO   |     | NULL    |       |
+| user_hp    | varchar(13)  | NO   |     | NULL    |       |
+| user_email | varchar(250) | NO   |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql>
+
+
+
+DTO
+//////////////////////////////////////////
+[2] MemberDTO.java
+/////////////////////////////////////////
+
+package member;
+
+/**
+ * MemberDTO
+ */
+public class MemberDTO {
+
+    private String user_id;
+    private String user_pw;
+    private String user_name;
+    private String user_hp;
+    private String user_email;
+
+    public String getUser_id() {
+        return this.user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getUser_pw() {
+        return this.user_pw;
+    }
+
+    public void setUser_pw(String user_pw) {
+        this.user_pw = user_pw;
+    }
+
+    public String getUser_name() {
+        return this.user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getUser_hp() {
+        return this.user_hp;
+    }
+
+    public void setUser_hp(String user_hp) {
+        this.user_hp = user_hp;
+    }
+
+    public String getUser_email() {
+        return this.user_email;
+    }
+
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
+    }
+
+}
+
+
+
+
+DAO
+//////////////////////////////////////////
+[2] MemberDAO.java
+/////////////////////////////////////////
+
+
+데이터베이스 URL : 'jdbc:데이터베이스종류://로컬호스트:포트번호/데이터베이스이름'
+데이터베이스 URL : 'jdbc:mysql://localhost:3306/user'
+데이터베이스 이름 : 'user'
+데이터베이스 테이블이름 : 'member_table'
+데이터베이스 아이디 :  'root'
+데이터베이스 비밀번호 :  '1234'
+
+// jdbc 드라이버 설정
+Class.forName('com.mysql.jdbc.Driver');
+
+// Connection 데이터베이스 컨넥션(DBURL, DB아이디, DB비밀번호) 
+private Connection conn=null;
+
+String DBURL = "jdbc:mysql://localhost:3306/user";
+String DBID = "root";
+String DBPW = "1234";
+
+conn = DriverManager.getConnection(DBURL,DBID,DBPW);
+
+
+
+package member;
+import java.sql.*;
+
+public class MemberDAO {
+    
+    private Connection conn=null;
+
+    // 메인 생성자
+    // JDBC 드라이버
+    // 컨넥션
+    public MemberDAO(){
+        try{
+            String DBURL= "jdbc:mysql://localhost:3306/user";
+            String DBID = "root";
+            String DBPW = "1234"; 
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("JDBC 드라이버 연결 성공!");
+            conn = DriverManager.getConnection(DBURL,DBID,DBPW);
+            System.out.println("데이터베이스 컨넥션(연결) 성공!");
+        }
+        catch( Exception e ){
+            e.printStackTrace();
+        }
+    }
+
+    // 입력(가입) 메서드 : 회원가입 
+    데이터베이스 테이블이름 : 'member_table'
+
+    // 입력(가입) 메서드(DTO 매개변수) => 리턴값 있는 메서드
+    public int insert(MemberDTO memberDTO) {
+        String SQL = "INSERT INTO member_table VALUES(?,?,?,?,?)";
+        try{
+            ps = conn.prepareStatement(SQL);
+            ps.setString(1, memberDTO.getUser_id());
+            ps.setString(2, memberDTO.getUser_pw());
+            ps.setString(3, memberDTO.getUser_name());
+            ps.setString(4, memberDTO.getUser_hp());
+            ps.setString(5, memberDTO.getUser_email());
+            return ps.executeUpdate();
+        }
+        catch( Exception e){
+            e.printStackTrace();
+        }
+        return -1; //아이가 중복된 상태임을 알려주는 리턴값
+    }
+
+
+
+
+
+
+    // 로그인 메서드
+    // 로그아웃 메서드
+    // 수정 메서드
+    // 삭제 메서드
+    // 출력(확인) 메서드
+
+}
+
+
+
+D:\교사문선종_풀스택과정\apache-tomcat-9.0.73\webapps\ROOT\jsp\0502_MVC_모델링\DAO_DTO_회원가입
+
+localhost:8080/jsp/0502_MVC_모델링/DAO_DTO_회원가입/member_insert.jsp
+
+
+JSP
+//////////////////////////////////////////
+[3] 입력화면 디자인
+/////////////////////////////////////////
+member_insert.jsp 
+
+
+
+JSP(DAO & DTO 연동) => useBean 설정 setter 함수 구현
+//////////////////////////////////////////////////
+[4] 입력화면 데이터 받아서 설정하는 DAO & DTO 연결
+
+    복사하여 아래 WEB-INF 폴더내에 class 폴더 안에 붙여넣기한다.
+    WEB-INF => class => MemberDAO.class
+    WEB-INF => class => MemberDTO.class
+    SHUTDOWN.BAT 톰켓서버 셧다운
+    STARUP.BAT   톰켓서버 스타트업 
+
+//////////////////////////////////////////////////
+액션파일 => member_insert_action.jsp
+ 
+import = "member.MemberDAO";
+import = "java.io.PrintWriter";
+
+
+
+<%@ page import = "member.MemberDAO" %>
+<%@ page import = "java.io.PrintWriter" %>
+
+
+/////////////////////////
+member_insert_action.jsp
+<%@ 
+    page 
+    language="java" 
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+%>
+
+<%@ page import = "member.MemberDAO" %>
+<%@ page import = "java.io.PrintWriter" %>
+<%
+    request.setCharacterEncoding("UTF-8");
+%>
+
+<jsp:useBean id="memberDTO" class="member.MemberDTO" scope="page" />
+<jsp:setProperty name="memberDTO" property="user_id" />
+<jsp:setProperty name="memberDTO" property="user_pw" />
+<jsp:setProperty name="memberDTO" property="user_name" />
+<jsp:setProperty name="memberDTO" property="user_hp" />
+<jsp:setProperty name="memberDTO" property="user_email" />
+
+<%
+    PrintWriter script = response.getWriter();
+    script.println("<script>");
+    script.println("alert('자바스크립트 테스트!');");
+    script.println("history.go(-1);");
+    script.println("</script>");
+%>
+
+    
+
+//////////////////////////////////////////////////
+[5] 입력값이 저정된 DTO 멤버변수 모두 가져와서 빈값이 있나 
+    확인하고 한개라도 빈값이 있으면 입력폼으로 다시보낸다.
+    입력값이 이상없으면
+    DAO 클래스 객체를 가져와서 인스턴스를 생성하고
+    DAO 클래스 객체내의 입력 메서드에 매개변수를 
+    넣어서 입력이 실행되도록 구현한다.
+//////////////////////////////////////////////////
+
+
+
+<%@ 
+    page 
+    language="java" 
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+%>
+
+<%@ page import = "member.MemberDAO" %>
+<%@ page import = "java.io.PrintWriter" %>
+<%
+    request.setCharacterEncoding("UTF-8");
+%>
+
+<jsp:useBean id="memberDTO" class="member.MemberDTO" scope="page" />
+<jsp:setProperty name="memberDTO" property="user_id" />
+<jsp:setProperty name="memberDTO" property="user_pw" />
+<jsp:setProperty name="memberDTO" property="user_name" />
+<jsp:setProperty name="memberDTO" property="user_hp" />
+<jsp:setProperty name="memberDTO" property="user_email" />
+
+<%
+    if( memberDTO.getUser_id()==null
+        || memberDTO.getUser_pw()==null
+        || memberDTO.getUser_name()==null
+        || memberDTO.getUser_hp()==null
+        || memberDTO.getUser_email()==null 
+    ){        
+        PrintWriter script = response.getWriter();
+        script.println("<script>");
+        script.println("alert('빈값이 있는 항목이 있습니다.\\n확인하고 다시 시도해주세요!');");
+        script.println("history.go(-1);");
+        script.println("</script>");
+    }
+    else{
+
+        MemberDAO memberDAO = new MemberDAO();
+        int result = memberDAO.insert(memberDTO); 
+
+        if(result==-1){
+%>
+        <script>
+            alert('중복된 아이디입니다. \n확인하고 다시 시도해주세요');
+            history.go(-1);
+        </script>  
+<%
+        }
+        else{
+%>
+        <script>
+            alert('회원가입을 감사드립니다.');
+            window.location.href ='./index.jsp';
+        </script>  
+<%
+        }
+
+    }
+
+%>
+
+    
+JSP : UPDATE
+//////////////////////////////////////////////////
+[6] 수정하기 구현
+//////////////////////////////////////////////////
+ // 수정 메서드
+    public int update(MemberDTO memberDTO) {
+        String SQL = "UPDATE member_table SET user_pw = ? WHERE user_id = ? ";
+        try{
+            ps = conn.prepareStatement(SQL);
+            ps.setString(1, memberDTO.getUser_pw());
+            ps.setString(2, memberDTO.getUser_id());
+            return ps.executeUpdate();
+        }
+        catch( Exception e){
+            e.printStackTrace();
+        }
+        return -1; // 수정할 회원정보가 없습니다.
+    }
+
+
+JSP : UPDATE
+//////////////////////////////////////////////////
+[6-1] 수정폼 만들기
+//////////////////////////////////////////////////
+member_update.jsp
+
+
+
+
+JSP : UPDATE
+//////////////////////////////////////////////////
+[6-2] 수정 액션 만들기
+//////////////////////////////////////////////////
+member_update_action.jsp
+
+
+localhost:8080/jsp/0502_MVC_모델링/DAO_DTO_회원가입/member_update.jsp
+
+
+
+로그인 
+되면
+수정

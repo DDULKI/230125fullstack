@@ -1,14 +1,25 @@
 package gukmin;
 import java.sql.*;
+<<<<<<< HEAD
         
 /**
  * SignUpDAO
  */  
+=======
+
+/**
+ * SignUpDAO
+ */
+>>>>>>> 49095e6a6cb68334d5e064f383a243f6cb72d259
 public class SignUpDAO {
 
     private Connection conn=null;
     private PreparedStatement ps=null;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 49095e6a6cb68334d5e064f383a243f6cb72d259
     // 메인 생성자 
     public SignUpDAO(){
         try {
@@ -22,10 +33,17 @@ public class SignUpDAO {
             e.printStackTrace();
         }
     }
+<<<<<<< HEAD
      
     // 입력 
     public int insert(SignUpDTO signUpDTO){
         String SQL = "INSERT INTO gmgungang_signup(saup_grbh, saup_giho, gaib_yb, user_id, user_pw1, sel_pw, pwbs_ok, user_hp, input_email, email_domain_select, sosic_ok, sosic_no) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+=======
+
+    // 입력 
+    public int insert(SignUpDTO signUpDTO){
+        String SQL = "INSERT INTO gmgungang_signup VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+>>>>>>> 49095e6a6cb68334d5e064f383a243f6cb72d259
         try {
             ps = conn.prepareStatement(SQL);
             ps.setString(1, signUpDTO.getSaup_grbh());

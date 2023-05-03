@@ -130,7 +130,10 @@ VALUES
 SELECT * FROM address;
 
 
+<<<<<<< HEAD
 SELECT * FROM gmgungang_signup;
+=======
+>>>>>>> 49095e6a6cb68334d5e064f383a243f6cb72d259
 <%@ 
     page 
     language="java" 
