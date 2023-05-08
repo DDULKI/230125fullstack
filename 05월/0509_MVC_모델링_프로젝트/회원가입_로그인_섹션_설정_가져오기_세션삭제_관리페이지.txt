@@ -1,0 +1,26 @@
+localhost:8080/jsp/0509_MVC_모델링_프로젝트/쇼핑몰고객관리/kurly_user_main.jsp
+
+메인페이지 에서
+
+회원관리
+ 
+// 비회원 ///////////////////////////////////////////////////////////////
+<div class="content">
+    <h3>접속하기</h3>
+    <ul>
+        <li><a href="./kurly_user_signin.jsp">로그인</a></li>
+        <li><a href="./kurly_user_signup.jsp">회원가입</a></li>
+    </ul>
+</div>
+
+
+// 회원 ///////////////////////////////////////////////////////////////
+
+<div class="content">
+    <h3>회원관리</h3>
+    <ul>
+        <li><a href="./kurly_user_update.jsp">개인정보수정</a></li>
+        <li><a href="./kurly_user_delete.jsp">회원탈퇴</a></li>
+        <li><a href="./로그아웃페이지만들기준비.jsp">로그아웃</a></li>
+    </ul>
+</div>
