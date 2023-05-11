@@ -1,0 +1,108 @@
+localhost:8080/jsp/0511kurly과제/쇼핑몰고객관리/signup.jsp
+localhost:8080/jsp/0511kurly과제/쇼핑몰고객관리/main.jsp
+localhost:8080/jsp/0511kurly과제/쇼핑몰고객관리/update.jsp
+
+# 0428 MYSQL
+
+```
+테이블 
+
+ALTER 
+
+필드 = 열 (칸) = 속성(프로퍼티) = 항목(Item)
+수정 추가 삭제 
+
+user 데이터베이스 내에 테이블 만들기 
+
+USER 데이터베이스 사용하기 
+USE USER;
+
+CREATE TABLE kurly (
+    idx         int   primary key    not null  AUTO_INCREMENT  ,
+    user_id      VARCHAR(20)  not null,    
+    user_pw      VARCHAR(20)  not null,    
+    user_name    VARCHAR(20)  not null,    
+    user_email   VARCHAR(50)  not null,
+    user_hp      VARCHAR(13)  not null,
+    user_addr    VARCHAR(100) not null,
+    user_gender  VARCHAR(20)  not null,
+    user_birth   VARCHAR(13)  not null,
+    user_add     VARCHAR(13)  not null,
+    user_chk1    VARCHAR(200),
+    user_chk2    VARCHAR(200),
+    user_chk3    VARCHAR(200),
+    user_chk4    VARCHAR(200),
+    create_date timestamp DEFAULT CURRENT_TIMESTAMP
+); 
+
+오타제발 
+
+테이블 생성 확인하기. 
+SHOW TABLES;
+
+mysql> SHOW TABLES;
++----------------+
+| Tables_in_user |
++----------------+
+| member         |
+| todo_list      |
+
+테이블 속성 확인. 
+DESC member;
+
+mysql> DESC member;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| idx       | int         | NO   | PRI | NULL    | auto_increment |
+| user_id   | varchar(16) | NO   |     | NULL    |                |
+| user_pw   | varchar(16) | NO   |     | NULL    |                |
+| user_name | varchar(50) | NO   |     | NULL    |                |
+| user_hp   | varchar(13) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+이메일 열(Column) 추가하기 
+
+내가 원하는 컬럼추가 
+ALTER TABLE `todo_list` ADD `comments` VARCHAR(200) NOT NULL;
+
+ALTER 
+추가 속성
+
+필드명      타입
+user_mail VARCHAR(250)
+
+ALTER TABLE 테이블이름 추가(ADD) COLUMN 필드명  타입(200) NOT NULL;
+```
+
+
+
+겟조인리스트
+
+ <%
+                    UserDAO userDAO = new UserDAO();
+                    List<UserDTO> list = new ArrayList<>();
+                    list = userDAO.getJoinList();
+
+                    if(list.size()==0){
+                        out.println("<script>alert('조회내역이 없습니다.');</script>");
+                    }
+                    else {
+                            for(UserDTO item : list){
+                %>
+                            <tr>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                                <td><%=item.getUser_id()%></td>
+                            </tr>
+                            }
+                    }
+                %>
