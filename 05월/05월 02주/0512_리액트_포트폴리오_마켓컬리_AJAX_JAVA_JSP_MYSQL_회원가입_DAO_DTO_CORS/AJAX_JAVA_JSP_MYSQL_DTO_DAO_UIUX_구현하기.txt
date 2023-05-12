@@ -1,0 +1,27 @@
+마켓컬리 회원관리 
+
+0. 마켓컬리 회원가입폼 UIUX 디자인설계
+1. 테이블 만들기 (더미데이터 입력하기)
+2. DTO 만들기 
+3. DAO 만들기 (라이브러리 .JAR 파일 넣고 테스트하기)
+4. 회원가입폼 입력데이터 객체 만들기
+5. JSP 액션파일 만들기 (import DTO, DAO), CORS 헤더 작성
+6. 입력데이터 AJAX로 JSP 액션 파일로 전송 테스트하기 
+7. 입력데이터 AJAX로 JSP 액션 파일로 전송 그리고 테이블 저장 데이터 확인하기
+
+
+
+CREATE TABLE `signup_table` (
+  `idx` int(11) NOT NULL PRIMARY KEY COMMENT '자동 증가번호',
+  `id` varchar(16) COLLATE utf8mb4_general_ci NOT NULL COMMENT '아이디',
+  `pw` varchar(16) COLLATE utf8mb4_general_ci NOT NULL COMMENT '비밀번호',
+  `irum` varchar(100) COLLATE utf8mb4_general_ci NOT NULL COMMENT '이름',
+  `email` varchar(250) COLLATE utf8mb4_general_ci NOT NULL COMMENT '이메일',
+  `hp` varchar(13) COLLATE utf8mb4_general_ci NOT NULL COMMENT '휴대폰',
+  `addr` varchar(500) COLLATE utf8mb4_general_ci NOT NULL COMMENT '주소',
+  `gender` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '성별',
+  `birth` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '생년월일',
+  `chooga` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '추가입력사항',
+  `service` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL COMMENT '이용약관동의',
+  `gaib_date` varchar(10) COLLATE utf8mb4_general_ci NOT NULL COMMENT '가입일자'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='마켓컬리 회원가입 테이블';
