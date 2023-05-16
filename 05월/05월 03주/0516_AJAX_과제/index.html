@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/lib/jquery-2.2.4.min.js"></script>
+    <script src="./js/ajax_csv.js" defer></script>
+    <script src="./js/ajax_xml.js" defer></script>
+    <script src="./js/ajax_txt.js" defer></script>
+</head>
+<body>
+    <!-- 번호,개방서비스명,인허가일자,인허가취소일자,영업상태명,상세영업상태명,소재지우편번호,도로명우편번호,시설면적 -->
+    <div id="wrap">
+        <nav>
+            <a href="#" class="pension-csv-btn">관광펜션업_영업실태조사(CSV)</a>
+            <i> | </i>
+            <a href="#" class="pension-xml-btn">관광펜션업_영업실태조사(XML)</a>
+            <i> | </i>
+            <a href="#" class="pension-txt-btn">관광펜션업_영업실태조사(TEXT)</a>
+            <i> | </i>
+        </nav> 
+
+        <table>
+            <caption>관광펜션업 영업실태조사 [AJAX : CSV]</caption>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>개방서비스명</th>
+                    <th>인허가일자</th>
+                    <th>인허가취소일자</th>
+                    <th>영업상태명</th>
+                    <th>상세영업상태명</th>
+                    <th>소재지우편번호</th>
+                    <th>도로명우편번호</th>
+                    <th>시설면적</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-pension-csv"></tbody>
+        </table>
+
+        <table>
+            <caption>관광펜션업 영업실태조사 [AJAX : XML]</caption>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>개방서비스명</th>
+                    <th>인허가일자</th>
+                    <th>인허가취소일자</th>
+                    <th>영업상태명</th>
+                    <th>상세영업상태명</th>
+                    <th>소재지우편번호</th>
+                    <th>도로명우편번호</th>
+                    <th>시설면적</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-pension-xml"></tbody>
+        </table>
+
+        <table>
+            <caption>관광펜션업 영업실태조사 [AJAX : TXT]</caption>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>개방서비스명</th>
+                    <th>인허가일자</th>
+                    <th>인허가취소일자</th>
+                    <th>영업상태명</th>
+                    <th>상세영업상태명</th>
+                    <th>소재지우편번호</th>
+                    <th>도로명우편번호</th>
+                    <th>시설면적</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-pension-txt"></tbody>
+        </table>
+    </div>
+</body>
+</html>
