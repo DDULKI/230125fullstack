@@ -1,0 +1,20 @@
+
+setupProxys.js
+
+npm i -g yarn > npm i 과 같음 
+
+npm i http-proxy-middleware
+
+yarn add http-proxy-middleware
+
+  "proxy":{ 
+    "/jsp":{ //npm i http-proxy-middleware
+      "target": "http://localhost:8080"
+    },
+    "/php":{
+      "target": "http://localhost:8080"
+    },
+    "/asp":{
+      "target": "http://localhost:8080"
+    }
+  }
