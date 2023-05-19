@@ -143,16 +143,17 @@ export default function WrapComponent() {
 
 
         // 찾기  key: 'MJ_KURLY_TOPMODAL'  선생님 
-        // cookie.map((item)=>{
-        //     let isTopModal = null;
-        //     if(item.key===topModal.key && item.value==='yes'){
-        //         setTopModal({
-        //             ...topModal,
-        //             isTopModal:isTopModal
-        //         })
-        //         return;
-        //     }
-        // })
+        cookie.map((item)=>{
+            let isTopModal = null;
+            if(item.key.includes(topModal.key) && item.value.includes('yes')){
+            // if(item.key===topModal.key && item.value==='yes'){
+                setTopModal({
+                    ...topModal,
+                    isTopModal:isTopModal
+                })
+                return;
+            }
+        })
 
 
         // chat gpt 
