@@ -1,0 +1,17 @@
+스택 [Stack]
+
+양동이 구조 
+
+스 리포 LIFO 
+나중에 들어온게 먼저 나간다. 
+Last In First Out 
+
+큐(Que) FIFO
+버스 줄서는 구조 
+
+먼저 들어온게 먼저 나간다. 
+
+First In Last Out 
+
+데큐(Deque)
+양쪽에서 입력과 출력이 이루어지는 형태 
