@@ -1,0 +1,40 @@
+스택 [Stack]
+
+양동이 구조 
+
+스 리포 LIFO 
+나중에 들어온게 먼저 나간다. 
+Last In First Out 
+
+큐(Que) FIFO
+버스 줄서는 구조 
+
+먼저 들어온게 먼저 나간다. 
+
+First In Last Out 
+
+데큐(Deque)
+양쪽에서 입력과 출력이 이루어지는 형태 
+
+
+최근 본상품을 객체로 등록하고 
+로컬스토레이지에 저장한다. 
+그리고 로컬스토레이지에 저장된 
+상품목록의 이미지를 최근본 상품에 스택 방식으로 저장한다. 
+{
+    "제품코드":"PRODUCT00020",
+    "이미지":"http://localhost:3000/images/intro/1d88ad9d-5aea-4d22-bdd9-9ab660750049.jpg",
+    "저장일시":1684823132695
+}
+
+
+[
+    {"제품코드":"PRODUCT0001",
+    "이미지":"http://localhost:3000/images/intro/0a54f6a4-4f5a-4202-8f6d-045d2a1709de.jpg",
+    "저장일시":1684829057100},
+    {"제품코드":"PRODUCT0002",
+    "이미지":"http://localhost:3000/images/intro/0ac29455-0c2f-466f-9881-b9ed8a7a398f.jpg",
+    "저장일시":1684829057810},
+    {"제품코드":"PRODUCT0003",
+    "이미지":"http://localhost:3000/images/intro/0d82637a-330e-4446-99af-86246a5dd881.jpg",
+    "저장일시":1684829058725},{"제품코드":"PRODUCT0004","이미지":"http://localhost:3000/images/intro/0ec2bb5a-d89c-4f50-8172-fe404079e306.jpg","저장일시":1684829059747},{"제품코드":"PRODUCT0005","이미지":"http://localhost:3000/images/intro/0f6c2be5-0e27-4e86-95c5-b3212a9d9ab8.jpg","저장일시":1684829061146},{"제품코드":"PRODUCT0006","이미지":"http://localhost:3000/images/intro/0f8ccd6b-431d-472a-b608-ae6556a2bc12.jpg","저장일시":1684829062068},{"제품코드":"PRODUCT0007","이미지":"http://localhost:3000/images/intro/1d88ad9d-5aea-4d22-bdd9-9ab660750049.jpg","저장일시":1684829062907},{"제품코드":"PRODUCT0008","이미지":"http://localhost:3000/images/intro/1d88ad9d-5aea-4d22-bdd9-9ab660750049.jpg","저장일시":1684829063636},{"제품코드":"PRODUCT0009","이미지":"http://localhost:3000/images/intro/1d88ad9d-5aea-4d22-bdd9-9ab660750049.jpg","저장일시":1684829065844},{"제품코드":"PRODUCT00010","이미지":"http://localhost:3000/images/intro/1d88ad9d-5aea-4d22-bdd9-9ab660750049.jpg","저장일시":1684829067356},{"제품코드":"PRODUCT00011","이미지":"http://localhost:3000/images/intro/1d88ad9d-5aea-4d22-bdd9-9ab660750049.jpg","저장일시":1684829068861},{"제품코드":"PRODUCT00012","이미지":"http://localhost:3000/images/intro/1d88ad9d-5aea-4d22-bdd9-9ab660750049.jpg","저장일시":1684829069621}]
