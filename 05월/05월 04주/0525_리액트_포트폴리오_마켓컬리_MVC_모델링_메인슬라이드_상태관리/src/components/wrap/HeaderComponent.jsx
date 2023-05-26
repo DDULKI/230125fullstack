@@ -101,6 +101,7 @@ export default function HeaderComponent({mapText, isMap}) {
                                                 state.isSub1 &&  (
                                                         <div className="sub"  onMouseLeave={onMouseLeaveSub1}>
                                                             <ul>
+                                                                
                                                                 <li><a href="!#">공지사항</a></li>
                                                                 <li><a href="!#">자주하는 질문</a></li>
                                                                 <li><a href="!#">1:1문의</a></li>
