@@ -3,6 +3,7 @@ import TopModalComponent from './wrap/TopModalComponent';
 import MainComponent from './wrap/MainComponent';
 import FooterComponent from './wrap/FooterComponent';
 import GotopComponent from './wrap/GotopComponent';
+import SigninComponent from './wrap/SigninComponent';
 
 export default function WrapComponent(){
     return (
@@ -11,6 +12,7 @@ export default function WrapComponent(){
             <MainComponent/>
             <FooterComponent/>
             <GotopComponent/>
+            <SigninComponent/>
         </div>
     );
 };

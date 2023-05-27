@@ -1,0 +1,114 @@
+#signIn {
+    width: 100%;
+    padding: 100px 0;
+    .container {
+        width: 100%;
+        max-width: 1903px;
+        height: 440px;
+        background: #fff;
+        margin: 0 auto;
+        .gap {
+            width: 100%;
+            .title {
+                padding: 20px 0 0 30px;
+                width: 100%;
+                a {
+                    font-size: 14px;
+                    color: #000;
+                }
+            }
+            .content {
+                width: 100%;
+                display: flex;
+
+                .left {
+                    width: 50%;
+                    padding: 30px;
+                    >ul {
+                        width: 100%;
+                        padding: 0 0 80px 0;
+                        >li {
+                            width: 100%;
+                            padding: 0 0 10px 0;
+                            >.login-title {
+                                font-size: 12px;
+                                color: #000;
+                                
+                            }
+                            >.desc-txt {
+                                font-size: 14px;
+                                color: #000;
+                            }
+                        }
+                    }
+                    button {
+                        width: 190px;
+                        height: 34px;
+                        border: 1px solid #000;
+                        background: #000;
+                        color: #fff;
+                        &.login-btn{
+                            width: 190px;
+                            height: 34px;
+                            border: 1px solid #000;
+                            background: #000;
+                            color: #fff;
+                        }
+                    }
+                }
+                .right {
+                    width: 50%;
+                    padding: 30px;
+                    #login-form {
+                        width: 100%;
+                        .login-title {
+                            font-size: 12px;
+                            color: #000;
+                        }
+                        ul {
+                            width: 100%;
+                            li {
+                                width: 100%;
+                                padding: 20px 0;
+                                >p {
+                                    
+                                    font-size: 12px;
+
+                                }
+                                .login-box {
+                                    width: 300px;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    input {
+                                        border-bottom: 1px solid #000;
+                                        background: transparent;
+                                    }
+                                    
+                                }
+                                .desc-txt {
+                                    font-size: 14px;
+                                    color: #000;
+                                }
+                                .login-txt {
+                                    display: flex;
+                                    margin: 0 10px 20px 0;
+                                    input {
+                                        
+                                    }
+                                    p {}
+                                }
+                                button {
+                                    width: 190px;
+                                    height: 34px;
+                                    border: 1px solid #000;
+                                    background: #000;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
