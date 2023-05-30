@@ -1,0 +1,368 @@
+@import url('../css/fonts.css');
+@import url('../css/reset.css');
+@import url('../css/skip.css');
+
+#wrap {
+    position: relative;
+    #header {
+        z-index: 3;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(0,0,0,0);
+        transition: all 0.3s;
+        &.on {
+            background: rgba(0,0,0,1);
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 35px;
+            .left {
+                width: 111px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                
+                h1 {
+                    width: 100%;
+                    a {
+                        width: 100%;
+                        img {
+                            width: 111px;
+                            height: 36px;
+                        }
+                    }
+                }
+            }
+            .center {
+                width: 1200px;
+                height: 100%;
+                padding: 0 15px;
+                #nav {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    >ul {
+                        height: 100%;
+                        display: flex;
+                        width: auto;
+                        >li {
+                            height: 100%;
+                            padding: 0 22px;
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            /////////////////////////////
+                            /// 메인메뉴
+                            >a {
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: #fff;
+                                transition: all 0.3s;
+                               > &:hover {
+                                    color: rgba(255, 255, 255, 0.7);
+                                }
+                            }
+                            /////////////////////////////
+                            /// 서브메뉴
+                            .sub { // 서브에 패딩을 절대 주면 안된다~!
+                                position: absolute;
+                                z-index: 2;
+                                left: 50%;
+                                top: 80px;
+                                width: 901.625px;
+                                margin: 0 0 0 calc(-901.625px / 2);
+                                background: #fff;
+                                border-radius: 5px;
+                                display: none;
+                                .container {
+                                    padding: 50px 65px;
+                                    width: 100%;
+                                    ul {
+                                        display: flex;
+                                        width: 100%;
+                                        li {
+                                            width: 25%;
+                                            dl {
+                                                width: 100%;
+                                               
+                                                dt {
+                                                    width: 100%;
+                                                    display: inline-block;
+                                                    line-height: 280%;
+                                                    font-size: 13px;
+                                                    font-weight: 500;
+                                                    color: #222;
+                                                    font-weight: 600;
+                                                }
+                                                dd {
+                                                    width: 100%;
+                                                    a {
+                                                        display: inline-block;
+                                                        line-height: 250%;
+                                                        font-size: 13px;
+                                                        font-weight: 500;
+                                                        color: #828282;
+                                                        &:hover {
+                                                            color: #000;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &.sub2356 {
+                                    width: 240px;
+                                    left: 0;
+                                    margin: 0;
+                                    >.container {
+                                        padding: 25px 35px;
+                                        width: 100%;
+                                        position: relative;
+                                        >ul {
+                                            display: block; // 블럭을 해야 밑으로 내려간다.
+                                            width: 100%;
+                                            >li {
+                                                width: 100%;
+                                                line-height: 100%;
+                                                padding: 5px 0;
+                                                
+                                                a {
+                                                    position: relative;
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    align-items: center;
+                                                    padding: 8px 0;
+                                                    color: #828282;
+                                                    transition: all  0.3s;
+                                                    i{
+                                                        font-size: 15px;
+                                                        
+                                                    }
+                                                    &:hover {
+                                                        color: #000;
+                                                    }
+                                                }
+                                                .sub-sub {
+                                                    display: none;
+                                                    position: absolute;
+                                                    left: 100%;
+                                                    top: 0;
+                                                    width: 240px;
+                                                    background: #fff;
+                                                    border-radius: 5px;
+                                                    margin: 0 0 0 1px;
+                                                    &.sub-sub1{
+                                                        top: 41px * 0;
+                                                    }
+                                                    &.sub-sub2 {
+                                                        top:41px * 1;
+                                                    }
+                                                    &.sub-sub3 {
+                                                        top:41px * 2; 
+                                                    }
+                                                    &.sub-sub4 {
+                                                        top:41px * 3; 
+                                                    }
+                                                    &.sub-sub5 {
+                                                        top:41px * 4; 
+                                                    }
+                                                    &.sub-sub6 {
+                                                        top:41px * 5; 
+                                                    }
+                                                    &.sub-sub7 {
+                                                        top:41px * 6; 
+                                                    }
+                                                    &.sub-sub8 {
+                                                        top:41px * 7; 
+                                                    }
+                                                    &.sub-sub9 {
+                                                        top:41px * 8; 
+                                                    }
+                                                    &.sub-sub10 {
+                                                        top:41px * 9; 
+                                                    }
+                                                    &.sub-sub11 {
+                                                        top:41px * 10; 
+                                                    }
+                                                    &.sub-sub12 {
+                                                        top:41px * 11; 
+                                                    }
+                                                    &.sub-sub13 {
+                                                        top:41px * 12; 
+                                                    }
+
+
+                                                    &.sub2-1 {}
+                                                    &.sub2-2 {}
+                                                    &.sub2-3 {}
+                                                    &.sub2-4 {}
+
+
+
+
+
+                                                    &.sub3-1 {}
+                                                    &.sub3-2 {}
+                                                    &.sub3-3 {}
+                                                    &.sub3-4 {}
+                                                    &.sub3-5 {}
+                                                    &.sub3-6 {}
+                                                    &.sub3-7 {}
+                                                    &.sub3-8 {}
+
+
+
+
+
+                                                    &.sub5-1 {}
+                                                    &.sub5-2 {}
+                                                    &.sub5-3 {}
+                                                    &.sub5-4 {}
+                                                    &.sub5-5 {}
+                                                    &.sub5-6 {}
+                                           
+
+
+
+                                                    &.sub6-1 {}
+                                                    &.sub6-2 {}
+                                                    &.sub6-3 {}
+                                                    &.sub6-4 {}
+                                                    &.sub6-5 {}
+                                                    &.sub6-6 {}
+                                                    &.sub6-7 {}
+                                                    &.sub6-8 {}
+                                                    &.sub6-9 {}
+                                                    &.sub6-10 {}
+                                                    &.sub6-11 {}
+                                                    &.sub6-12 {display: block;}
+                                                    &.sub6-13 {}
+                                           
+
+                                                    .container {
+                                                        ul {
+                                                            li {
+                                                                a {
+                                                                    i {
+                                                                        opacity: 0;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &.sub1 {
+                                   
+                                }
+
+                                &.sub2 {
+                                   
+                                }
+                                &.sub3 {
+                                   
+                                }
+                                &.sub4 {
+                                    display: block;
+                                }
+                                &.sub5 {
+                                    
+                                }
+                                &.sub6 {
+                                    .container {
+                                        ul {
+                                            li {
+                                                a {
+                                                    i {
+                                                        opacity: 0;
+
+                                                        
+                                                    }
+                                                    
+                                                }
+                                               
+                                            }
+                                        }
+                                    }
+                                }
+                                &.sub7 {
+                                    display: block;
+                                    width: 757.984px;
+                                    margin: 0 0 0 calc(-757.984px / 2);
+                                    .container {
+                                        ul {
+                                            li {
+                                                padding: 5px 0;
+                                                width: 33.3%;
+                                                &:nth-child(1){width: 25%;}
+                                                &:nth-child(2){width: 37.5%;}
+                                                &:nth-child(3){width: 37.5%;}
+                                                .gap {
+                                                    padding: 0 0 0 15px;
+                                                    a {
+
+                                                        img {
+                                                            width: 100%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .right {
+                width: auto;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                a {
+                    margin: 0 0 0 20px;
+                    color: #fff;
+                    font-size: 15px;
+                    i {
+                        background: rgba(0,0,0,0);
+                        transition: all 0.3s;
+                        &.on {
+                            background: rgba(0,0,0,1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #main {
+        position: relative;
+    }
+    #footer {
+        z-index: 1;
+        position: relative;
+        width: 100%;
+    }
+    section{
+        width: 100%;
+        height: 100vh;
+        &#section1 {
+            background:url(../img/home-interior-design-slider-img01.jpg) no-repeat 50% 50%;
+            background-size: cover;
+        }
+    }
+    
+}
+

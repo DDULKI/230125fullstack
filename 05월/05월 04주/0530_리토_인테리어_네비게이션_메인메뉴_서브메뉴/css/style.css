@@ -1,0 +1,275 @@
+@import url("../css/fonts.css");
+@import url("../css/reset.css");
+@import url("../css/skip.css");
+#wrap {
+  position: relative;
+}
+#wrap #header {
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.3s;
+}
+#wrap #header.on {
+  background: rgb(0, 0, 0);
+}
+#wrap #header .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 35px;
+}
+#wrap #header .container .left {
+  width: 111px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#wrap #header .container .left h1 {
+  width: 100%;
+}
+#wrap #header .container .left h1 a {
+  width: 100%;
+}
+#wrap #header .container .left h1 a img {
+  width: 111px;
+  height: 36px;
+}
+#wrap #header .container .center {
+  width: 1200px;
+  height: 100%;
+  padding: 0 15px;
+}
+#wrap #header .container .center #nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+#wrap #header .container .center #nav > ul {
+  height: 100%;
+  display: flex;
+  width: auto;
+}
+#wrap #header .container .center #nav > ul > li {
+  height: 100%;
+  padding: 0 22px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#wrap #header .container .center #nav > ul > li > a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s;
+}
+#wrap #header .container .center #nav > ul > li > a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+#wrap #header .container .center #nav > ul > li .sub {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 80px;
+  width: 901.625px;
+  margin: 0 0 0 -450.8125px;
+  background: #fff;
+  border-radius: 5px;
+  display: none;
+}
+#wrap #header .container .center #nav > ul > li .sub .container {
+  padding: 50px 65px;
+  width: 100%;
+}
+#wrap #header .container .center #nav > ul > li .sub .container ul {
+  display: flex;
+  width: 100%;
+}
+#wrap #header .container .center #nav > ul > li .sub .container ul li {
+  width: 25%;
+}
+#wrap #header .container .center #nav > ul > li .sub .container ul li dl {
+  width: 100%;
+}
+#wrap #header .container .center #nav > ul > li .sub .container ul li dl dt {
+  width: 100%;
+  display: inline-block;
+  line-height: 280%;
+  font-size: 13px;
+  font-weight: 500;
+  color: #222;
+  font-weight: 600;
+}
+#wrap #header .container .center #nav > ul > li .sub .container ul li dl dd {
+  width: 100%;
+}
+#wrap #header .container .center #nav > ul > li .sub .container ul li dl dd a {
+  display: inline-block;
+  line-height: 250%;
+  font-size: 13px;
+  font-weight: 500;
+  color: #828282;
+}
+#wrap #header .container .center #nav > ul > li .sub .container ul li dl dd a:hover {
+  color: #000;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 {
+  width: 240px;
+  left: 0;
+  margin: 0;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container {
+  padding: 25px 35px;
+  width: 100%;
+  position: relative;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul {
+  display: block;
+  width: 100%;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li {
+  width: 100%;
+  line-height: 100%;
+  padding: 5px 0;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li a {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  color: #828282;
+  transition: all 0.3s;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li a i {
+  font-size: 15px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li a:hover {
+  color: #000;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 240px;
+  background: #fff;
+  border-radius: 5px;
+  margin: 0 0 0 1px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub1 {
+  top: 0px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub2 {
+  top: 41px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub3 {
+  top: 82px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub4 {
+  top: 123px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub5 {
+  top: 164px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub6 {
+  top: 205px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub7 {
+  top: 246px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub8 {
+  top: 287px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub9 {
+  top: 328px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub10 {
+  top: 369px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub11 {
+  top: 410px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub12 {
+  top: 451px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub-sub13 {
+  top: 492px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub.sub6-12 {
+  display: block;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub2356 > .container > ul > li .sub-sub .container ul li a i {
+  opacity: 0;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub4 {
+  display: block;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub6 .container ul li a i {
+  opacity: 0;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub7 {
+  display: block;
+  width: 757.984px;
+  margin: 0 0 0 -378.992px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub7 .container ul li {
+  padding: 5px 0;
+  width: 33.3%;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub7 .container ul li:nth-child(1) {
+  width: 25%;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub7 .container ul li:nth-child(2) {
+  width: 37.5%;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub7 .container ul li:nth-child(3) {
+  width: 37.5%;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub7 .container ul li .gap {
+  padding: 0 0 0 15px;
+}
+#wrap #header .container .center #nav > ul > li .sub.sub7 .container ul li .gap a img {
+  width: 100%;
+}
+#wrap #header .container .right {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#wrap #header .container .right a {
+  margin: 0 0 0 20px;
+  color: #fff;
+  font-size: 15px;
+}
+#wrap #header .container .right a i {
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.3s;
+}
+#wrap #header .container .right a i.on {
+  background: rgb(0, 0, 0);
+}
+#wrap #main {
+  position: relative;
+}
+#wrap #footer {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+}
+#wrap section {
+  width: 100%;
+  height: 100vh;
+}
+#wrap section#section1 {
+  background: url(../img/home-interior-design-slider-img01.jpg) no-repeat 50% 50%;
+  background-size: cover;
+}
