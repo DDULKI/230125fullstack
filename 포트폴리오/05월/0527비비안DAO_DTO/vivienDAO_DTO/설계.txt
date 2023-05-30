@@ -1,0 +1,36 @@
+CREATE TABLE vivienne(
+    idx int PRIMARY KEY AUTO_INCREMENT,
+    id VARCHAR(20) NOT NULL,
+    pw VARCHAR(20) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    birth VARCHAR(50) NOT NULL,
+    gender VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    nation VARCHAR(30) NOT NULL,
+    hp VARCHAR(20) NOT NULL,
+    create_date timestamp DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE vivienne_member(
+   idx             int       AUTO_INCREMENT,
+   user_email      varchar(100)    NOT NULL,
+   user_name       varchar(300)    NOT NULL,
+   user_pw1         varchar(100)    NOT NULL,
+   user_pw2         varchar(100),
+   user_gender     varchar(300)     NOT NULL,
+   user_hp          varchar(300)    NOT NULL,
+   user_hp_ok       varchar(300),
+   user_jbss       varchar(300),
+   user_birth      varchar(300),
+   user_service    varchar(1000)   NOT NULL,
+   create_date timestamp DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (idx, user_email)
+ );
+
+ 맥에서 mysql 하는 방법
+ mysql -u root -p
+
+
+
+INSERT INTO vivienne_member (user_email, user_name, user_pw1, user_pw2,user_gender, user_hp, user_hp_ok, user_jbss, user_birth,user_service)
+VALUES ('seulki4994@naver.com', '정슬기', '1004', '1004', '여자', '010-7771-6035', '010-7771-6035', '정보수신', '930130','이용약관동의');

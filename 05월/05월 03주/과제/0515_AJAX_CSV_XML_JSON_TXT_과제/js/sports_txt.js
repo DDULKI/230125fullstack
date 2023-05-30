@@ -1,4 +1,4 @@
-// (($)=> {
+// (($)=> {₩
 //  $('.chunan-sports-txt-btn').on({
 //     click(e){
 //         e.preventDefault();
@@ -23,7 +23,7 @@
 //                 for(let i=0; i<arr.length; i++){
 //                     $('tbody-sports-txt').append("<tr>");
 //                     for(let j=0; j<arr[i].length; j++){
-//                         $('tbody-sports-txt').append(`<td>${arr[i][j]}</td>`);
+//                         $('tbody-sports-txt').append(`<td>${arr[i][j]}</td>`)
 //                     }
 //                     $('tbody-sports-txt').append("</tr>");
 //                 }
