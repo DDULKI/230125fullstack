@@ -2,6 +2,165 @@ import React from 'react';
 import './scss/cart.scss';
 
 export default function CartComponent(){
+
+
+    const [cart, setCart] = React.useState([]); 
+    const [arr1, setArr1] = React.useState([]);
+    const [arr2, setArr2] = React.useState([]);
+    const [arr3, setArr3] = React.useState([]);
+
+    //1. 냉장
+    const res1 = cart.map((item, idx)=>{
+        if(item.보관방법==='냉장'){
+            return (
+                <dd key={idx} className='on'>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name='chk' id='chk1'  value={item.제품코드} />
+                        </li>
+                        <li>
+                            <span style={{backgroundImage: `url(${item.이미지}`}} className='cart-small-bgimg'></span>
+                        </li>
+                        <li>
+                            <a href="!#">{item.제품명}</a>
+                        </li>
+                        <li>
+                            <div>
+                                <button className='sub-btn'></button>
+                                <strong>{item.수량}</strong>
+                                <button className='add-btn'></button>
+                            </div>
+                        </li>
+                        <li>
+                            <span>{item.총상품금액}원</span>
+                        </li>
+                        <li>
+                            <a href="!#" className='del-bgimg-btn'></a>
+                        </li>
+                    </ul>
+                </dd>
+            )
+        }
+    
+    })
+
+
+    //2. 냉동
+    const res2 = cart.map((item, idx)=>{
+        if(item.보관방법==='냉동'){
+            return (
+                <dd key={idx} className='on'>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name='chk' id='chk1'  value={item.제품코드} />
+                        </li>
+                        <li>
+                            <span style={{backgroundImage: item.이미지}} className='cart-small-bgimg'></span>
+                        </li>
+                        <li>
+                            <a href="!#">{item.제품명}</a>
+                        </li>
+                        <li>
+                            <div>
+                                <button className='sub-btn'></button>
+                                <strong>{item.수량}</strong>
+                                <button className='add-btn'></button>
+                            </div>
+                        </li>
+                        <li>
+                            <span>{item.총상품금액}원</span>
+                        </li>
+                        <li>
+                            <a href="!#" className='del-bgimg-btn'></a>
+                        </li>
+                    </ul>
+                </dd>
+            )
+        }
+    
+    })
+
+
+    //3. 상온
+    const res3 = cart.map((item, idx)=>{
+        if(item.보관방법==='상온'){
+            return (
+                <dd key={idx} className='on'>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name='chk' id='chk1'  value={item.제품코드} />
+                        </li>
+                        <li>
+                            <span style={{backgroundImage: item.이미지}} className='cart-small-bgimg'></span>
+                        </li>
+                        <li>
+                            <a href="!#">{item.제품명}</a>
+                        </li>
+                        <li>
+                            <div>
+                                <button className='sub-btn'></button>
+                                <strong>{item.수량}</strong>
+                                <button className='add-btn'></button>
+                            </div>
+                        </li>
+                        <li>
+                            <span>{item.총상품금액}원</span>
+                        </li>
+                        <li>
+                            <a href="!#" className='del-bgimg-btn'></a>
+                        </li>
+                    </ul>
+                </dd>
+            )
+        }
+    
+    })
+
+
+
+
+
+    // 장바구니 가져오기 
+    React.useEffect(()=>{
+        if(localStorage.getItem('MJ_KURLY_CART_PRODUCT')!==null){
+            let result =JSON.parse(localStorage.getItem('MJ_KURLY_CART_PRODUCT'));
+
+            // 정렬 : 보관방법 오름차순 ASC
+            result.sort((a, b)=>{
+                if( a.보관방법  >  b.보관방법 ) return  1;
+                if( a.보관방법  <  b.보관방법 ) return -1;
+                if( a.보관방법 === b.보관방법 ) return 0;
+            });
+
+            setCart(result); // 상태변수를 만들어줘야 사용 가능. . .
+
+            let arr1 = [];
+            let arr2 = [];
+            let arr3 = [];
+            // console.log(result);
+
+            result.map((item, idx)=>{
+                if(item.보관방법 === '냉동'){
+                    arr1 = [...arr1, item];
+                }
+                else if(item.보관방법 === '냉장'){
+                    arr2 = [...arr2, item];
+                }
+                else if(item.보관방법 === '상온'){
+                    arr3 = [...arr3, item];
+                }
+            });
+            // console.log(arr1);
+            // console.log(arr2);
+            // console.log(arr3);
+            setArr1(arr1);
+            setArr2(arr2);
+            setArr3(arr3);
+        }
+
+    },[]);
+
+
     return (
         <div id='cart'>
             <div className="container">
@@ -30,46 +189,46 @@ export default function CartComponent(){
                                     </span>
                                     <li>
                                         <dl>
-                                            <dt>
-                                                <div>
-                                                    <img src="./img/cart/mulbang.svg" alt="" />
-                                                    <h3>냉장 상품</h3>
-                                                </div>
-                                                <div>
-                                                    <button><img src="./img/cart/jub.svg" alt="" /></button>
-                                                </div>
-                                            </dt>
-                                            <dd>
-                                                <ul>
-                                                    <li>
-                                                        <input type="checkbox" id='chk1' name='chk' value='PRODUCT0001' />
-                                                    </li>
-                                                    <li>
-                                                        <span className='cart-small-bgimg'></span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="!#">[Better me] 그린&레드페퍼 닭가슴살 (1개입)</a>
-                                                    </li>
-                                                    <li>
-                                                        <div>
-                                                            <button className='sub-btn'>빼기</button>
-                                                            <strong>7</strong>
-                                                            <button className='add-btn'>더하기</button>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <span>13,300원</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="!#" className='del-bgimg-btn'><img src="./img/cart/x.svg" alt="" /></a>
-                                                    </li>
-                                                </ul>
-                                            </dd>
+                                              {/* 장바구니 상품 목록 시작  */}
+                                             { 
+                                                arr2.length >= 1 && (
+                                                    <div className='acodian'>
+                                                        <dt>
+                                                            <div><img src="./img/cart/icon_01.svg" alt="" /><h3>냉장 상품</h3></div>
+                                                            <div><button><img src="./img/cart/jub.svg" alt="" /></button></div>
+                                                        </dt>
+                                                        {res1}
+                                                    </div>
+                                                )
+                                             }
+                                             { 
+                                                arr1.length >= 1 && (
+                                                    <>
+                                                        <dt>
+                                                            <div><img src="./img/cart/icon_02.svg" alt="" /><h3>냉동 상품</h3></div>
+                                                            <div><button><img src="./img/cart/jub.svg" alt="" /></button></div>
+                                                        </dt>
+                                                        {res2}
+                                                    </>
+                                                )
+                                             }
+                                             { 
+                                                arr3.length >= 1 && (
+                                                    <>
+                                                        <dt>
+                                                            <div><img src="./img/cart/icon_03.svg" alt="" /><h3>상온 상품</h3></div>
+                                                            <div><button><img src="./img/cart/jub.svg" alt="" /></button></div>
+                                                        </dt>
+                                                        {res3}
+                                                    </>
+                                                )
+                                             }
+
+                                     
+                                           
+                                            
                                         </dl>
                                     </li>
-                                </li>
-                                <li>
-                                    {/* 상품리스트 반복문처리 그룹별로(필터링) */}
                                 </li>
                                 <li>
                                     {/* 푸터 */}
@@ -96,7 +255,7 @@ export default function CartComponent(){
                                         <img src="./img/cart/map.svg" alt="" />배송지
                                     </h3>
                                     <p>
-                                        <em>배송지를 등록</em><br />
+                                        <em>배송지를 등록</em>하고<br />
                                         구매 가능한 상품을 확인하세요!
                                     </p>
                                     <button>
@@ -107,26 +266,21 @@ export default function CartComponent(){
                                 <li>
                                     <div>
                                         <div className="row1">
-                                            <p><strong>상품금액</strong> <strong>74,280</strong> <em>원</em></p>
+                                            <p><strong>상품금액</strong> <strong>74,280원</strong> </p>
                                             <p>
                                                 <strong>상품할인금액</strong> 
-                                                <strong>0</strong> 
-                                                <em>원</em>
+                                                <strong>0원</strong> 
                                                 <span>로그인 후 할인 금액 적용</span>
                                             </p>
                                             <p>
                                                 <strong>배송비</strong>
-                                                <strong>0</strong> 
-                                                <em>원</em>
+                                                <strong>0원</strong> 
                                             </p>
                                             <p><strong>상품금액</strong></p>
                                         </div>
                                         <div className="row2">
-                                            <strong>결제예정금액</strong>
-                                            <strong>74,280</strong> 
-                                            <em>원</em>
-                                            <span>적립</span>
-                                            로그인 후 회원 등급에 따라 적립
+                                            <p><strong>결제예정금액</strong><strong>74,280원</strong></p>
+                                            <p><em>적립</em><span>로그인 후 회원 등급에 따라 적립</span></p> 
                                         </div>
                                     </div>
                                 </li>

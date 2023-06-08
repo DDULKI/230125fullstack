@@ -21,11 +21,12 @@
             .content {
                 width: 100%;
                 display: flex;
-                .left {
+                position: relative;
+                >.left {
                     width: 742px;
-                    >ul {
+                    ul {
                         width: 100%;
-                        >li {
+                        li {
                             width: 100%;
                             &:first-child,
                             &:last-child {
@@ -60,7 +61,7 @@
                                             }
                                         }
                                     }
-                                    >i {
+                                    i {
                                         font-size: 12px;
                                         color: #bbb;
                                         font-weight: 400;
@@ -68,54 +69,141 @@
                                     }
                                 }
                             }
+                            &:nth-child(1){
+                                padding: 0 0 20px 0;
+                            }
                             &:nth-child(2){
-                               
+                               width: 100%;
                                 dl {
+                                    width: 100%;
+                                    // 장바구니 그룹 타이틀
                                     dt {
+                                        border-top: 1px solid #000;
+                                        width: 100%;
                                         padding: 30px 0 ;
                                         display: flex;
+                                        justify-content: space-between;
+                                        height: 60px;
                                         div {
-                                           
+                                           padding: 15px 0;
                                          &:first-child{
-                                            img {}
-                                            h3 {}
+                                            width: 100%;
+                                            display: flex;
+                                            img {
+                                                width: 30px;
+                                                height: 30px;
+                                                margin: 0 10px 0 0; 
+                                                // background: url(../img/cart/mulbang.svg) no-repeat 50% 50%;
+                                            }
+                                            h3 {
+                                                display: inline-flex;
+                                                width: 60px;
+                                                font-size: 14px; 
+                                                color: #333;
+                                                font-weight: 500;
+                                                letter-spacing: -2.5px;
+                                            }
                                          }
                                          &:last-child{
                                             button {
-                                                img {}
+                                                border: 0;
+                                                background: none;
+                                                cursor: pointer;
+                                                width: 30px;
+                                                img {
+                                                    width: 30px;
+                                                }
                                             }
-                                         }
+                                        }
                                         }
                                     }
                                     dd {
                                         padding: 20px 0 ;
+                                        border-bottom: 1px solid #ddd;
+                                        
                                         ul {
+                                            height: 78px;
                                             display: flex;
+                                            align-items: center;
                                             li {
                                                 &:nth-child(1){
-                                                    input {}
+                                                    width: 40px;
+                                                    input[type='checkbox'] {
+                                                        appearance: none;
+                                                        width: 24px;
+                                                        height: 24px;
+                                                        border-radius: 50%;
+                                                        background-size: 24px 24px;
+                                                        background: transparent url('../img/cart/checkon.svg') no-repeat 0 50%;
+                                                    }
                                                 }
                                                 &:nth-child(2){
-                                                    .cart-small-bgimg {}
+                                                    width: 60px;
+                                                    span {
+                                                        width: 60px;
+                                                        height: 78px;
+                                                        display: block;
+                                                        background: url(../../../../public/images/sub1/004ee48d-c745-4c58-b37f-f67a8f23b01f.jpg) no-repeat 50% 50%;
+                                                        background-size: cover;
+                                                    }
+                                                   
                                                 }
                                                 &:nth-child(3){
-                                                    a {}
+                                                    width: 388px;
+                                                    padding: 0 0 0 15px;
+                                                    a {
+                                                        font-size: 16px;
+                                                        color: #555;
+                                                        font-weight: 600;
+                                                    }
                                                 }
                                                 &:nth-child(4){
+                                                    width: 88px;
                                                     div {
+                                                        width: 88px;
+                                                        display: flex;
+                                                        border: 1px solid #ccc;
+                                                        border-radius: 3px;
                                                         button {
-                                                            &:first-of-type{}
-                                                            strong {}
-                                                            &:last-of-type{}
+                                                            width: 33.333%;
+                                                            height: 28px;
+                                                            border: 0;
+                                                            background: none;
+                                                            cursor: pointer;
+                                                            &:first-of-type{
+                                                                background: transparent url('../img/cart/bbagi.svg') no-repeat 0 50%;
+                                                            }
+                                                            &:last-of-type{
+                                                                background: transparent url('../img/cart/add.svg') no-repeat 0 50%;
+                                                            }
+                                                        }
+                                                        strong {
+                                                            display: flex;
+                                                            align-items: center;
+                                                            justify-content: center; // strong은 디스플레이 삼세트 같이 써줘야함! 
+                                                            width: 33.333%;
+                                                            height: 28px;
                                                         }
                                                     }
                                                 }
                                                 &:nth-child(5){
-                                                    span {}
+                                                    width: 127px;
+                                                    text-align: right;
+                                                    span {
+                                                        color: #333;
+                                                        font-size: 16px;
+                                                        font-weight: 700;
+                                                    }
                                                 }
                                                 &:nth-child(6){
-                                                    a {}
-                                                    img {}
+                                                    width: 39px;
+                                                    padding: 0 0 0 9px;
+                                                    a {
+                                                        display: block;
+                                                        width: 30px;
+                                                        height: 30px;
+                                                        background: transparent url('../img/cart/x.svg') no-repeat 0 50%;   
+                                                    }
                                                 }
                                             }
                                         }
@@ -127,48 +215,160 @@
                     }
                 }
                 .right {
+                    position: sticky;
+                    top: 70px;
+                    left: 0;
+                    height: 100vh;
                     width: 308px;
-                    padding: 0 0 0 24px;
-                        >ul {
-                            >li {
+                    padding: 45px 0 0 26px;
+                    
+                        ul {
+                            li {
                                 &:first-child {
+                                    border: 1px solid #ddd;
+                                    padding: 24px 19px 20px 19px;
+                                    line-height: 180%;
+                                    border-bottom: 0;
+                                    color: #333;
+                                    font-size: 16px;
+                                    font-weight: 600;
                                     h3 {
-                                        img {}
+                                        padding: 0 0 8px 0;
+                                        
+                                        img {
+                                            margin:0 10px 0 0;
+                                            vertical-align: middle;
+                                            transform: translateY(-2px);
+                                        }
                                     }
-                                    p {
-                                        em {}
+                                    >p {
+                                        padding: 0 0 15px 0;
+                                        em {
+                                            font-size: 14px;
+                                            color: #5f0080;
+                                            transform: translateY(2px);
+                                        }
                                     }
                                     button {
-                                        img {}
+                                        width: 100%;
+                                        height: 38px;
+                                        border-radius: 3px;
+                                        border: 1px solid #5f0080;
+                                        color: #5f0080;
+                                        background: #fff;
+                                        img {
+                                            width: auto;
+                                            transform: translateY(-1.5  px);
+                                        }
                                     }
                                 }
                                 &:nth-child(2){
+                                    border: 1px solid #ddd;
+                                    line-height: 180%;
+                                    background: #f2f2f2;
+                                    
+                                    padding: 24px 19px 20px 19px;
                                     div {
+                                        line-height: 180%;
                                         &.row1 {
+                                            width: 100%;
                                             p {
-                                                strong {}
-                                                &:nth-child(2){
-                                                    span {}
+                                                width: 100%;
+                                                padding: 7px 0;
+                                                color: #333;
+                                                display: flex;
+                                                justify-content: space-between;
+                                                flex-flow: row wrap;
+                                                strong {
+                                                    &:nth-child(1){
+                                                        font-size: 16px;
+                                                        font-weight: 500;
+                                                    }
+                                                    &:nth-child(2){
+                                                        font-size: 18px;
+                                                        font-weight: 600;
+                                                    }
                                                 }
-                                                em {}
+                                                span {
+                                                    width: 100%;
+                                                    text-align: right;
+                                                    display: flex;
+                                                    justify-content: flex-end;
+                                                    padding: 5px 0 10px 0;
+                                                    font-size: 12px;
+                                                }
+                                                
                                                
                                             }
                                         }
                                         &.row2 {
-                                            strong {
+                                            width: 100%;
+                                            p {
+                                                width: 100%;
+                                                padding: 7px 0;
+                                                color: #333;
+                                                display: flex;
+                                                justify-content: space-between;
                                                 
+                                                strong {
+                                                    font-size: 14px;
+                                                    font-weight: 700;
+                                                    color: #333;
+                                                }
+                                                &:nth-child(1){
+                                                    width: 100%;
+                                                    strong {
+                                                        &:nth-child(2){
+                                                            font-size: 20px;
+                                                            font-weight: 700;
+                                                            color: #333;
+                                                        }
+                                                    }
+                                                }
+                                                &:nth-child(2){
+                                                    width: 100%;
+                                                    justify-content: flex-end;
+                                                    strong {
+                                                        font-size: 16px;
+                                                        font-weight: 700;
+                                                    }
+                                                }
+                                                em {
+                                                    font-size: 12px;
+                                                    display: inline-flex;
+                                                    padding: 0 7px;
+                                                    color: #fff;
+                                                    border-radius: 11px;
+                                                    background: #ffbf00;
+                                                    margin: 0 5px 0 0;
+                                                }
+                                                span {
+                                                    font-size: 13px;
+                                                }
                                             }
-                                            em {}
-                                            &:nth-child(2){
-
-                                            }
-                                            span {}
                                         }
                                     }
                                 }
                                 &:last-child{
-                                    button { }
-                                    p {}
+                                    background: #fff;
+                                    padding: 24px 0 20px 0;
+                                    
+                                    button {
+                                        width: 100%;
+                                        height: 56px;
+                                        border: 0 solid #ddd;
+                                        background: #ddd;
+                                        border-radius: 3px;
+                                        color: #fff;
+                                        font-weight: 600;
+                                        font-size: 14px;
+                                    }
+                                    p {
+                                        padding: 20px 0;
+                                        line-height: 160%;
+                                        font-size: 12px;
+                                        color: #666;
+                                    }
                                 }
                             }
                         }

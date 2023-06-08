@@ -35,6 +35,14 @@ import CartComponent from './wrap/CartComponent';
 
 export default function WrapComponent() {
 
+    //장바구니 수량 카운트 상태변수
+    const [cartCount, setCartCount] = React.useState(0);
+
+    // 장바구니 수량 카운트 상태 변수를 전달하는 함수 
+    const cartCountNumber=(num)=>{
+        setCartCount(num);
+    }
+
     // 네비게이션
     const [isIntro, setIsIntro]= React.useState(true);
 
@@ -239,7 +247,7 @@ export default function WrapComponent() {
                 }    
                 <BrowserRouter basename={process.env.PUBLIC_URL}> {/* 필수  */}
                     <Routes>
-                        <Route path='/' element={<HeaderComponent setIsIntroFn={setIsIntroFn} mapText={state.mapText} isMap={state.isMap} />}>                            
+                        <Route path='/' element={<HeaderComponent setIsIntroFn={setIsIntroFn} mapText={state.mapText} isMap={state.isMap} cartCount={cartCount} />}>                            
                             <Route index element={<IntroMainComponent setViewProduct={setViewProduct} />} />
                             <Route path='/main' element={<IntroMainComponent setViewProduct={setViewProduct} />} />
                             <Route path='/sub1' element={<Sub1Component setViewProduct={setViewProduct}/>} />
@@ -247,7 +255,7 @@ export default function WrapComponent() {
                             <Route path='/sub3' element={<Sub3Component setViewProduct={setViewProduct}/>} />
                             <Route path='/sub4' element={<Sub4Component setViewProduct={setViewProduct}/>} />
                             <Route path='/signup' element={<SignUpComponent mapAddressFn={mapAddressFn} timer={state} timerCounterfn={timerCounterfn}  confirmModalOpen={confirmModalOpen} />} />                                                        
-                            <Route path='/product' element={<ProductComponent key={key}/>} />    
+                            <Route path='/product' element={<ProductComponent key={key} cartCountNumber={cartCountNumber}/>} />    
                             <Route path='/cart' element={<CartComponent/>} />    
                                                           
                         </Route>

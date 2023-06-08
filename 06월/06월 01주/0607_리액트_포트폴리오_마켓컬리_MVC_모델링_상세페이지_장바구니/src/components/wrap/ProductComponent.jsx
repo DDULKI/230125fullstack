@@ -5,7 +5,7 @@ import iconBell from './img/product/jong.svg';
 import './scss/product.scss';
 
 
-export default function ProductComponent(){
+export default function ProductComponent({cartCountNumber}){
 
     const [cnt, setCnt] = React.useState(1); 
 
@@ -13,6 +13,8 @@ export default function ProductComponent(){
         상품: {},
         key: 'MJ_KURLY_CART_PRODUCT'
     });
+
+    const [isCart, setIsCart] = React.useState(false);
     
     const {상품, key} = state; // 비구조화
     
@@ -25,6 +27,7 @@ export default function ProductComponent(){
                 총상품금액: Math.round(cnt*(상품.정가*(1-상품.할인율)))
             }
         })
+       
     },[cnt]);
 
 
@@ -32,6 +35,7 @@ export default function ProductComponent(){
     const onClickAdd =(e)=>{
         e.preventDefault();
         setCnt(cnt+1)
+        setIsCart(true)
     }
 
     // 개수 감소 함수 
@@ -42,6 +46,7 @@ export default function ProductComponent(){
         }
         else {
             setCnt(cnt-1)
+            setIsCart(true)
         }
     }
 
@@ -65,13 +70,38 @@ export default function ProductComponent(){
             arr = JSON.parse(localStorage.getItem(key));
             arr = [상품, ...arr]
             localStorage.setItem(key, JSON.stringify(arr));  
+                                                                                       
         }
         else {
             arr = [상품]
             localStorage.setItem(key, JSON.stringify(arr));
         }    
+            // 여기에서 최상위 컴포넌트에게 수량을 전달한다. 
+            // 그럼 최상위 컴포넌트는 헤더컴포넌트에게 프롭스로 전달한다. 
+            cartCountNumber(arr.length); 
+
+            // 수량 총금액 계산값이 없다면
+            if(isCart!==true){
+                let cnt =1;
+                setState({
+                    ...state,
+                    상품 : {
+                        ...state.상품,
+                        수량: cnt,
+                        총상품금액: Math.round(cnt*(상품.정가*(1-상품.할인율)))
+                    }
+                })
+            }
+            
     }
 
+    // 새로 고침해도 카트 숫자는 그대로... 
+    React.useEffect(()=>{
+        if(localStorage.getItem(key)!==null){
+           let arr = JSON.parse(localStorage.getItem(key));  
+           cartCountNumber(arr.length);                   
+        }
+    },[]);
 
 
 

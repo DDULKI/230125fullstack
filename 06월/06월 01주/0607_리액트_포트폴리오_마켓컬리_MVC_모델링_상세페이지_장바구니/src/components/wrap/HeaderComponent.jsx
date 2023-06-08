@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, Outlet, useNavigate, useLocation} from 'react-router-dom';
 
-export default function HeaderComponent({setIsIntroFn, mapText, isMap}) {
+export default function HeaderComponent({setIsIntroFn, mapText, isMap, cartCount}) {
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -99,6 +99,9 @@ export default function HeaderComponent({setIsIntroFn, mapText, isMap}) {
         e.preventDefault();
         setIsIntroFn(false);
     }
+
+
+
 
     return (
         <>
@@ -200,7 +203,7 @@ export default function HeaderComponent({setIsIntroFn, mapText, isMap}) {
 
                                         </span>
                                         <span><a href="!#"><img src="./images/sign_up/heart.svg" alt="" /></a></span>
-                                        <span><Link to="/cart"><img src="./images/sign_up/cart.svg" alt="" /><em><i>7</i></em></Link></span>
+                                        <span><Link to="/cart"><img src="./images/sign_up/cart.svg" alt="" /><em><i>{cartCount}</i></em></Link></span>
                                     </div>
                                 </div>
                             </div>
