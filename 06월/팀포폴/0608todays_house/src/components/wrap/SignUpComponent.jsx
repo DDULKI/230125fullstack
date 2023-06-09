@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import $ from 'jquery';
+import axios from 'axios';
 
 export default function SignUpComponent () {
 
@@ -74,6 +75,45 @@ export default function SignUpComponent () {
         else{
             emailInput.current.focus();
         }
+    }
+
+    const [data, setData] = React.useState({
+        이메일:'',
+        제목:'',
+        인증번호:''
+      });
+    
+    
+      const generateRandomNumber = () => {
+        return Math.floor(Math.random() * 1000000).toString();
+      };
+    
+      const formMail = {
+          mailto: state.이메일+"@"+state.이메일도메인,
+          subject: "오늘의집 가입을 환영합니다:)",
+          text: generateRandomNumber() // 랜덤 번호 생성
+      };
+    
+
+    const onClickSendEmail = async (e) => {
+        e.preventDefault();
+            // AXIOS 메일데이터 전송
+        axios({
+            url: "http://localhost:9000/mail",
+            method: "POST",
+            data: formMail
+        })
+        .then((res)=>{
+            console.log('AXIOS 전송 성공!');
+            console.log( res )
+            console.log( res.data.이메일 );
+            console.log( res.data.제목 );
+            console.log( res.data.인증코드번호 );
+            setData(res.data);
+        })
+        .catch((err)=>{
+            console.log('AXIOS 전송 실패!');
+        });
     }
 
     React.useEffect(() => {
@@ -339,7 +379,7 @@ export default function SignUpComponent () {
                                     </select>                                                
                                     <svg className="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet" fill="rgba(0,0,0,0.3)"><path fillRule="evenodd" d="M0 3l5 5 5-5z"></path></svg>                                                
                                     <p className={`error-msg ${state.isEmailError?'on':''}`}>{state.isEmailMsg}</p>
-                                    <button className={`${state.이메일!==''&&!state.isEmailError&&!state.isEmailDomainError?'on':''}`} onClick={onClickEmailAuth} >이메일 인증하기</button>
+                                    <button className={`${state.이메일!==''&&!state.isEmailError&&!state.isEmailDomainError?'on':''}`} onChange={onClickEmailAuth} onClick={onClickSendEmail}>이메일 인증하기</button>
                                 </div>
                                 <div className="join">
                                     <label className={`label ${state.isPwError?'on':''}`}>비밀번호</label>
