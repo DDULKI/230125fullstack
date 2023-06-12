@@ -2,7 +2,7 @@ import React from 'react';
 import './scss/cart.scss';
 import './scss/confirm_modal.scss';
 
-export default function CartComponent({confirmModalOpen}) {
+export default function CartComponent({confirmModalOpen , openPopupDaumPostApi, addr}) {
 
     const [isDelete, setIsDelete] = React.useState(false);
     const [delCode, setDelCode] = React.useState('');
@@ -401,10 +401,33 @@ export default function CartComponent({confirmModalOpen}) {
                                         배송지
                                     </h3>
                                     <p>
-                                        <em>배송지를 등록</em> 하고<br/>
-                                        구매 가능한 상품을 확인하세요!
+                                        {
+                                            addr.isAddr === true ? 
+                                            (   
+                                                `${addr.주소1} ${addr.주소2}`
+                                            )
+                                            :
+                                            (
+                                                <>
+                                                <em>배송지를 등록</em> 하고<br/>
+                                                구매 가능한 상품을 확인하세요!
+                                                </>
+                                            )
+                                        }
                                     </p>
-                                    <button><img src="./images/cart/icon_zoom.svg" alt="" />주소 검색</button>
+                                    <button onClick={openPopupDaumPostApi}>
+                                        {
+                                            arr1.isAddr === true ? 
+                                            (
+                                                <>배송지 변경</>
+                                            )
+                                                :
+                                            (
+                                                <><img src="./images/cart/icon_zoom.svg" alt="" />주소 검색</>
+                                            )
+                                          
+                                        }
+                                    </button>
                                 </li>
                                 <li>
                                     <div>

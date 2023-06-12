@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import $ from 'jquery';
 
-export default function SignUpComponent({회원가입, timer, timerCounterfn, mapAddressFn, confirmModalOpen}) {
+export default function SignUpComponent({ openPopupDaumPostApi, addr, 회원가입, timer, timerCounterfn, mapAddressFn, confirmModalOpen}) {
 
     // 상위컴포넌트(WrapComponent) 프롭스(Props)
     const {setId,minutes,seconds,msg,isEnd} = timer;
@@ -450,16 +450,7 @@ export default function SignUpComponent({회원가입, timer, timerCounterfn, ma
     // 7-1. 주소검색 API : 팝업창 구현
     // public 정적요소 위치에
     // pupup.html
-    const openPopupDaumPostApi=()=>{
-        const popupFile = '/public/popup.html';
-        const popupName = '_popupAddressApi';
-        const popupWidth = 530;
-        const popupHeight = 570;
-        const popupTop = (window.innerHeight-popupHeight)/2;
-        const popupLeft = (window.innerWidth-popupWidth)/2;
-        
-        window.open(popupFile, popupName, `width=${popupWidth}, height=${popupHeight}, top=${popupTop}, left=${popupLeft}`);
-    }
+
 
     const onClickAddrPopupOpenApi=(e)=>{
         e.preventDefault();
@@ -468,33 +459,23 @@ export default function SignUpComponent({회원가입, timer, timerCounterfn, ma
 
     // 7-2 세션 스토레이지 가져오기 이벤트
     const getSessionStorage=()=>{
-        const key = 'MJADDRESS';
-        let 주소1 = '';
-        let 주소2 = '';
-        let isAddress = false;
-
-        // 스토레이지 가져오기 데이터 없으면 null 반환
-        let result = sessionStorage.getItem(key);
-
-        if(result!==null){ // 데이터가 있다면
-            result = JSON.parse(sessionStorage.getItem(key));
-            주소1 = result.주소1;
-            주소2 = result.주소2;
-            isAddress = true ;
-            mapAddressFn(`${result.주소1}  ${result.주소2}`, false);
-        }
-
         setState({
             ...state,
-            주소1: 주소1,
-            주소2: 주소2,
-            isAddress: isAddress
+            주소1: addr.주소1,
+            주소2: addr.주소2,
+            isAddress: addr.isAddr
         })
     }
 
     React.useEffect(()=>{
         getSessionStorage();
-    },[state.주소1,state.주소2]);
+        // setState({
+        //     ...state,
+        //     주소1: addr.주소1,
+        //     주소2: addr.주소2,
+        //     isAddress: addr.isAddr
+        // })
+    },[state, state.주소1, state.주소2, state.isAddress]);
     
 
 
@@ -519,9 +500,6 @@ export default function SignUpComponent({회원가입, timer, timerCounterfn, ma
         e.preventDefault();
         openPopupDaumPostApi(); // 팝업창 열기
     }
-
-
-
 
 
 

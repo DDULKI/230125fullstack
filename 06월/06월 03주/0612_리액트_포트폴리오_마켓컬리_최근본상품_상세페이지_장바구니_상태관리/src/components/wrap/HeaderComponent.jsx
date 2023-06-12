@@ -51,7 +51,7 @@ export default function HeaderComponent({openPopupDaumPostApi, addr, setIsIntroF
 
     // 배송지 등록 서브2 메뉴를 마우스 오버 이벤트
     // isSub2 : false  조건부 연산자 이용 show & hide 구현
-    const  onMouseOverSub2=(e)=>{
+    const onMouseOverSub2=(e)=>{
         e.preventDefault();
         setState({
             ...state,
@@ -172,18 +172,18 @@ export default function HeaderComponent({openPopupDaumPostApi, addr, setIsIntroF
                                                         <ul>
                                                             <li>
                                                                 {
-                                                                    !addr.isAddr ? 
+                                                                    addr.isAddr ? 
                                                                     (
                                                                         <>
-                                                                            <span>배송지를 등록</span>하고<br/>
-                                                                            구매 가능한 상품을 확인하세요!
+                                                                            <h2 className='map-address'>{`${addr.주소1} ${addr.주소2}`}</h2>
+                                                                            <p>배송지 불가</p>    
                                                                         </>                                                                      
                                                                     )
                                                                     :
                                                                     (   
                                                                         <>
-                                                                            <h2 className='map-address'>{`${addr.주소1} ${addr.주소2}`}</h2>
-                                                                            <p>배송지 불가</p>
+                                                                            <span>배송지를 등록</span>하고<br/>
+                                                                            구매 가능한 상품을 확인하세요!
                                                                         </>
                                                                     )
                                                                 }
@@ -193,6 +193,10 @@ export default function HeaderComponent({openPopupDaumPostApi, addr, setIsIntroF
                                                                 {
                                                                     addr.isAddr ? 
                                                                     (
+                                                                        <button onClick={openPopupDaumPostApi}  className='map-repace-btn'>배송지변경</button>
+                                                                    )
+                                                                    :
+                                                                    (
                                                                         <>
                                                                             <button>로그인</button>
                                                                             <button  onClick={openPopupDaumPostApi}>
@@ -200,10 +204,6 @@ export default function HeaderComponent({openPopupDaumPostApi, addr, setIsIntroF
                                                                                 주소검색
                                                                             </button>
                                                                         </>
-                                                                    )
-                                                                    :
-                                                                    (
-                                                                        <button  onClick={openPopupDaumPostApi}  className='map-repace-btn'>배송지변경</button>
                                                                     )
                                                                 }
                                                             </li>

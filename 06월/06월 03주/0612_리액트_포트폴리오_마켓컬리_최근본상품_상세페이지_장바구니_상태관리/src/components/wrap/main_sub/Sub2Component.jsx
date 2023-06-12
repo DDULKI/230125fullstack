@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Sub2ComponentChild from './Sub2ComponentChild';
+import '../scss/sub1.scss'
 
 
 export default function Sub2Component({setViewProduct}) {
@@ -26,6 +27,29 @@ export default function Sub2Component({setViewProduct}) {
         });  
     },[]);
 
+    ////////////// 카테고리 아코디언 메뉴 구현 /////////////////////////////
+    const [isClass, setIsClass] = React.useState([true, true, true, true, true]);
+    const [subH, setSubH] = React.useState([0,0,0,0,0]);
+    const subRef = React.useRef([]);
+
+    React.useEffect(()=>{
+        subH.map((item,idx)=>{
+            subH[idx] = subRef.current[idx].offsetHeight
+        })
+    },[]);
+
+    const onClickCategory = (e,n) =>{
+        e.preventDefault();
+        if(isClass[n] === true){
+            isClass[n] = false;
+            subRef.current[n].style.height = `0px`;
+        }
+        else {
+            isClass[n] = true;
+            subRef.current[n].style.height = `${subH[n]}px`;
+        }
+        setIsClass([...isClass]);
+    }
 
     return (
         <main id='sub1'>
@@ -57,8 +81,8 @@ export default function Sub2Component({setViewProduct}) {
                                 </div>
                                 <div className="left-content">
                                     <div>
-                                        <a href="!#" className='category-btn category1'><span>카테고리</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
-                                        <div className="sub">
+                                        <a onClick={(e) => onClickCategory(e, 0)} href="!#" className={`category-btn category1${isClass[0]?' on':''}`}><span>카테고리</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
+                                        <div ref={(el) =>(subRef.current[0] = el)} className="sub sub1">
                                             <ul>
                                                <li>
                                                    <label>
@@ -128,8 +152,8 @@ export default function Sub2Component({setViewProduct}) {
                                                 </li> 
                                             </ul>
                                         </div>
-                                        <a href="!#" className='category-btn category2'><span>브랜드</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
-                                        <div className="sub">
+                                        <a onClick={(e) => onClickCategory(e, 1)} href="!#" className={`category-btn category1${isClass[1]?' on':''}`}><span>브랜드</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
+                                        <div ref={(el) =>(subRef.current[1] = el)} className="sub sub2">
                                             <ul>
                                                <li>
                                                    <label>
@@ -199,8 +223,8 @@ export default function Sub2Component({setViewProduct}) {
                                                 </li> 
                                             </ul>
                                         </div>
-                                        <a href="!#" className='category-btn category3'><span>가격</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
-                                        <div className="sub">
+                                        <a onClick={(e) => onClickCategory(e, 2)} href="!#" className={`category-btn category1${isClass[2]?' on':''}`}><span>가격</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
+                                        <div ref={(el) =>(subRef.current[2] = el)} className="sub sub3">
                                             <ul>
                                                <li>
                                                    <label>
@@ -270,8 +294,8 @@ export default function Sub2Component({setViewProduct}) {
                                                 </li> 
                                             </ul>
                                         </div>
-                                        <a href="!#" className='category-btn category4'><span>혜택</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
-                                        <div className="sub">
+                                        <a onClick={(e) => onClickCategory(e, 3)} href="!#" className={`category-btn category1${isClass[3]?' on':''}`}><span>혜택</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
+                                        <div ref={(el) =>(subRef.current[3] = el)} className="sub sub4">
                                             <ul>
                                                <li>
                                                    <label>
@@ -341,8 +365,8 @@ export default function Sub2Component({setViewProduct}) {
                                                 </li> 
                                             </ul>
                                         </div>
-                                        <a href="!#" className='category-btn category5'><span>유형</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
-                                        <div className="sub">
+                                        <a onClick={(e) => onClickCategory(e, 4)} href="!#" className={`category-btn category1${isClass[4]?' on':''}`}><span>유형</span><img src="./images/sub1/icon_arrow_up.svg" alt="" /></a>
+                                        <div ref={(el) =>(subRef.current[4] = el)} className="sub sub5">
                                             <ul>
                                                <li>
                                                    <label>

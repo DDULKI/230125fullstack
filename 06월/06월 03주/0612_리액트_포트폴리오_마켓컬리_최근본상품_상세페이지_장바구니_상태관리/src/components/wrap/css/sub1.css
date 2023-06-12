@@ -92,7 +92,7 @@
 }
 #wrap #sub1 #section2 .container .gap .content .left .left-content div > a img {
   width: 18px;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 #wrap #sub1 #section2 .container .gap .content .left .left-content div > a.on img {
   transform: rotate(-180deg);
@@ -100,6 +100,10 @@
 #wrap #sub1 #section2 .container .gap .content .left .left-content div .sub {
   width: 100%;
   display: block;
+  transition: all 0.3s ease-in-out;
+  background: #fff;
+  overflow: hidden;
+  height: auto;
 }
 #wrap #sub1 #section2 .container .gap .content .left .left-content div .sub ul {
   width: 100%;
@@ -125,11 +129,11 @@
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background: url(../images/sub1/chk_off.svg);
+  background: url(../../../../public/images/sub1/chk_off.svg);
   margin: 0 10px 0 0;
 }
 #wrap #sub1 #section2 .container .gap .content .left .left-content div .sub ul li label input[type=checkbox]:checked {
-  background-image: url(../images/sub1/chk_on.svg);
+  background-image: url(../../../../public/images/sub1/chk_on.svg);
 }
 #wrap #sub1 #section2 .container .gap .content .right {
   width: 787.5px;

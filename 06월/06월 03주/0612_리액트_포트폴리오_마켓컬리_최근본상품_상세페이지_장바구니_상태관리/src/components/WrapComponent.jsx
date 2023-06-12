@@ -34,6 +34,27 @@ export default function WrapComponent() {
         isAddr: false 
     });
 
+
+    // 새로고침시 자동 실행 
+
+    const addressAuto=()=>{
+        if(sessionStorage.getItem('MJADDRESS')!==null){
+            const 주소1 = JSON.parse(sessionStorage.getItem('MJADDRESS')).주소1;
+            const 주소2 = JSON.parse(sessionStorage.getItem('MJADDRESS')).주소2;
+            setAddr({
+                 주소1 : 주소1,
+                 주소2 : 주소2,
+                 isAddr : true
+            })
+        }
+    }
+
+    // 로딩시 새로고침시 실행 
+    React.useEffect(()=>{
+        addressAuto();
+    },[])
+
+
     // 헤더 영역 배송지 등록, 장바구니 배송지 등록, 회원가입폼 주소등록
     const openPopupDaumPostApi=()=>{
         const popupFile = '/public/popup.html';
@@ -43,7 +64,18 @@ export default function WrapComponent() {
         const popupTop = (window.innerHeight-popupHeight)/2;
         const popupLeft = (window.innerWidth-popupWidth)/2;
         
-        window.open(popupFile, popupName, `width=${popupWidth}, height=${popupHeight}, top=${popupTop}, left=${popupLeft}`);
+        // 자식 팝업창 
+        const childWindow = window.open(popupFile, popupName, `width=${popupWidth}, height=${popupHeight}, top=${popupTop}, left=${popupLeft}`);
+        // 자식창이 닫히면 
+        // 상태관리 한다. 
+        // 1. 세션 스토레이지 저장소에서 데이터 가져온다. 
+        // 2. 최상위 컴포넌트의 상태관리 변수 addr.주소1, addr.주소2, isAddr 값 변경한다. 
+        // 3. 자동으로 각 헤더영역 배송지 등록, 장바구니 배송지 등록, 회원가입폼 주소등록에 전달한다. 
+
+        // 자식창이 닫히면 
+        childWindow.window.onbeforeunload = async () =>{
+            addressAuto();
+        }
     }
 
 
@@ -268,9 +300,9 @@ export default function WrapComponent() {
                             <Route path='/sub2'    element={<Sub2Component setViewProduct={setViewProduct} />} />
                             <Route path='/sub3'    element={<Sub3Component setViewProduct={setViewProduct} />} />
                             <Route path='/sub4'    element={<Sub4Component setViewProduct={setViewProduct} />} />
-                            <Route path='/signup'  element={<SignUpComponent mapAddressFn={mapAddressFn} timer={state} timerCounterfn={timerCounterfn}  confirmModalOpen={confirmModalOpen} />} />                                                        
+                            <Route path='/signup'  element={<SignUpComponent openPopupDaumPostApi={openPopupDaumPostApi} addr={addr} mapAddressFn={mapAddressFn} timer={state} timerCounterfn={timerCounterfn}  confirmModalOpen={confirmModalOpen} />} />                                                        
                             <Route path='/product' element={<ProductComponent cartCountNumber={cartCountNumber} />} />
-                            <Route path='/cart'    element={<CartComponent confirmModalOpen={confirmModalOpen} />} />
+                            <Route path='/cart'    element={<CartComponent openPopupDaumPostApi={openPopupDaumPostApi} addr={addr} confirmModalOpen={confirmModalOpen} />} />
                         </Route>
                     </Routes>
                 </BrowserRouter>
