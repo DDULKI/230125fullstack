@@ -58,19 +58,21 @@ export default function CartComponent({confirmModalOpen}) {
     }
 
   
-    // 상품 삭제 
-    const onClickDel =(e, record) => {
+    // 상품 삭제
+    const onClickDel = (e, record) => {
+        const confirmed =false;
         e.preventDefault();
-        // 컨펌 
-        confirmModalOpen('삭제하시겠습니까?');
-        const result = cart.filter((item)=> item.제품코드!==record.제품코드 );
-        setCart(result);
-        localStorage.setItem('MJ_KURLY_CART_PRODUCT',JSON.stringify(result));
-        // 초기 init
-        initMethod();
-        // console.log(cart.filter);
-    }
-
+        confirmModalOpen('삭제하시겠습니까?').then((confirmed) => {
+        if (confirmed === true) { // 수정: confirmed 값이 true인 경우에만 삭제 수행
+            const result = cart.filter((item) => item.제품코드 !== record.제품코드);
+            setCart(result);
+            localStorage.setItem('MJ_KURLY_CART_PRODUCT', JSON.stringify(result));
+            initMethod();
+        }
+        });
+    };
+  
+      
 
 
 
@@ -100,7 +102,7 @@ export default function CartComponent({confirmModalOpen}) {
                             <span>{item.총상품금액}원</span>    
                         </li>
                         <li>
-                            <a onClick={(e)=>onClickDel(e, item.제품코드)} href="!#" className='del-bgimg-btn blind'>삭제버튼</a>
+                            <a onClick={(e)=>onClickDel(e, item)} href="!#" className='del-bgimg-btn blind'>삭제버튼</a>
                         </li>
                     </ul>
                 </dd>
@@ -134,7 +136,7 @@ export default function CartComponent({confirmModalOpen}) {
                             <span>{item.총상품금액}원</span>    
                         </li>
                         <li>
-                            <a onClick={(e)=>onClickDel(e, item.제품코드)} href="!#" className='del-bgimg-btn blind'>삭제버튼</a>
+                            <a onClick={(e)=>onClickDel(e, item)} href="!#" className='del-bgimg-btn blind'>삭제버튼</a>
                         </li>
                     </ul>
                 </dd>
@@ -169,7 +171,7 @@ export default function CartComponent({confirmModalOpen}) {
                             <span>{item.총상품금액}원</span>    
                         </li>
                         <li>
-                            <a onClick={(e)=>onClickDel(e, item.제품코드)} href="!#" className='del-bgimg-btn blind'>삭제버튼</a>
+                            <a onClick={(e)=>onClickDel(e, item)} href="!#" className='del-bgimg-btn blind'>삭제버튼</a>
                         </li>
                     </ul>
                 </dd>
@@ -305,6 +307,7 @@ export default function CartComponent({confirmModalOpen}) {
 
                                             {
                                                 arr1.length >=1 && (
+                                                    <>
                                                     <div className='acodian'>
                                                         <dt>
                                                             <div><img src="./images/cart/icon_01.svg" alt="" /><h3>냉장 상품</h3></div> 
@@ -312,6 +315,7 @@ export default function CartComponent({confirmModalOpen}) {
                                                         </dt>
                                                         { res1 }
                                                     </div>
+                                                    </>
                                                 )
                                             }
 

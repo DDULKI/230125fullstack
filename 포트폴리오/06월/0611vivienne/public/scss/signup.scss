@@ -1,0 +1,59 @@
+#SignUp{
+    width: 100%;
+    padding: 130px 0;
+    .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+        .gap{
+            width: 100%;
+            .title{
+                padding: 0 0 30px 0;
+                h2{
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+            .content{
+                
+                form{
+                    .join {
+                        padding: 0 0 40px 0;
+                        .email_input,.name_input,.pw_input1,.hp,.hp_ok {
+                            width: 100%;
+                            border: 0;
+                            padding: 0 0 5px 0;
+                            border-bottom: 1px solid #000;
+                            outline: none;
+                            &::placeholder {
+                                color: #A0AFFF;
+                                font-weight: bold;
+                              }
+                        }
+                        .check {
+                            
+                        }
+                        .label_name {
+                            display: flex;
+                            padding: 0 0 20px 0;
+                            &.on{
+                                color: #ff7777;
+                            }
+                        }
+                        select {
+                            border : 1px solid #C8C8FF;
+                            border-radius: 3px;
+                            width : 30%;
+                            height : 29px;
+                            font-size: 12px;
+                            line-height: 18px;
+                        }
+                       
+
+                        
+                    }
+                }
+            }
+        }
+    }
+}
