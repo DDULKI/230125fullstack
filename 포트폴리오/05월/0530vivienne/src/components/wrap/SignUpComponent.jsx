@@ -66,8 +66,6 @@ export default function SignUpComponent () {
                                     <li><input type="checkbox" /></li>
                                     <li><h3>개인 정보 보호 정책에 동의합니다.</h3></li>
                                 </ul>
-                               
-
                             </div>
                         </form>
                     </div>
