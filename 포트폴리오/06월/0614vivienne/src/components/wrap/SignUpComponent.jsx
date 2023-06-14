@@ -1,10 +1,13 @@
 import React from 'react';
 
-export default function SignUpComponent () {
+export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) {
 
     const [state,setState] = React.useState({
         이메일 : '',
         이름 : '',
+        휴대폰:'',
+        발송인증번호: '',
+        입력인증번호: '',
         비밀번호 : '',
         비밀번호확인: '',
         생년월일:'',
@@ -23,9 +26,19 @@ export default function SignUpComponent () {
         isPwMsg : '',
         isPw2Error : false, 
         isPw2Msg : '',
+        isHpError: false,
+        isHpMsg: '',
+        // 휴대폰 발송인증번호 받기 버튼 디세이블드 
+        isHpdisabled: true, // 휴대폰 발송인증번호 받기 버튼 사용불가 (true)
+        isHpdisabled2: true, // 휴대폰 인증번호 확인 버튼 사용불가 (true)
         isUserServiceError : false,
         isUserServiceMsg : '' 
     })
+
+    const createRef = React.useRef();
+   
+
+    
 
     // 이메일 인증 
     const onChangeEmail = (e) => {
@@ -81,7 +94,7 @@ export default function SignUpComponent () {
         let isPwError = false; 
         let isPwMsg = '';
         const regExp1 = /^(.){8,16}$/g;  // 패스워드가 8 ~ 16 사이 
-        const regExp2 = /([A-Za-z]+[0-9]+)+|([0-9]+[A-Za-Z]+)+/g; // 영문+숫자 포함 
+        const regExp2 = /[A-Za-z0-9]+/g;
         const regExp3 = /\s/g; // 공백 포함? 
 
         if(value === ''){
@@ -126,8 +139,139 @@ export default function SignUpComponent () {
         })
     }
 
+    // 성별 
+    const onChangeGender=(e)=>{
+        setState({
+            ...state,
+            성별: e.target.value
+        })
+    }
 
-    const  onSubmitSignUp = (e) =>{
+    // 휴대폰번호 
+    const onChangeHp=(e)=>{
+        const regExp = /[^0-9]/g;
+        let 휴대폰 = '';
+        let isHpError = false;
+        let isHpMsg = '';
+        let isHpdisabled = true; 
+        const {value} = e.target;
+
+        휴대폰 = value.replace(regExp, '');
+
+        if(휴대폰===''){
+            isHpError=true;
+            isHpMsg='휴대폰 번호를 입력해 주세요.'
+        }
+        else {
+            isHpMsg=''
+            if(휴대폰.length>=1){
+                isHpdisabled = false;
+            }
+            else {
+                isHpdisabled = true;
+            }
+        }
+
+        setState({
+            ...state,
+            휴대폰: 휴대폰,
+            isHpError: isHpError,
+            isHpMsg: isHpMsg,
+            isHpdisabled: isHpdisabled
+        });
+    }
+
+    // 휴대폰 발송인증번호 받기 클릭 이벤트
+   const onClickHpNum =(e)=>{
+        e.preventDefault();
+        const regExp = /^01[0-9]{1}[0-9]{3,4}[0-9]{4}$/;
+        let num =0; 
+        let 발송인증번호 = 0;
+
+        if(regExp.test(state.휴대폰)===false){
+            alert('잘못된 휴대폰 번호입니다. 확인 후 다시 시도해 주세요.');
+        }
+        else {
+            // 발송인증번호 전송 타이밍 
+            num = Math.floor(Math.random()*900000+100000);
+
+            // 상태관리 변수에 발송인증번호 저장 
+            발송인증번호 = num;
+            alert(`발송인증번호가 발송되었습니다. ${num}`);
+        }
+        setState({
+            ...state,
+            발송인증번호: 발송인증번호 
+        })
+   }
+
+   // 휴대폰 발송인증번호 확인 입력상자 onChange() 이벤트 
+   const onChangeHp2 = (e) =>{
+        const {value} = e.target;
+        let isHpdisabled2 = true;
+        
+        if(value.length >=1) {
+            isHpdisabled2 = false;
+        }
+        else {
+            isHpdisabled2 = true;
+        }
+        setState({
+            ...state,
+            입력인증번호: value,
+            isHpdisabled3: isHpdisabled2
+        })
+   }
+
+   // 휴대폰 발송인증번호 확인 버튼 클릭 이벤트 
+   const onClickHpNum2=(e)=>{
+        e.preventDefault();
+        let confirMsg ='';
+        let isHp3 = true;
+        let isHpdisabled = true;
+        let 발송인증번호 = state.발송인증번호;
+        let isHpOk = false;
+
+        if(state.발송인증번호 === Number(state.입력인증번호)){
+            alert = "인증에 성공 하였습니다.";
+            isHp3 = false;
+            발송인증번호 = '';
+            isHpdisabled = true;
+            isHpOk = true;
+
+           
+        }
+        else {
+            alert = "잘못된 인증 번호입니다.";
+            isHp3 = true;
+            발송인증번호 = state.발송인증번호;
+            isHpdisabled = false;
+        }
+        setState({
+            ...state,
+            isHp3: isHp3,
+            발송인증번호: 발송인증번호,
+            isHpdisabled: isHpdisabled,
+            isHpOk: isHpOk
+        })
+
+        alert(alert);
+       
+
+   }
+
+   const onChangeUserService = (e) => {
+        let isUserServiceError = false;
+        let isUserServiceMsg = '';
+        let 약관동의 = [];
+        if(e.target.checked === true) {
+            if(e.target.value === ''){
+                
+            }
+        }
+   }
+
+    const onSubmitSignUp = (e) =>{
         e.preventDefault();
 
         let 약관동의 = '';
@@ -164,7 +308,6 @@ export default function SignUpComponent () {
                             </div>
                             <div className="join">
                                 <label className={`label_name ${state.isNickError?'on':''}`} htmlFor="">이름<i>*</i></label>
-                                <p className="sub-msg">다른 유저와 겹치지 않도록 입력해주세요. (2~15자)</p>
                                 <input 
                                     type="text" 
                                     className='name_input' 
@@ -177,7 +320,6 @@ export default function SignUpComponent () {
                             </div>
                             <div className="join">
                                 <label className={`label_name ${state.isPwError?'on':''}`}>비밀번호<i>*</i></label>
-                                <p className="sub-msg">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</p>
                                 <input 
                                     type="text" 
                                     className='pw_input1' 
@@ -215,19 +357,36 @@ export default function SignUpComponent () {
                                     className='hp' 
                                     id='userHp' 
                                     name='user_hp'
-                                    placeholder='번호를 입력하세요.'/>
+                                    placeholder='번호를 입력하세요.'
+                                    onChange={onChangeHp}
+                                    value={state.휴대폰}
+                                    ref={createRef}
+                                />
                             </div>
-                            <button>인증번호발송</button>
-                            <div className="join">
-                                <label className='label_name' htmlFor="">인증번호<i>*</i></label>
-                                <input 
-                                    type="text" 
-                                    className='hp_ok' 
-                                    id='userHpOk'
-                                    name='user_hp_ok'
-                                    placeholder='인증번호를 입력하세요.'/>
-                            </div>
-                            <button>확인</button>
+                            <button className={`hp-num-btm ${state.isHpdisabled?'':' on'}`} onClick={onClickHpNum} disabled={state.isHpdisabled} type='button'>인증번호발송</button>
+                            <p className={`error-msg${state.isHpError?' on':''}`}>{state.isHpMsg}</p>
+
+                            {
+                                state.발송인증번호!=='' && (
+                                    <>
+                                    <div className="join">
+                                        <label className='label_name' htmlFor="">인증번호<i>*</i></label>
+                                        <input 
+                                            type="text" 
+                                            maxLength={6}
+                                            className='hp_ok' 
+                                            id='userHpOk'
+                                            name='user_hp_ok'
+                                            placeholder='인증번호를 입력하세요.'
+                                            onChange={onChangeHp2}
+                                            value={state.휴대폰발송인증번호}
+                                        />
+                                    </div>
+                                    <button className={`hp-num-btn${state.isHpdisabled2?'':' on'}`} onClick={onClickHpNum2} disabled={state.isHpdisabled2}  type='button'>확인</button>
+                                    </>
+                                )
+                            }
+
                             <div className="join">
                                 <label className='label_name' htmlFor="">정보수신<i>*</i>
                                 <input 
@@ -235,12 +394,18 @@ export default function SignUpComponent () {
                                     className='check' 
                                     id='userService'
                                     name='user_service'
+                                    value={'sms수신'}
+                                    checked={state.약관동의.includes('sms수신')}
+                                    onChange={onChangeUserService}
                                     /> sms수신
                                 <input 
                                     type="checkbox" 
                                     className='check' 
                                     id='userService'
                                     name='user_service'
+                                    value={'뉴스레터구독'}
+                                    checked={state.약관동의.includes('뉴스레터구독')}
+                                    onChange={onChangeUserService}
                                     /> 뉴스레터구독
                                 </label>
                             </div>
@@ -262,6 +427,9 @@ export default function SignUpComponent () {
                                                 type="checkbox" 
                                                 name='user_service'
                                                 id='userService'
+                                                value={'이용약관에 동의합니다.'}
+                                                checked={state.약관동의.includes('이용약관에 동의합니다.')}
+                                                onChange={onChangeUserService}
                                                 />
                                             <h3>이용약관에 동의합니다.</h3>
                                         </label>
@@ -274,6 +442,9 @@ export default function SignUpComponent () {
                                                 type="checkbox" 
                                                 name='user_service'
                                                 id='userService'
+                                                value={'개인 정보 보호 정책에 동의합니다.'}
+                                                checked={state.약관동의.includes('개인 정보 보호 정책에 동의합니다.')}
+                                                onChange={onChangeUserService}
                                             />
                                             <h3>개인 정보 보호 정책에 동의합니다.</h3>
                                         </label>

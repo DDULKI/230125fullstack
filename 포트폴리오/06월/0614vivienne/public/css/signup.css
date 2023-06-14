@@ -50,3 +50,23 @@
   font-size: 12px;
   line-height: 18px;
 }
+#SignUp .container .gap .content form .join .sub-msg {
+  font-size: 14px;
+  color: #828C94;
+  letter-spacing: -1px;
+  padding: 0 0 15px 0;
+}
+#SignUp .container .gap .content form .join .error-msg {
+  padding: 10px 0 0 0;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ff7777;
+}
+#SignUp .container .gap .content form .join.hp-num-btn {
+  color: #ddd;
+  border-color: #ddd;
+}
+#SignUp .container .gap .content form .join.hp-num-btn.on {
+  color: #5f0080;
+  border-color: #5f0080;
+}
