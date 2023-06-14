@@ -81,7 +81,7 @@ export default function SignUpComponent () {
         let isPwError = false; 
         let isPwMsg = '';
         const regExp1 = /^(.){8,16}$/g;  // 패스워드가 8 ~ 16 사이 
-        const regExp2 = /([A-Za-z]+[0-9]+)+|([0-9]+[A-Za-Z]+)+/g; // 영문+숫자 포함 
+        const regExp2 = /[A-Za-z0-9]+/g;
         const regExp3 = /\s/g; // 공백 포함? 
 
         if(value === ''){
