@@ -13,10 +13,10 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
         생년월일:'',
         약관동의: [],
         약관 : [
-            "sms수신(선택)",
-            "뉴스레터구독(선택)",
-            "이용약관에 동의합니다(필수)",
-            "개인 정보 보호 정책에 동의합니다(필수)"
+            "sms수신",
+            "뉴스레터구독",
+            "이용약관에 동의합니다.",
+            "개인 정보 보호 정책에 동의합니다."
         ],
         isEmailError : false,
         isEmailMsg : '',
@@ -30,15 +30,13 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
         isHpMsg: '',
         // 휴대폰 발송인증번호 받기 버튼 디세이블드 
         isHpdisabled: true, // 휴대폰 발송인증번호 받기 버튼 사용불가 (true)
-        isHpdisabled2: true, // 휴대폰 인증번호 확인 버튼 사용불가 (true)
+        isHpdisabled2: false, // 휴대폰 인증번호 확인 버튼 사용불가 (true)
         isUserServiceError : false,
         isUserServiceMsg : '' 
     })
 
     const createRef = React.useRef();
    
-
-    
 
     // 이메일 인증 
     const onChangeEmail = (e) => {
@@ -228,21 +226,19 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
         e.preventDefault();
         let confirMsg ='';
         let isHp3 = true;
-        let isHpdisabled = true;
+        let isHpdisabled = false;
         let 발송인증번호 = state.발송인증번호;
         let isHpOk = false;
 
         if(state.발송인증번호 === Number(state.입력인증번호)){
-            alert = "인증에 성공 하였습니다.";
+            confirMsg = "인증에 성공 하였습니다.";
             isHp3 = false;
             발송인증번호 = '';
             isHpdisabled = true;
             isHpOk = true;
-
-           
         }
         else {
-            alert = "잘못된 인증 번호입니다.";
+            confirMsg = "잘못된 인증 번호입니다.";
             isHp3 = true;
             발송인증번호 = state.발송인증번호;
             isHpdisabled = false;
@@ -254,21 +250,53 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
             isHpdisabled: isHpdisabled,
             isHpOk: isHpOk
         })
-
-        alert(alert);
-       
-
+        alert(confirMsg);
    }
+
+//    "sms수신",
+//    "뉴스레터구독",
+//    "이용약관에 동의합니다.",
+//    "개인 정보 보호 정책에 동의합니다."
 
    const onChangeUserService = (e) => {
         let isUserServiceError = false;
         let isUserServiceMsg = '';
         let 약관동의 = [];
         if(e.target.checked === true) {
-            if(e.target.value === ''){
-                
+            if(e.target.value === 'sms수신' && state.약관동의.includes('뉴스레터구독')===true){
+                약관동의 = [...state.약관동의, 'sms수신'];                
+            }
+            else if(e.target.value === '뉴스레터구독' && state.약관동의.includes('sms수신') === true){
+                약관동의 = [...state.약관동의, '뉴스레터구독'];
+            }
+            else if(e.target.value === 'sms수신' && state.약관동의.includes('뉴스레터구독') ===false){
+                약관동의 = [...state.약관동의, 'sms수신', '뉴스레터구독'];
+            }
+            else if(e.target.value === '뉴스레터구독' && state.약관동의.includes('sms수신')===false) {
+                약관동의 = [...state.약관동의, '뉴스레터구독', 'sms수신']
+            }
+            else {
+                약관동의 = [...state.약관동의, e.target.value];
             }
         }
+        else {
+            if(e.target.value === 'sms수신'){
+                약관동의 = state.약관동의.filter((item)=> item !== e.target.value && item !== '뉴스레터구독')
+            }
+            else {
+                약관동의 = state.약관동의.filter((item)=> item !== e.target.value);
+            }
+        }
+        if(약관동의.includes('이용약관에 동의합니다.')===false || 약관동의.includes('개인 정보 보호 정책에 동의합니다.')===false){
+            isUserServiceError = true;
+            isUserServiceMsg = '필수 항목에 동의해주세요.'
+        }
+        setState({
+            ...state,
+            약관동의 : 약관동의,
+            isUserServiceError : isUserServiceError,
+            isUserServiceMsg : isUserServiceMsg
+        })
    }
 
     const onSubmitSignUp = (e) =>{
@@ -284,6 +312,10 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
             }
         })
 
+        const formData = {
+           
+        }
+
     }
 
     return (
@@ -298,7 +330,7 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
                             <div className="join">
                                 <label className={`label_name ${state.isEmailError?'on':''}`} >이메일<i>*</i></label>
                                 <input 
-                                    type="text" 
+                                    type="email" 
                                     className='email_input' 
                                     id='userEmail' 
                                     name='user_email'
@@ -321,7 +353,7 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
                             <div className="join">
                                 <label className={`label_name ${state.isPwError?'on':''}`}>비밀번호<i>*</i></label>
                                 <input 
-                                    type="text" 
+                                    type="password" 
                                     className='pw_input1' 
                                     id='userPw1' 
                                     name='user_pw1'
@@ -333,7 +365,7 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
                             <div className="join">
                                 <label className={`label_name ${state.isPw2Error?'on':''}`} >비밀번호 확인<i>*</i></label>
                                 <input 
-                                    type="text" 
+                                    type="password" 
                                     className='pw_input1' 
                                     id='userPw2'
                                     name='user_pw2' 
@@ -344,7 +376,7 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
                             </div>
                             <div className="join">
                                 <label className='label_name'>성별<i>*</i></label>
-                                <select type="text" name="gender" id="Gender">
+                                <select onChange={onChangeGender} type="text" name="gender" id="Gender">
                                     <option value="선택안함">선택안함</option>
                                     <option value="남">남</option>
                                     <option value="여">여</option>
@@ -382,13 +414,13 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
                                             value={state.휴대폰발송인증번호}
                                         />
                                     </div>
-                                    <button className={`hp-num-btn${state.isHpdisabled2?'':' on'}`} onClick={onClickHpNum2} disabled={state.isHpdisabled2}  type='button'>확인</button>
+                                    <button className={`hp-num-btn${state.isHpdisabled2?' on':''}`} onClick={onClickHpNum2} disabled={state.isHpdisabled2}  type='button'>확인</button>
                                     </>
                                 )
                             }
 
                             <div className="join">
-                                <label className='label_name' htmlFor="">정보수신<i>*</i>
+                                <label className={`label_name${state.isUserServiceError?'on':''}`} >정보수신<i>*</i>
                                 <input 
                                     type="checkbox" 
                                     className='check' 
@@ -408,6 +440,7 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
                                     onChange={onChangeUserService}
                                     /> 뉴스레터구독
                                 </label>
+                                <p className={`error-msg ${state.isUserServiceError}?'on':''`}>{state.isUserServiceMsg}</p>   
                             </div>
                             <div className="join">
                                 <label className='label_name'>생년월일<i>*</i>
@@ -430,8 +463,7 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
                                                 value={'이용약관에 동의합니다.'}
                                                 checked={state.약관동의.includes('이용약관에 동의합니다.')}
                                                 onChange={onChangeUserService}
-                                                />
-                                            <h3>이용약관에 동의합니다.</h3>
+                                                />이용약관에 동의합니다.
                                         </label>
                                     </li>
                                 </ul>
@@ -445,9 +477,9 @@ export default function SignUpComponent ({timer, timerCounterfn, mapAddressFn}) 
                                                 value={'개인 정보 보호 정책에 동의합니다.'}
                                                 checked={state.약관동의.includes('개인 정보 보호 정책에 동의합니다.')}
                                                 onChange={onChangeUserService}
-                                            />
-                                            <h3>개인 정보 보호 정책에 동의합니다.</h3>
+                                                />개인 정보 보호 정책에 동의합니다.
                                         </label>
+                                        <p className={`error-msg ${state.isUserServiceError}?'on':''`}>{state.isUserServiceMsg}</p>               
                                     </li>
                                 </ul>
                             </div>

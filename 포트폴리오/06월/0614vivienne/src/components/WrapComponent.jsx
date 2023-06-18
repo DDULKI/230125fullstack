@@ -4,6 +4,7 @@ import TopModalComponent from './wrap/TopModalComponent';
 import MainComponent from './wrap/MainComponent';
 import SignUpComponent from './wrap/SignUpComponent';
 import FooterComponent from './wrap/FooterComponent';
+import SigninComponent from './wrap/SigninComponent';
 
 export default function WrapComponent(){
 
@@ -21,8 +22,9 @@ export default function WrapComponent(){
             
             <TopModalComponent/>
             <MainComponent/>
-            <FooterComponent/>
             <SignUpComponent/>
+            <SigninComponent/>
+            <FooterComponent/>
             
         </div>
     );
