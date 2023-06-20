@@ -1,0 +1,45 @@
+#Update {
+    .container {
+        .title {
+            h2 {
+
+            }
+        }
+        .content {
+            .row1 {
+                display: flex;
+                align-items: center;
+                ul {
+                    li {
+                        &:nth-child(1){}
+                        &:nth-child(2){}
+                        &:nth-child(3){}
+                    }
+                }
+            }
+            .row2 {
+                .left-box {
+                    ul {
+                        li {
+                            &:nth-child(1){}
+                            &:nth-child(2){}
+                        }
+                    }
+                }
+                .right-box {
+                    ul {
+                        li {
+                            display: flex;
+                            .left {
+
+                            }
+                            .right {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
