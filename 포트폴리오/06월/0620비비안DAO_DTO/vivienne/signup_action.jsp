@@ -23,7 +23,6 @@
 <jsp:setProperty name="userDTO" property="user_hp"/>
 <jsp:setProperty name="userDTO" property="user_service"/>
 <jsp:setProperty name="userDTO" property="user_birth"/>
-<jsp:setProperty name="userDTO" property="user_service1"/>
 
 <%
     UserDAO userDAO = new UserDAO();

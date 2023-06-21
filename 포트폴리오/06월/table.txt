@@ -15,6 +15,22 @@ CREATE TABLE vivienne_member(
  );
 
 
+CREATE TABLE vivienne_member(
+   idx             int       AUTO_INCREMENT,
+   user_email      varchar(100)    NOT NULL,
+   user_name        varchar(100)    NOT NULL,
+   user_pw       varchar(300)    NOT NULL,
+   user_gender     varchar(300),
+   user_hp      varchar(300),
+   user_service    varchar(1000),
+   user_birth      varchar(300),
+   user_service1    varchar(1000),
+   create_date timestamp DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (idx, user_email)
+ );
+
+
+
 // 사진 올리기
 create table photo_post(
     idx     int     auto_increment primary key,

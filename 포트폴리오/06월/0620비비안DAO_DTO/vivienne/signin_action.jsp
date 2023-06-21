@@ -21,14 +21,11 @@
 
 <%
     UserDAO userDAO = new UserDAO();
-    int result = userDAO.signin(userDTO.getUser_pw(), userDTO.getUser_email());
+    int result = userDAO.signin(userDTO.getUser_email(), userDTO.getUser_pw());
 %>
 
 <%
-    //로그인이 됨 
-    if(result == 1){
-        session.setAttribute(userDTO.getUser_pw(), "user_email");
-    }
-%>
+    String jsonData = "{ \"result\": \"" + result + "\"" + "}";
 
-{"AJAX실행 DTO & DAO 결과" : "<%=result%>"}
+    response.getWriter().write(jsonData);
+%>
