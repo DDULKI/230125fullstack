@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+    <%@ page import= "bbs.BbsDAO" %>
+
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
+
+<jsp:useBean id="BbsDTO" class="bbs.BbsDTO" scope="page"/>
+<jsp:setProperty name='BbsDTO' property="userId"/>
+<jsp:setProperty name='BbsDTO' property="subject"/>
+<jsp:setProperty name='BbsDTO' property="content"/>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>글쓰기 액션 파일</h1>
+	
+	
+<%
+	if( BbsDTO.getUserId()==null || BbsDTO.getSubject()==null || BbsDTO.getContent()==null){
+%>
+	<script>
+		alert("빈값은 허용하지 않습니다. \n 확인하고 다시 시도하세요:)");
+		history.go(-1);
+	</script>
+<%
+	}
+	else {
+		BbsDAO bbsDAO = new BbsDAO();
+ 		int result = BbsDAO.login(BbsDTO.getUserId(), BbsDTO.getSubject(), BbsDTO.getContent());
+	
+
+</body>
+</html>

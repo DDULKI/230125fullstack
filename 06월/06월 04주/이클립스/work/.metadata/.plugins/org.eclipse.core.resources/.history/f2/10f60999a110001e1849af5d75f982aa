@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ page import= "bbs.UserDAO" %>
+
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
+
+<jsp:useBean id="UserDTO" class="bbs.UserDTO" scope="page"/>
+<jsp:setProperty name='UserDTO' property="userId"/>
+<jsp:setProperty name='UserDTO' property="userPw"/>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	if( UserDTO.getUserId()==null || UserDTO.getUserPw()==null ){
+%>
+	<script>
+		alert("빈값은 허용하지 않습니다. \n 확인하고 다시 시도하세요:)");
+		location.href="/login.jsp"
+	</script>
+<%
+	}
+	else {
+%>
+ 		UserDAO userDAO = new UserDAO();
+ 		
+
+<%
+	}
+%>
+	
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+INDEX VERSION 1.132
+D:\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1586610344.index
+\서블릿_프로젝트\src\main\java
+D:\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2137163900.index
+\서블릿_프로젝트\src\main\java
+D:\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2927860709.index
+\bbs\src\main\java

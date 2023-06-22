@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import= "bbs.BbsDAO" %>
+<%@ page import= "java.sql.Connection" %>
+<%@ page import= "java.sql.DriverManager" %>
+
+<%
+    request.setCharacterEncoding("UTF-8");
+%>
+
+<jsp:useBean id="BbsDTO" class="bbs.BbsDTO" scope="page"/>
+<jsp:setProperty name='BbsDTO' property="userId"/>
+<jsp:setProperty name='BbsDTO' property="subject"/>
+<jsp:setProperty name='BbsDTO' property="content"/>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>글쓰기 액션 파일</h1>
+
+<%
+	if (BbsDTO.getUserId() == null || BbsDTO.getSubject() == null || BbsDTO.getContent() == null) {
+%>
+	<script>
+		alert("빈값은 허용하지 않습니다. 확인하고 다시 시도하세요:)");
+		history.go(-1);
+	</script>
+<%
+	} else {
+		Connection conn = null;
+		try {
+			// 데이터베이스 연결
+			Class.forName("드라이버 클래스"); // 사용하는 데이터베이스에 맞는 드라이버 클래스로 변경해야 합니다.
+			conn = DriverManager.getConnection("DB URL", "사용자명", "비밀번호"); // 실제 데이터베이스의 URL, 사용자명, 비밀번호로 변경해야 합니다.
+
+			BbsDAO bbsDAO = new BbsDAO();
+			int result = bbsDAO.write(BbsDTO.getUserId(), BbsDTO.getSubject(), BbsDTO.getContent(), conn);
+
+			if (result == -1) { // 데이터베이스 오류
+%>
+				<script>
+					alert("글쓰기에 실패했습니다. 확인하고 다시 시도하세요:)");
+					history.go(-1);
+				</script>
+<%
+			} else { // 글쓰기 성공
+%>
+				<script>
+					alert("글쓰기 성공! 이전 페이지로 이동합니다.");
+					history.go(-1); // 글목록 이동
+				</script>
+<%
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 데이터베이스 연결 해제
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+%>
+</body>
+</html>

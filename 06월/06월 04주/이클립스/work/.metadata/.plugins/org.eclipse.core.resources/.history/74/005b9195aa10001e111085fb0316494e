@@ -1,0 +1,10 @@
+package bbs;
+
+public class BbsDTO {
+	private int bbsId;
+	private String userId;
+	private String subject;
+	private String content;
+	private String writeDate;
+	private int deleteOK;
+}

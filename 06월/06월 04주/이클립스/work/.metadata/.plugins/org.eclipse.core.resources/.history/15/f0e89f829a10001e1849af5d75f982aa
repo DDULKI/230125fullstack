@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>로그인 테스팅</h1>
+	<h2>로그인 아이디 비밀번호 입력화면입니다.</h2>
+	<div>
+		<input type="text" name="userId" id="userId">
+		<input type="text" name="userPw" id="userPw">
+		<button>로그인전송</button>
+	</div>
+</body>
+</html>
