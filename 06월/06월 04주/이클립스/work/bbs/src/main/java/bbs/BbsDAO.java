@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class BbsDAO {
 	private Connection conn;
@@ -81,6 +82,56 @@ public class BbsDAO {
 			e.printStackTrace();
 		}
 		return -1; // 데이터베이스 오류 
+	}
+
+	
+
+	// 게시글 리스트(목록) 메서드 
+	public ArrayList<BbsDTO> getList(){
+		String SQL = "SELECT * FROM bbs ORDER BY bbsId DESC";
+		ArrayList<BbsDTO> list = new ArrayList<BbsDTO>();
+		
+		try {
+			PreparedStatement ps = conn.prepareStatement(SQL);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				BbsDTO bbsDTO = new BbsDTO();
+				bbsDTO.setBbsId(rs.getInt(1));
+				bbsDTO.setUserId(rs.getString(2));
+				bbsDTO.setSubject(rs.getString(3));
+				bbsDTO.setContent(rs.getString(4));
+				bbsDTO.setWriteDate(rs.getString(5));
+				bbsDTO.setDeleteOK(rs.getInt(6));
+				list.add(bbsDTO);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	// 글보기 하나의 글목록 내용을 전달해준다. 
+	public BbsDTO getView(int bbsId) {
+		String SQL = "SELECT * FROM bbs WHERE bbsId = ?";
+		try {
+			PreparedStatement ps = conn.prepareStatement(SQL);
+			ps.setInt(1, bbsId);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				BbsDTO bbsDTO = new BbsDTO();
+				bbsDTO.setBbsId(rs.getInt(1));
+				bbsDTO.setUserId(rs.getString(2));
+				bbsDTO.setSubject(rs.getString(3));
+				bbsDTO.setContent(rs.getString(4));
+				bbsDTO.setWriteDate(rs.getString(5));
+				bbsDTO.setDeleteOK(rs.getInt(6));
+				return bbsDTO;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
 	}
 
 	

@@ -67,7 +67,7 @@
  
  			<script>
 	 			alert("글쓰기 성공:) \n gooooood!!!!!!!!!!!!");
-	 			history.go(-1); // 글목록 이동 
+	 			window.location.href='./bbsListAction.jsp' // 글목록 이동 
  			</script>
  			
  <%

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import bbs.BbsDTO;
+
 
 public class UserDAO {
 	// ctrl + shift + o
@@ -13,7 +15,7 @@ public class UserDAO {
 		
 		public UserDAO() {
 			try {
-				String DBURL = "jdbc:mysql://localhost:3306/bbs";			
+				String DBURL = "jdbc:mysql://localhost:3306/bbs";		// 이게 데이터베이스 이름이야. 너 이거로 안되어있지 않아? user 아냐 ? 아니 table 말고 database 혹시 모르니까 BBS로 해봐 	
 				String DBID = "root";
 				String DBPW = "1234";
 				Class.forName("com.mysql.jdbc.Driver");
@@ -23,6 +25,29 @@ public class UserDAO {
 				e.printStackTrace();
 			}
 		}
+		
+		// 입력값을 모두 받아서 처리한다. 
+		// 관리자 회원가입 
+		public int signup(UserDTO userDTO) {
+			// SQL INSERT INTO user
+			String SQL = "INSERT INTO user(userId, userPw, userName, userEmail) VALUES(?, ?, ?, ?)";
+			try {
+				PreparedStatement ps = conn.prepareStatement(SQL);
+				ps.setString(1, userDTO.getUserId() );
+				ps.setString(2, userDTO.getUserPw() );
+				ps.setString(3, userDTO.getUserName() );
+				ps.setString(4, userDTO.getUserEmail() );
+				return ps.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}
+			return -1; // 이미 가입된 아이디입니다. 
+		}
+		
+		
+		
+		
 		
 		// 로그인 => 아이디, 비밀번호 입력받아서 처리
 		// login()  
