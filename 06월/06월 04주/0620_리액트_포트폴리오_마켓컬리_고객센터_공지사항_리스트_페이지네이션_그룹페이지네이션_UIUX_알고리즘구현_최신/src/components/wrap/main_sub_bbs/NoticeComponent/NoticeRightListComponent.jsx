@@ -12,14 +12,10 @@ export default function NoticeRightListComponent({notice}){
     const [startNum, setStartNum] = React.useState(); // 그룹 시작 번호
     const [endNum, setEndNum] = React.useState(); //  그룹 끝 번호
 
-
-
-
     // 페이지번호 클릭 이벤트 
     const onClickPageNum =(e, num)=>{
         e.preventDefault();
         setPageNumber(num);
-
     }
     
     // 그룹페이지 클릭 다음카운트 이벤트  

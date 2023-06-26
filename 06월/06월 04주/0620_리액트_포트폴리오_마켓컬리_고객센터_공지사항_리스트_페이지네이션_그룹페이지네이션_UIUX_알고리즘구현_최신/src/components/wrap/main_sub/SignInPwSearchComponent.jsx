@@ -164,8 +164,8 @@ export default function SignInPwSearchComponent () {
         // 비밀번호 재설정 페이지로 이동
         window.location.pathname = '/idSearchReset';
     }
-
-
+ 
+    
     return (
         <main id='signInIdSearch' className='signInSearch'>
             <section id="secino1">

@@ -37,8 +37,7 @@ public class BbsDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
-				
+		}	
 			return ""; // 데이터베이스 오류 
 	}
 	
@@ -87,12 +86,14 @@ public class BbsDAO {
 	
 
 	// 게시글 리스트(목록) 메서드 
-	public ArrayList<BbsDTO> getList(){
-		String SQL = "SELECT * FROM bbs ORDER BY bbsId DESC";
+	// 페이지네이션 
+	// 1. 매개변수로 글번호 bbsId deleteOk = 1 사용가능한 목록만 글번호 bbsId 내림차순 그리고 5개씩 출력
+	public ArrayList<BbsDTO> getList(int pageNumber){
+		String SQL = "SELECT * FROM bbs WHERE bbsId < ? AND deleteOk=1 ORDER BY bbsId DESC LIMIT 5";
 		ArrayList<BbsDTO> list = new ArrayList<BbsDTO>();
-		
 		try {
 			PreparedStatement ps = conn.prepareStatement(SQL);
+			ps.setInt(1, getNumber() - (pageNumber-1) * 5);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				BbsDTO bbsDTO = new BbsDTO();
@@ -110,6 +111,44 @@ public class BbsDAO {
 		}
 		return list;
 	}
+	
+	// 다음 페이지 함수 리턴값은 다음페이지 유무 true(다음페이지존재함) or false(다음페이지없음)
+	// 다음 페이지 카운트 함수
+	public boolean nextPage(int pageNumber) {
+		String SQL = "SELECT * FROM bbs WHERE bbsId < ? AND deleteOk=1";
+		try {
+			PreparedStatement ps = conn.prepareStatement(SQL);
+			ps.setInt(1, getNumber() - (pageNumber-1) * 5);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				return true; 
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	// 전체 레코드수 카운트 함수 
+	public int totalRecordsMethod() {
+		int totalRecords=0;
+		String SQL = "SELECT MAX(bbsId) AS mx FROM bbs WHERE deleteOk=1";
+		try {
+			PreparedStatement ps = conn.prepareStatement(SQL);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				return totalRecords=rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return totalRecords;
+	}
+	
 	
 	// 글보기 하나의 글목록 내용을 전달해준다. 
 	public BbsDTO getView(int bbsId) {
