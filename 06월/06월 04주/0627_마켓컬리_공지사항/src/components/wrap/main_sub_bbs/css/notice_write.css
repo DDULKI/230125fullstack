@@ -1,0 +1,191 @@
+#notice {
+  width: 100%;
+  padding: 70px 0 100px 0;
+}
+#notice #container {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+}
+#notice #container #noticLeft {
+  width: 200px;
+}
+#notice #container #noticLeft .container {
+  width: 100%;
+}
+#notice #container #noticLeft .container .title {
+  width: 100%;
+  padding: 5px 0 35px 0;
+}
+#notice #container #noticLeft .container .title h2 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #333;
+}
+#notice #container #noticLeft .container .nav {
+  width: 100%;
+}
+#notice #container #noticLeft .container .nav ul {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+#notice #container #noticLeft .container .nav ul li {
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+#notice #container #noticLeft .container .nav ul li:first-child {
+  border-top: 0;
+}
+#notice #container #noticLeft .container .nav ul li a {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  text-indent: 20px;
+  transition: all 0.3s;
+  background: #fff url(../../../../../public/images/notice/icon_arrow_right_hover.svg) no-repeat 92% 50%;
+  background-size: 16px;
+}
+#notice #container #noticLeft .container .nav ul li a.on {
+  font-weight: 600;
+  color: #5f0080;
+  background-color: #fafafa;
+  background-image: url(../../../../../public/images/notice/icon_arrow_right.svg);
+}
+#notice #container #noticLeft .container .nav ul li a:hover {
+  color: #5f0080;
+  background-color: #fafafa;
+  background-image: url(../../../../../public/images/notice/icon_arrow_right.svg);
+}
+#notice #container #noticLeft .container .bottom {
+  width: 100%;
+  padding: 40px 0 0 0;
+}
+#notice #container #noticLeft .container .bottom a {
+  line-height: 160%;
+  display: block;
+  padding: 10px 0;
+  text-indent: 20px;
+  transition: all 0.3s;
+  background: #fafafa url(../../../../../public/images/notice/icon_arrow_right_gray.svg) no-repeat 92% 50%;
+  background-size: 16px;
+}
+#notice #container #noticLeft .container .bottom a span {
+  font-size: 14px;
+  display: block;
+  color: #333;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+}
+#notice #container #noticLeft .container .bottom a em {
+  display: block;
+  color: #333;
+  font-size: 12px;
+  letter-spacing: -0.8px;
+}
+#notice #container #noticeWrite {
+  width: 850px;
+  padding: 0 0 0 40px;
+}
+#notice #container #noticeWrite .container {
+  width: 100%;
+}
+#notice #container #noticeWrite .container .title {
+  width: 820px;
+  height: 70px;
+  border-bottom: 2px solid #333;
+}
+#notice #container #noticeWrite .container .title h2 {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  padding: 0 10px 0 0;
+  letter-spacing: -0.5px;
+}
+#notice #container #noticeWrite .container .content {
+  width: 100%;
+}
+#notice #container #noticeWrite .container .content form {
+  width: 100%;
+}
+#notice #container #noticeWrite .container .content form ul {
+  width: 100%;
+}
+#notice #container #noticeWrite .container .content form ul li {
+  padding: 20px 0 0 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 20px 60px;
+  position: relative;
+}
+#notice #container #noticeWrite .container .content form ul li:nth-child(1) {
+  padding: 20px 0 0 0;
+}
+#notice #container #noticeWrite .container .content form ul li:nth-child(2) {
+  padding: 10px 0 0 0;
+}
+#notice #container #noticeWrite .container .content form ul li label {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 20px 0;
+  width: 150px;
+  font-size: 14px;
+  font-weight: 500;
+  height: 50px;
+  text-align: left;
+}
+#notice #container #noticeWrite .container .content form ul li label i {
+  color: #ff0000;
+  line-height: -44px;
+  transform: translateY(-2px);
+}
+#notice #container #noticeWrite .container .content form ul li input {
+  padding: 0 15px;
+  width: 638px;
+  height: 44px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 3px;
+  outline-offset: -1px;
+  outline: 1px solid transparent;
+  transition: all 0.3s;
+}
+#notice #container #noticeWrite .container .content form ul li input:focus {
+  outline: 1px solid #888;
+}
+#notice #container #noticeWrite .container .content form ul li textarea {
+  padding: 15px;
+  resize: none;
+  width: 638px;
+  height: 400px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 3px;
+  outline-offset: -1px;
+  outline: 1px solid transparent;
+  transition: all 0.3s;
+}
+#notice #container #noticeWrite .container .content form ul li textarea:focus {
+  outline: 1px solid #888;
+}
+#notice #container #noticeWrite .container .content form .button-box {
+  width: 100%;
+  padding: 50px 0;
+  text-align: right;
+}
+#notice #container #noticeWrite .container .content form .button-box button {
+  height: 50px;
+  background: #5f0080;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 3px;
+  padding: 0 40px;
+  border: 0;
+  cursor: pointer;
+}
