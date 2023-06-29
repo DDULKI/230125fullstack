@@ -14,6 +14,7 @@
 <jsp:setProperty name='BbsDTO'  property="content"/>    
     
      
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,8 +63,9 @@
 
 
 
+
 <div id="bbsList">
-		
+	<div class='container'>
 	<table>
 		<caption>BBS BOARD</caption>
 		<thead>
@@ -72,6 +74,7 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
+				<th>조회수</th>
 			</tr>			
 		</thead>
 		
@@ -95,6 +98,7 @@
 				<td><a href="viewAction.jsp?bbsId=<%=list.get(i).getBbsId() %>"><%=list.get(i).getSubject() %></a></td>
 				<td><%=list.get(i).getUserId() %></td>
 				<td><%=list.get(i).getWriteDate() %></td>
+				<td><%=list.get(i).getHit() %></td>
 			</tr>
 						
 		<%
@@ -182,16 +186,18 @@
 
 		
 		#bbsList {width:100%;padding:60px 0 100px 0; text-align:center;}
-		#bbsList table {width:100%;max-width:1000px;margin:0 auto;border-collapse:collapse;}
+		#bbsList .container {width:100%; max-width: 80%; margin: 0 auto; padding: 50px; background:#f3f3f3;}
+		#bbsList table {width:100%;border-collapse:collapse; background: #f3f3f3;}
 		#bbsList table caption {width:100%;padding: 0 0 60px 0;font-size:24px;font-weight:600}
 				
 		#bbsList table th,td {border-bottom:1px solid #eee;}		
 		#bbsList table th {height:60px;background:#f4f4f4;color:#222;font-size:16px;}
 		#bbsList table td {height:50px;background:#fff;color:#444;font-size:15px;text-align:center;}		
-		#bbsList table th:nth-child(1) {width:80px;}
-		#bbsList table th:nth-child(2) {width:650px;}	
-		#bbsList table th:nth-child(3) {width:120px;}
-		#bbsList table th:nth-child(4) {width:150px;}
+		#bbsList table th:nth-child(1) {min-width:60px; width:20%;}
+		#bbsList table th:nth-child(2) {min-width:200px; width:55%;}	
+		#bbsList table th:nth-child(3) {min-width:100px; width:10%;}
+		#bbsList table th:nth-child(4) {min-width:120px; width:14%;}
+		#bbsList table th:nth-child(5) {min-width:80px; width:10%;}
 		#bbsList table tr:nth-child(even) td {background:#fcfcfc;}
 		#bbsList table th {border-top:2px solid #444;border-bottom:1px solid #444;}		
 		
@@ -229,8 +235,8 @@
 			font-size:14px;align-items:center;justify-content:center;border-radius:3px;		
 		}
 		#bbsList .pagebtn-box a.page-btn {margin: 0 1px;}
-		#bbsList .pagebtn-box a.prev-btn {width:50px; margin:0 10px 0 0; border:1px solid #5f0080; color:#5f0080;}
-		#bbsList .pagebtn-box a.next-btn {width:50px; margin:0 0 0 10px; border:1px solid #5f0080; color:#5f0080;}
+		#bbsList .pagebtn-box a.prev-btn {width:50px; margin:0 10px 0 0; border:0 solid #fff; color:#666;}
+		#bbsList .pagebtn-box a.next-btn {width:50px; margin:0 0 0 10px; border:0 solid #fff; color:#666;}
 		
 	</style>
 

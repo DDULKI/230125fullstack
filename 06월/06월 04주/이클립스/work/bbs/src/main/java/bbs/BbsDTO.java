@@ -7,6 +7,7 @@ public class BbsDTO {
 	private String content;
 	private String writeDate;
 	private int deleteOK;
+	private int hit;
 	
 	public int getBbsId() {
 		return bbsId;
@@ -43,5 +44,11 @@ public class BbsDTO {
 	}
 	public void setDeleteOK(int deleteOK) {
 		this.deleteOK = deleteOK;
+	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 }

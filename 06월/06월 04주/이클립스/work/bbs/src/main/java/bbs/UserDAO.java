@@ -47,8 +47,6 @@ public class UserDAO {
 		
 		
 		
-		
-		
 		// 로그인 => 아이디, 비밀번호 입력받아서 처리
 		// login()  
 		// 1 로그인 성공
@@ -78,5 +76,55 @@ public class UserDAO {
 			return -2; // 데이터베이스 오류
 		}
 		
+		// 아이디찾기 메서드
+		// 1차 검색 이름 
+		// 1차 검색 결과를 이용하여 반복문 WHILE 사용 이메일을 검색  
+		public UserDTO idSearch(String userName, String userEmail) {
+			String SQL = "SELECT userEmail, userId FROM user WHERE userName = ?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(SQL);
+				ps.setString(1,  userName);
+				rs = ps.executeQuery();
+				while(rs.next()) {
+					// userEmail 비교 
+					if(rs.getString(1).equals(userEmail)) {
+						UserDTO userDTO = new UserDTO();
+						// 이메일이 일치하면 검색 정보 아이디를 반환한다. 
+						userDTO.setUserId(rs.getString(2)); //SQL 조회된 아이디를 반환 
+						return userDTO;
+					}
+						// return 이메일 틀림 
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			return null;
+		}
+		
+		
+		// 비밀번호찾기  메서드
+		// 1차 검색 아이디
+		// 1차 검색 결과를 이용하여 반복문 WHILE 사용 이메일을 검색  
+		public UserDTO pwSearch(String userId, String userEmail) {
+			String  SQL ="SELECT userEmail, userPw FROM user WHERE userId =?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(SQL);
+				ps.setString(1,  userId);
+				rs = ps.executeQuery();
+				while(rs.next()) {
+					// userEmail 비교 
+					if(rs.getString(1).equals(userEmail)) {
+						UserDTO userDTO = new UserDTO();
+						// 이메일이 일치하면 검색 정보 비밀번호를 반환한다. 
+						userDTO.setUserPw(rs.getString(2)); //SQL 조회된 비밀번호를 반환 
+						return userDTO;
+					}
+					// return 이메일 틀림 
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			return null;
+		}
 		
 }

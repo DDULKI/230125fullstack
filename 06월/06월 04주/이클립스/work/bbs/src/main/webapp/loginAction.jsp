@@ -40,7 +40,7 @@
 %>
 			<script>
 				alert("로그인 되었습니다!");
-				location.href="./write.jsp";
+				location.href="./bbsListAction.jsp";
 			</script>
 <% 
 		}

@@ -25,7 +25,7 @@
 	ul {list-style:none;}
 	a {color:#333;text-decoration:none;}
 	
-	#header {width:100%;height:80px;background:#f7f7f7;border-bottom:1px solid #ccc;}
+	#header {width:100%;height:80px;background:#fff;border-bottom:1px solid #e6e6e6;}
 	#header .container {
 		width:100%;max-width:80%;margin:0 auto;
 		height:100%;
@@ -75,14 +75,14 @@
 </head>
 
 <body>
-
-<%
-// 로그인 정보 => 세션 가져오기
-String userId = null;
-if(session.getAttribute("userId")!=null){ // 세션값이 비어있지 않으면 세션아이디 변수에 저장
-	userId = (String)session.getAttribute("userId");
-}
-%>
+	
+	<%
+	// 로그인 정보 => 세션 가져오기
+	String userId = null;
+	if(session.getAttribute("userId")!=null){ // 세션값이 비어있지 않으면 세션아이디 변수에 저장
+		userId = (String)session.getAttribute("userId");
+	}
+	%>
 
 	<header id='header'>
 		<div class='container'>
