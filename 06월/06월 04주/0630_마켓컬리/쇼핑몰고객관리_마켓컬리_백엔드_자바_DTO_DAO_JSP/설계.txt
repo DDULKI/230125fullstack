@@ -1,0 +1,209 @@
+
+localhost:8080/jsp/0516_MVC_모델링_프로젝트_AJAX_DTO_DAO/쇼핑몰고객관리/kurly_user_signup_action_test_parameter.jsp
+
+
+
+개발자가 자바 소스작성(코딩) 
+=> 0. 서블릿 환경설정 담당 파일 WEB.XML 
+=> 1. 서블릿소스.java[UserDAO.java, UserDTO.java] 
+=> 2. [컴파일 번역] 
+=> 3. 자바 클래스 생성[UserDAO.class, UserDTO.class](이진파일 bin)
+=> 4. 등록 => 서블릿 컨테이너[톰켓] 
+=> 5. 실행 & 연동 데이터베이스[JDBC] <=> [데이터베이스]
+
+=> 6. 서블릿(요청(HTTP OR HTTPS request)을 받으면 
+=> 7. 응답(HTTP OR HTTPS RESPONSE) 서블릿 메서드(CRUD)가 실행)
+=> 8. 결과 출력(Publishing) 홈페이지 디자인.. HTML(HTTP 통신)
+
+
+
+localhost:8080/jsp/0509_MVC_모델링_프로젝트1/쇼핑몰고객관리/kurly_user_main.jsp?이름=정슬기  > 이름은 속성(property) 정슬기는 (value)
+localhost:8080/jsp/0509_MVC_모델링_프로젝트1/쇼핑몰고객관리/kurly_user_signup.jsp
+localhost:8080/jsp/0509_MVC_모델링_프로젝트1/쇼핑몰고객관리/kurly_user_signin.jsp
+localhost:8080/jsp/0509_MVC_모델링_프로젝트1/쇼핑몰고객관리/kurly_user_delete.jsp
+localhost:8080/jsp/0509_MVC_모델링_프로젝트1/쇼핑몰고객관리/kurly_user_update.jsp
+localhost:8080/jsp/0509_MVC_모델링_프로젝트1/쇼핑몰고객관리/kurly_user_checkbox.html
+localhost:8080/jsp/0509_MVC_모델링_프로젝트1/쇼핑몰고객관리/kurly_user_ArrayList.jsp
+
+쿼리스트링 
+
+    // 파라미터
+    String name = request.getParameter("이름");
+
+    <input name="name" value="<=%이름%>">;
+
+
+<%@
+    page
+    language="java"
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+%>
+
+<%@ page import = "kurly.UserDAO"%>
+
+<% request.setCharacterEncoding("UTF-8");%>
+
+<jsp:useBean id="userDTO" class="kurly.UserDTO" scope="page"/>
+<jsp:setProperty name="userDTO" property="user_id"/>
+<jsp:setProperty name="userDTO" property="user_pw"/>
+<jsp:setProperty name="userDTO" property="user_name"/>
+<jsp:setProperty name="userDTO" property="user_email"/>
+<jsp:setProperty name="userDTO" property="user_hp"/>
+<jsp:setProperty name="userDTO" property="user_addr"/>
+<jsp:setProperty name="userDTO" property="user_gender"/>
+<jsp:setProperty name="userDTO" property="user_birth"/>
+
+<% 
+    if (
+           userDTO.getUser_id()==null || userDTO.getUser_pw()==null || userDTO.getUser_name()==null
+        || userDTO.getUser_email()==null || userDTO.getUser_hp()==null || userDTO.getUser_addr()==null
+        || userDTO.getUser_gender()==null || userDTO.getUser_birth()==null 
+    ){
+%>
+    <script>
+        alert("빈값은 허용하지 않습니다. /n확인하고 다시 시도해 주세요.");
+        history.go(-1);
+    </script>
+<%
+    }
+    else {
+        UserDAO userDAO = new UserDAO();
+        int result = userDAO.signup(userDTO);
+%>
+
+    <% 
+        if(result==1){
+        <script>
+            alert("데이터베이스에 데이터저장되었습니다");
+            history.go(-1);
+        </script>
+    <% 
+        }
+    else {
+    %>
+        <script>
+            alert(<%= result %>);
+            alert("데이터베이스에 저장 실패했습니다. /n확인하고 다시 시도해 주세요.");
+            history.go(-1);
+        </script>
+
+    <%
+    }
+    %>
+
+<%
+    }
+%>
+
+
+select * from kurly_table;
+
+
+
+
+package kurly;
+
+import java.sql.DriverManager;
+import java.sql.*;
+
+public class UserDAO {
+    
+    private Connection conn;
+    private PreparedStatement ps;
+    private ResultSet rs;
+
+    public UserDAO(){
+        try {
+            // 변수설정
+            String URL = "jdbc:mysql://localhost:3306/user";
+            String ID = "root";
+            String PW = "1234";
+             // 1. 데이터베이스 드라이버(JDBC)
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("JDBC Driver 로드성공!");
+
+             // 2. 데이터베이스 인증 & 인가 (URL, ID, PW)
+            conn = DriverManager.getConnection(URL, ID, PW);
+            System.out.println("데이터베이스 Connection 연결성공!");
+        } catch (Exception e) {
+           e.printStackTrace();
+        }
+                    
+    }
+
+        //1. 회원가입 signup
+        //2. 회원로그인 signin
+        //3. 회원정보수정 update
+        //4. 회원탈퇴처리(회원정보삭제) delete
+
+        public int signup(UserDTO userDTO){
+            String SQL = "INSERT INTO kurly_table(user_id, user_pw, user_name, user_email, user_hp, user_addr, user_gender, user_birth) VALUES(?,?,?,?,?,?,?,?)";
+            try {
+                ps = conn.prepareStatement(SQL); // 데이터베이스를 여기에 저장하겠다~ 
+                ps.setString(1, userDTO.getUser_id());
+                ps.setString(2, userDTO.getUser_pw());
+                ps.setString(3, userDTO.getUser_name());
+                ps.setString(4, userDTO.getUser_email());
+                ps.setString(5, userDTO.getUser_hp());
+                ps.setString(6, userDTO.getUser_addr());
+                ps.setString(7, userDTO.getUser_gender());
+                ps.setString(8, userDTO.getUser_birth());
+                return ps.executeUpdate();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            return -1;
+        }
+        public int signin(String user_id, String user_pw){
+            String SQL = "SELECT user_pw FROM kurly_table WHERE user_id = ?";
+            try {
+                ps = conn.prepareStatement(SQL);
+                ps.setString(1, user_id);
+             
+                rs = ps.executeQuery();
+                if(rs.next()){
+                    if(rs.getString(1).equals(user_pw)){
+                        return 1; // 로그인 성공 
+                        // idx 
+                        // rs.getInt(1)
+
+                        // user_id
+                        // rs.getString(2)
+                     
+                        // user_pw
+                        // rs.getString(3)
+                    }
+                    else {
+                        return 0; // 로그인 실패 (비밀번호틀림)
+                    }
+                }
+                else{
+                    return -1; // 아이디틀림 
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                // TODO: handle exception
+            }
+            return -2; // 기타오류 
+        }
+        public int update(UserDTO userDTO){
+            return -1;
+        }
+        public int delete(UserDTO userDTO){
+            return -1;
+        }
+}
+
+
+
+                            <input type="radio" name="user_gender" id="male"  value="남성" <% if(userDTO.getUser_gender().equals("남성")) {%>checked="checked"<%}%> />
+                            <label for="male">남성</label>
+                            <input type="radio" name="user_gender" id="feMale"  value="여성" <% if(userDTO.getUser_gender().equals("여성")){%>checked="checked"<%}%> />
+                            <label for="feMale">여성</label>
+                            <input type="radio" name="user_gender" id="none"  value="선택안함" <% if(userDTO.getUser_gender().equals("선택안함")){%>checked="checked"<%}%> />
+                            <label for="none">선택안함</label>
+
+
+localhost8080:/jsp/0511_MVC_모델링_프로젝트_AJAX_DTO_DAO/쇼핑몰고객관리/kurly_user_main.jsp
