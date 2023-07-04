@@ -1,11 +1,11 @@
 create table bbs (
-    bbsId     int	 NOT NULL,
+    bbsId     int PRIMARY KEY AUTO_INCREMENT,
     userId      VARCHAR(16) NOT NULL,
     subject     VARCHAR(1000) NOT NULL,
     content    VARCHAR(4096) NOT NULL,
     writeDate  DATETIME,
     deleteOK   int,
-    PRIMARY KEY(bbsId)
+
 );
 
 

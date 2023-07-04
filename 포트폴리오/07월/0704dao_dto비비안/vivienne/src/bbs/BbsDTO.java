@@ -7,7 +7,7 @@ public class BbsDTO {
     private String content;
     private String writeDate;
     private int deleteOK;
-
+       
     public int getBbsId() {
         return this.bbsId;
     }

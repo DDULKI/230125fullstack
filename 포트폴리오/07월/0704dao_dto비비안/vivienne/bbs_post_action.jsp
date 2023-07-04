@@ -7,10 +7,11 @@
     contentType="text/html; charset=UTF-8"
     pageEncoding= "UTF-8"
 %>
-<%@ page import="bbs.PhotoPostDAO"%>
+
+<%@ page import="bbs.BbsDAO"%>
 <% request.setCharacterEncoding("UTF-8");%>
 
-<jsp:useBean class="bbs.BbsDTO" id="bbsDTO" scop="page"/>
+<jsp:useBean id="bbsDTO" class="bbs.BbsDTO" scope="page"/>
 <jsp:setProperty name="bbsDTO" property="user_email"/>
 <jsp:setProperty name="bbsDTO" property="subject"/>
 <jsp:setProperty name="bbsDTO" property="content"/>
@@ -21,4 +22,4 @@
     int result = bbsDAO.post(bbsDTO);
 %>
 
-{"result" : "<%=result%>"}
+{"AJAX실행 DTO & DAO 결과":"<%=result%>"}

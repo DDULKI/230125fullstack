@@ -131,16 +131,16 @@ public class UserDAO {
         }
         return userDTO;
     }
-       
+           
     // 가입 회원 전체리스트 목록 가져오기 
     public List<UserDTO> getJoinList(){
-        UserDTO userDTO = new UserDTO();
         List<UserDTO> list = new ArrayList<>();
         String SQL = "SELECT * FROM vivienne_member";
         try {
             ps = conn.prepareStatement(SQL);
             rs = ps.executeQuery();
             while(rs.next()){
+                UserDTO userDTO = new UserDTO();
                 userDTO.setIdx(rs.getInt("idx"));
                 userDTO.setUser_email(rs.getString("user_email"));
                 userDTO.setUser_name(rs.getString("user_name"));
