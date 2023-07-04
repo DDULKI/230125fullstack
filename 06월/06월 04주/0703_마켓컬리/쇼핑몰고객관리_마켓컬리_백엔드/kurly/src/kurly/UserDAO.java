@@ -1,4 +1,4 @@
-package kurly;
+\package kurly;
 
 import java.sql.DriverManager;
 import java.sql.*;
