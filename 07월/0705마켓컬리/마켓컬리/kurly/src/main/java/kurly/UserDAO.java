@@ -61,6 +61,7 @@ public class UserDAO {
             return -1;
         }
 
+        // 로그인 
         public int signin(String user_id, String user_pw){
             String SQL = "SELECT user_pw FROM signup_table WHERE user_id = ?";
 
@@ -128,6 +129,8 @@ public class UserDAO {
             }
             return -1;
         }
+        
+        // 삭제 메서드 
         public int delete(String user_id, String user_pw){
             String SQL = "DELETE FROM signup_table  WHERE user_id = ? AND  user_pw = ?";
             try{
@@ -151,6 +154,7 @@ public class UserDAO {
             return -1;
         }
         
+        // 개인정보 확인하기 
         public UserDTO getJoin(String user_id){
             UserDTO userDTO = new UserDTO();
 
@@ -192,6 +196,7 @@ public class UserDAO {
             return userDTO;
         }
 
+        // 회원목록 리스트 
         public  List<UserDTO>  getJoinList(){
             UserDTO userDTO = null;
             List<UserDTO> list = new ArrayList<>();
@@ -238,7 +243,7 @@ public class UserDAO {
         // 1차 검색 이름
         // 1차 검색 결과를 이용하여 반복문 WHILE 사용 이메일을 검색 			
         public UserDTO idSearch(String user_irum, String user_hp){
-            String SQL = "SELECT user_hp, user_id  FROM signup_table WHERE user_irum = ?";
+            String SQL = "SELECT user_hp, user_id, user_gaib_date  FROM signup_table WHERE user_irum = ?";
             try {
                 PreparedStatement ps = conn.prepareStatement(SQL);	
                 ps.setString(1, user_irum);
@@ -249,6 +254,7 @@ public class UserDAO {
                         UserDTO userDTO = new UserDTO();
                         // 이메일이 입력하면 검색 정보 아이디를 반환한다.
                         userDTO.setUser_id(rs.getString(2)); //SQL 조회딘 아이디를 반환
+                        userDTO.setUser_gaib_date(rs.getString(3)); //SQL 조회된 아이디를 반환
                         return userDTO;
                     }
                     //return 이메일일 틀린것
@@ -271,7 +277,7 @@ public class UserDAO {
     	
 		// 비밀번호찾기 메서드
 		public UserDTO pwSearch(String user_id, String user_hp){
-			String SQL = "SELECT user_hp, user_pw  FROM signup_table WHERE user_id = ?";
+			String SQL = "SELECT user_hp, user_pw,user_gaib_date  FROM signup_table WHERE user_id = ?";
 			try {
 				PreparedStatement ps = conn.prepareStatement(SQL);	
 				ps.setString(1, user_id);
@@ -282,6 +288,7 @@ public class UserDAO {
 						UserDTO userDTO = new UserDTO();
 						// 이메일이 일하면 검색 정보 비밀번호를 반환한다.
 						userDTO.setUser_pw(rs.getString(2)); //SQL 조회딘 비밀번호를 반환
+						userDTO.setUser_gaib_date(rs.getString(3)); //SQL 조회된 아이디를 반환
 						return userDTO;
 					}
 				}
@@ -366,7 +373,29 @@ public class UserDAO {
 	    	return result;  // 이메일 중복여부 결과 리턴 boolean 
 	    }
 	    
-
+	    // 새비밀번호 재설정 메서드
+	    public int pwReset(String user_pw, String user_id){
+            String SQL = "UPDATE signup_table SET user_pw = ? WHERE user_id = ? ";
+            try{
+                ps = conn.prepareStatement(SQL);
+                ps.setString(1, user_pw);
+                ps.setString(2, user_id);
+                return ps.executeUpdate(); // 1반환 
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+            finally {  
+                try{
+                     if(rs !=null ){rs.close();}
+                     if(ps !=null ){ps.close();}
+                     if(conn !=null ){conn.close();}
+                }
+                catch(Exception e){                    
+                } 
+            }
+            return -1; // 반환 
+        }
 		
         
         

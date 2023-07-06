@@ -20,7 +20,7 @@
 		
 		
 %>
-	{"아이디":"<%=userDTO.getUser_id()%>"}
+	{"아이디":"<%=userDTO.getUser_id()%> "가입일":"<%=userDTO.getUser_gaib_date()%> "}
 <%
 	}
 

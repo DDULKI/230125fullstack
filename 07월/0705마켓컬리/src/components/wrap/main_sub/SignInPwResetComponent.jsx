@@ -1,10 +1,32 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import '../scss/singin_pw_reset.scss';
+import {useSearchParams, useLocation} from 'react-router-dom';
+import { GlobalContext } from '../../../context/GlobalContext';
+import { ConfirmContext } from '../../../context/ConfirmContext';
+import axios from 'axios';
 
 
 export default function SignInPwResetComponent () {
 
+    const {confirmModalOpen, isConfirmModal} = React.useContext(ConfirmContext);
+    // 상태관리, 로컬스토레이지 구현 
+    const {login, setLogin} = React.useContext(GlobalContext);
+
+    const location = useLocation();
+
+    React.useEffect(()=>{
+        console.log(location.state.아이디);
+        console.log(location.state.가입일);
+        setLogin({
+            ...login,
+            아이디: location.state.아이디,
+            비밀번호: location.state.비밀번호,
+            가입일: location.state.가입일
+        })
+    },[])
+
+    
     const [userPw, serUserPw] = React.useState('');
     const [userPw2, serUserPw2] = React.useState('');
 
@@ -22,6 +44,49 @@ export default function SignInPwResetComponent () {
         e.preventDefault();
         alert('새비밀번호가 저장되었습니다.');
         window.location.pathname = "/signin";
+
+        if(userPw===''){
+            confirmModalOpen('비밀번호를 입력해 주세요');
+        }
+        else if(userPw2===''){
+            confirmModalOpen('비밀번호를 한번더 입력해 주세요');
+        }
+        else{
+            if(userPw===userPw2){
+                axios({ 
+                    //이름, 휴대폰번호를 전송한다. 
+                url:'/kurly/pwResetAction2.jsp',
+                method: 'POST',
+                data: {}, 
+                params: {
+                    "user_pw" : userPw,
+                    "user_id" : location.state.아이디
+                    }
+                })
+                .then((res)=>{
+                    try {
+                        console.log(res);
+                        console.log(res.data);
+                        const result = res.data.아이디;
+                        if( result === -1 ){ // null이면 검색 아이디가 없다.             
+                            confirmModalOpen(' 비밀번호를 확인하고 다시 입력해주세요. ')
+                            
+                        }
+                        else{
+                            confirmModalOpen('비밀번호가 재설정 되었습니다. 로그인하세요!');
+                            window.location.pathname="/signin";
+                        }
+                    } catch (error) {
+                        console(error);
+                    }     
+                }) 
+            } 
+            else {
+                confirmModalOpen('비밀번호가 일치하지 않습니다.');
+            }
+        }
+
+       
     }
 
     return (
@@ -38,7 +103,7 @@ export default function SignInPwResetComponent () {
                                 <li>
                                     <input 
                                     onChange={onChangeNewPw}
-                                    type="password" 
+                                    type="text" 
                                     name='user_pw' 
                                     id='userPw' 
                                     value={userPw} 
@@ -49,7 +114,7 @@ export default function SignInPwResetComponent () {
                                 <li>
                                     <input 
                                     onChange={onChangeNewPw2}
-                                    type="password" 
+                                    type="text" 
                                     name='user_pw2' 
                                     id='userPw2' 
                                     value={userPw2}  

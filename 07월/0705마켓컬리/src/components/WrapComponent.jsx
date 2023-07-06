@@ -49,6 +49,21 @@ import PostCodeComponent from './wrap/PostCodeComponent';
 
 
 export default function WrapComponent() {
+
+    // 로그인 페이지 
+    // 아이디찾기 상태관리 
+    // 비밀번호찾기 상태관리 
+    // 로그인 상태관리 
+
+    const [login, setLogin] = React.useState({
+        아이디:'',
+        비밀번호:'',
+        가입일:'',
+        이름:''
+    })
+
+    
+
    
     // 카카오 주소검색 API 모달창
     const [postModal, setPostModal] = React.useState(false);
@@ -379,7 +394,7 @@ export default function WrapComponent() {
 
     return (
         <div id='wrap'>
-            <GlobalContext.Provider value={{ CARTPRODUCTKEY, VIEWPRODUCTKEY, TOPMODALKEY, ADDRESSKEY, isAdmin, mainModalShowOut, mainModalOneYearShowOut, addressAuto, postCodeClose, openPopupDaumPostApi,addr, setAddr }}>
+            <GlobalContext.Provider value={{ CARTPRODUCTKEY, VIEWPRODUCTKEY, TOPMODALKEY, ADDRESSKEY, isAdmin, mainModalShowOut, mainModalOneYearShowOut, addressAuto, postCodeClose, openPopupDaumPostApi,addr, setAddr, login, setLogin }}>
                 <ConfirmContext.Provider value={{ confirmMsg, confirmModalOpen, confirmModalClose, isConfirmModal, ConfirmModalOkCancelOpen, ConfirmModalOkCancelClose, confirmMsgOkCancel, isConfirmModalOkCancelResult }}>
                     <CartContext.Provider value={{ cartCountNumber, cartCount }}>
                             {

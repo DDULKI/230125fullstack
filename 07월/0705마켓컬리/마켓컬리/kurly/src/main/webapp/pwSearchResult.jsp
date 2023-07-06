@@ -21,6 +21,7 @@
 		<div class="content">
 	         <ul>
 	            <li><h1><%=request.getParameter("user_pw") %></h1></li>
+	            <li><h1><%=request.getParameter("user_gaib_date")%></h1></li>
 	        </ul>
 		</div>
 	</div>

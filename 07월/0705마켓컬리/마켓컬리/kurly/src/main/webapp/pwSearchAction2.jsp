@@ -23,7 +23,7 @@
 		// DAO 클래스 인스턴스 생성하고 
 		// 아이디찾기함수() 를 호출실행(매개변수 이름, 이메일) 
 		// 결과는 UserDTO().아이디찾기함수(파라미터1, 파라미터2) 로 반환받는다.
-		UserDTO userDTO = new UserDAO().pwSearch(request.getParameter("user_id"), request.getParameter("user_hp"));
+		UserDTO userDTO = new UserDAO().pwSearch(request.getParameter("user_pw"), request.getParameter("user_id"));
 		
 		if(userDTO==null){ // 찾는데 실패!
 			%>

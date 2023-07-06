@@ -17,7 +17,7 @@
 		</div>
 		
 		<div class="content">
-		    <form name="loginForm" autocomplete="off" id="idSearchForm" method="post" action="./idSearchAction.jsp">
+		    <form name="loginForm" autocomplete="off" id="idSearchForm" method="post" action="./idSearchAction2.jsp">
 		        <ul>
 		            <li><input  maxlength="30" type="text" name="user_irum" id="user_irum" placeholder="이름을 입력하세요"></li>
 		            <li><input maxlength="250" type="text" name="user_hp" id="user_hp" placeholder="휴대폰을 입력하세요"></li>

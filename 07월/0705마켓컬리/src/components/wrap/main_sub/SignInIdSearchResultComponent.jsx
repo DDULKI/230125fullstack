@@ -1,17 +1,48 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import '../scss/signin_id_result.scss';
-import {useSearchParams} from 'react-router-dom';
+import {useSearchParams, useLocation} from 'react-router-dom';
+import { GlobalContext } from '../../../context/GlobalContext';
 
 export default function SignInIdSearchResultComponent () {
 
+    // 상태관리, 로컬스토레이지 구현 
+    const {login, setLogin} = React.useContext(GlobalContext);
+
+    // 로컬스토레이지 구현 
+    // React.useEffect(()=>{
+
+    //     if(localStorage.getItem('searchId')!==null){
+    //         console.log(JSON.parse(localStorage.getItem('searchId')).아이디)
+    //         setLogin({
+    //             ...login,
+    //             아이디: JSON.parse(localStorage.getItem('searchId')).아이디,
+    //             가입일: JSON.parse(localStorage.getItem('searchId')).가입일
+    //         })
+    //     }
+    // },[])
+
+    // 라우터 네비게이션() 파라미터 이용방법으로 구현 
     const [param, setParam] = useSearchParams();  
-    const user_id = param.get('user_id');
+    const location = useLocation();
 
- 
 
-    const [userId, setUserId] = React.useState('moonjong');
-    const [gaib, setGaib] = React.useState('2019.01.01');
+    React.useEffect(()=>{
+        console.log(location.state.아이디);
+        console.log(location.state.가입일);
+        setLogin({
+            ...login,
+            아이디: location.state.아이디,
+            가입일: location.state.가입일
+        })
+    },[])
+
+
+
+
+
+
+
 
     const onClickPwSearch=(e)=>{
         e.preventDefault();
@@ -38,8 +69,8 @@ export default function SignInIdSearchResultComponent () {
                                 <li>
                                     <span><img src="./images/sigin_in/icon_id_search_result.svg" alt="" /></span>
                                     <span>
-                                        <strong>{userId}</strong>
-                                        <em>가입일 {gaib}</em>
+                                        <strong>{login.아이디}</strong>
+                                        <em>{login.가입일}</em>
                                     </span>
                                 </li>
                                 <li></li>

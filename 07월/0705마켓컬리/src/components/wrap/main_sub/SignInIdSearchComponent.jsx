@@ -1,12 +1,19 @@
 import React from 'react';
 import '../scss/signin_id_search.scss';
 import {ConfirmContext} from '../../../context/ConfirmContext';
+import { GlobalContext } from '../../../context/GlobalContext';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 
 export default function SignInIdSearchComponent () {
     
+
+    // 라우터 네비게이트 훅 사용 등록 
+    const navigate = useNavigate();
+
     const {confirmModalOpen, isConfirmModal} = React.useContext(ConfirmContext);
+    const {login, setLogin} = React.useContext(GlobalContext);
 
     // 타이머 상태관리 변수
     const [minutes, setMinutes] = React.useState(0);
@@ -166,54 +173,101 @@ export default function SignInIdSearchComponent () {
     // 인증키 확인 버튼 클릭 이벤트
     const onClickHpAuthOk=(e)=>{
         e.preventDefault();
-        // 인증확인됐다고 하고
-        // 비밀번호 재설정 페이지로 이동
-        // const [userHpAuth, setUserHpAuth] = React.useState('');
-        // const [isAuth, setIsAuth] = React.useState(false);
 
-        // 인증번호(key)를 상태변수랑 비교하고 
-        // 일치하면 인증에 true 지정 설정 변경하고 
-        // 아이디를 찾아서 결과를 결과페이지에 전송한다. 
-        if(HpAuth===Number(userHpAuth)){
-            setIsAuth(true)
-            // 이름, 휴대폰을 데이터베이 서버에 전송하고
-            // 결과가 일치하면 아이디를 결과화면에 쿼리스트링 파라미터 값으로 전송한다. 
-            // 그리고 결과화면에서 보여준다.  
-            
-            axios({ 
-                //이름, 휴대폰번호를 전송한다. 
-            url:'/kurly/idSearchAction.jsp',
-            method: 'POST',
-            data: {}, 
-            params: {
-                "user_irum" : userName,
-                "user_hp" : userHp
-            
-            }
-        })
-        .then((res)=>{
-            try {
-                console.log(res);
-                console.log(res.data);
-                const result = res.data.아이디;
-                if( result === null ){ // null이면 검색 아이디가 없다.             
-                    confirmModalOpen('가입회원이 아닙니다. 회원 가입하세요. ')
-                    // window.location.pathname = `/signup`;
-                }
-                else{
-                    confirmModalOpen('가입 회원의 아이디를 확인하고 로그인하세요!')
-                    window.location.pathname = `/idSearchResult?result=${result.아이디}`;
-                }
-            } catch (error) {
-                console(error);
-            }
-                    
-        }) 
-            
-        } 
-        else {
-            setIsAuth(false)
+        const regExp = /[^0-9]/g;
+        let 휴대폰 = '';
+
+        // 숫자가 아니면 삭제
+        휴대폰 = userHp.replace(regExp, '');
+
+        if(userName===''){
+            confirmModalOpen('이름을 입력해 주세요');
         }
+        else if(휴대폰===''){
+            confirmModalOpen('휴대폰 번호를 입력해 주세요');
+        }
+        else{
+            // 인증확인됐다고 하고
+            // 비밀번호 재설정 페이지로 이동
+            // const [userHpAuth, setUserHpAuth] = React.useState('');
+            // const [isAuth, setIsAuth] = React.useState(false);
+
+            // 인증번호(key)를 상태변수랑 비교하고 
+            // 일치하면 인증에 true 지정 설정 변경하고 
+            // 아이디를 찾아서 결과를 결과페이지에 전송한다. 
+            if(HpAuth===Number(userHpAuth)){
+                setIsAuth(true)
+                // 이름, 휴대폰을 데이터베이 서버에 전송하고
+                // 결과가 일치하면 아이디를 결과화면에 쿼리스트링 파라미터 값으로 전송한다. 
+                // 그리고 결과화면에서 보여준다.  
+                const regExpHp = /^(\d{3})(\d{3,4})(\d{4})$/g;  //010-7942-5305   010-348-6441
+                const result = 휴대폰.replace(regExpHp, '$1-$2-$3')
+
+                axios({ 
+                    //이름, 휴대폰번호를 전송한다. 
+                url:'/kurly/idSearchAction.jsp',
+                method: 'POST',
+                data: {}, 
+                params: {
+                    "user_irum" : userName,
+                    "user_hp" : userHp
+                    }
+                })
+                .then((res)=>{
+                    try {
+                        console.log(res);
+                        console.log(res.data);
+                        const result = res.data.아이디;
+                        if( result === null ){ // null이면 검색 아이디가 없다.             
+                            confirmModalOpen('가입회원이 아닙니다. 회원 가입하세요. ')
+                            window.location.pathname = `/signup`;
+                        }
+                        else{
+                            // 로컬 활용 
+                            // const obj = {
+                            //     아이디: result.아이디,
+                            //     가입일: result.가입일
+                            // } 
+                            // localStorage.setItem('searchId', JSON.stringify(obj))
+                            // // window.location.pathname = `/idSearchResult?아이디=${result.아이디}`;
+                            // setTimeout(()=>{
+                            //     window.location.pathname = `/idSearchResult`;
+                            // },100)
+                            
+
+                            // 라우터 활용 
+                            confirmModalOpen('가입 회원의 아이디를 확인하고 로그인하세요!')
+                            window.location.pathname = `/idSearchResult?아이디=${result.아이디}`;
+                            navigate(
+                                '/idSearchResult'
+                                ,{
+                                    state: {
+                                        아이디:result.아이디,
+                                        가입일:result.가입일
+                                    }
+                                }
+                            );
+                            // 파라미터 전송 라우터때문에 404페이지로 이동되는 문제 해결 
+                            // 1. 최상위 컴포넌트 상태관리 변수 아이디에 저장 그리고 결과화면에 연동한다. 
+                            // 2. 라우터를 이용한다. navigate() 이용하여 파라미터를 state 객체를 이용
+                            // 키와 키값을 전송 
+
+
+
+                        }
+                    } catch (error) {
+                        console(error);
+                    }
+                            
+                }) 
+                
+            } 
+            else {
+                setIsAuth(false)
+            }
+        }
+
+        
     }
 
 
