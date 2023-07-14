@@ -7,15 +7,15 @@ public class BbsDTO {
     private String content;
     private String writeDate;
     private int deleteOk;
+    private int hit;
+   
+    
     public int getHit() {
 		return hit;
 	}
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	private int hit;
-    
-    
 	public int getBbsId() {
 		return bbsId;
 	}

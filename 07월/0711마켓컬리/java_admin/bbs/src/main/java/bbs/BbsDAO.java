@@ -120,6 +120,43 @@ public class BbsDAO {
 				}				
 				return list;
 			}
+			
+			// 리액트 리스트(목록) 메서드 
+			// 게시글 리스트(목록) 메서드
+			// 페이지네이션
+			// 조건문 => 매개변수로 글번호 bbsId deleteOk=1 사용가능한목록만 글번호 bbsId 내림차순 그리고 5개씩 출력
+			public ArrayList<BbsDTO> getListReact(){
+//							String SQL = "SELECT * FROM (SELECT *, @no := @no + 1 as no FROM bbs, (SELECT @no:=0) as v_format_no  WHERE deleteOk=1) as v_table WHERE no <=? ORDER BY bbsId DESC LIMIT ?";  
+				String SQL = "SELECT * FROM "
+						   + "(SELECT *, @no := @no + 1 as no FROM bbs, "
+						   + "(SELECT @no:=0) as v_format_no  WHERE deleteOk=1) as v_table "
+						   + "ORDER BY bbsId DESC?";  
+				ArrayList<BbsDTO> list = new ArrayList<BbsDTO>();	
+				try {
+					PreparedStatement ps = conn.prepareStatement(SQL);
+					rs = ps.executeQuery();
+					while(rs.next()) {						
+						BbsDTO bbsDTO = new BbsDTO();
+						bbsDTO.setBbsId(rs.getInt(1));
+						bbsDTO.setUserId(rs.getString(2));
+						bbsDTO.setSubject(rs.getString(3));
+						bbsDTO.setContent(rs.getString(4));
+						bbsDTO.setWriteDate(rs.getString(5));
+						bbsDTO.setDeleteOk(rs.getInt(6));
+						bbsDTO.setHit(rs.getInt(7));
+						list.add(bbsDTO);
+					}
+
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}				
+				return list;
+			}
+			
+			
+			
+			
 			// 다음페이지함수 리턴값은 다음페이지 유무 true(다음페이지존재함) or false(다음페이지없음)
 			// 다음페이지카운트함수
 			public boolean nextPage(int pageNumber) {
