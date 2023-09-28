@@ -153,12 +153,3 @@ Quiz ) 사이트별로 비밀번호를 만들어 주는 프로그램을 작성�
 
 
 
-# 사전 
-cabinet = {3:"유재석", 100: "김태호"}
-print(cabinet[3])
-print(cabinet[100])
-
-# print(cabinet.get[5])
-print(cabinet.get(5))
-print(cabinet.get(5, "사용가능"))
-print("hi")
